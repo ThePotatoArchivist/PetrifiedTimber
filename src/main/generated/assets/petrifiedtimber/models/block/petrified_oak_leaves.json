@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "petrifiedtimber:block/petrified_oak_leaves"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "petrifiedtimber:block/petrified_oak_slab"
+    },
+    "type=double": {
+      "model": "petrifiedtimber:block/petrified_oak_planks"
+    },
+    "type=top": {
+      "model": "petrifiedtimber:block/petrified_oak_slab_top"
+    }
+  }
+}

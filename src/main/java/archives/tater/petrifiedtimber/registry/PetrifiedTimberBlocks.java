@@ -1,0 +1,242 @@
+package archives.tater.petrifiedtimber.registry;
+
+import archives.tater.petrifiedtimber.PetrifiedTimber;
+import archives.tater.petrifiedtimber.mixin.BlockSetTypeInvoker;
+import archives.tater.petrifiedtimber.mixin.WoodTypeInvoker;
+
+import net.minecraft.core.Registry;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.BlockFamilies;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.grower.TreeGrower;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
+
+import java.util.function.BiFunction;
+import java.util.function.Function;
+
+public class PetrifiedTimberBlocks {
+
+    private static Block register(String path, Function<BlockBehaviour.Properties, Block> block, BlockBehaviour.Properties properties) {
+        var key = ResourceKey.create(Registries.BLOCK, PetrifiedTimber.id(path));
+        return Registry.register(BuiltInRegistries.BLOCK, key, block.apply(properties.setId(key)));
+    }
+
+    private static Block register(String path, BlockBehaviour.Properties properties) {
+        return register(path, Block::new, properties);
+    }
+
+    private static <T> Block register(String path, BiFunction<T, BlockBehaviour.Properties, Block> block, T type, BlockBehaviour.Properties properties) {
+        return register(path, properties1 -> block.apply(type, properties1), properties);
+    }
+
+    private static BlockBehaviour.Properties petrifiedWoodProperties() {
+        return BlockBehaviour.Properties.of()
+                .mapColor(MapColor.STONE)
+                .instrument(NoteBlockInstrument.BASEDRUM)
+                .strength(2f, 6f)
+                .sound(SoundType.STONE)
+                .requiresCorrectToolForDrops();
+    }
+
+    private static BlockBehaviour.Properties variant(Block block) {
+        return BlockBehaviour.Properties.ofFullCopy(block)
+                .overrideLootTable(block.getLootTable())
+                .overrideDescription(block.getDescriptionId());
+    }
+
+    public static final BlockSetType PETRIFIED_OAK_BLOCK_SET = BlockSetTypeInvoker.invokeRegister(new BlockSetType(
+            "petrified_oak",
+            true,
+            true,
+            false,
+            BlockSetType.PressurePlateSensitivity.MOBS,
+            SoundType.STONE,
+            SoundEvents.NETHER_WOOD_DOOR_CLOSE,
+            SoundEvents.NETHER_WOOD_DOOR_OPEN,
+            SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE,
+            SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN,
+            SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_OFF,
+            SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_ON,
+            SoundEvents.NETHER_WOOD_BUTTON_CLICK_OFF,
+            SoundEvents.NETHER_WOOD_BUTTON_CLICK_ON
+    ));
+
+    public static final WoodType PETRIFIED_OAK_WOOD_TYPE = WoodTypeInvoker.invokeRegister(new WoodType(
+            "petrified_oak",
+            PETRIFIED_OAK_BLOCK_SET,
+            SoundType.STONE,
+            SoundType.NETHER_WOOD_HANGING_SIGN,
+            SoundEvents.NETHER_WOOD_FENCE_GATE_CLOSE,
+            SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN
+    ));
+
+    public static final Block PETRIFIED_OAK_WOOD = register("petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block PETRIFIED_OAK_PLANKS = register("petrified_oak_planks", petrifiedWoodProperties());
+
+    public static final Block PETRIFIED_OAK_SAPLING = register(
+            "petrified_oak_sapling",
+            SaplingBlock::new,
+            TreeGrower.PALE_OAK, // TODO
+            petrifiedWoodProperties()
+                    .noCollision()
+                    .strength(1f, 3f)
+                    .pushReaction(PushReaction.DESTROY)
+    );
+
+    public static final Block PETRIFIED_OAK_LOG = register("petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block STRIPPED_PETRIFIED_OAK_LOG = register("stripped_petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block STRIPPED_PETRIFIED_OAK_WOOD = register("stripped_petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block PETRIFIED_OAK_LEAVES = register(
+            "petrified_oak_leaves",
+            properties -> new UntintedParticleLeavesBlock(0.02f, ParticleTypes.PALE_OAK_LEAVES, properties), // TODO particle
+            petrifiedWoodProperties()
+                    .noOcclusion()
+                    .isSuffocating(Blocks::never)
+                    .isViewBlocking(Blocks::never)
+                    .pushReaction(PushReaction.DESTROY)
+                    .isRedstoneConductor(Blocks::never)
+    );
+
+    public static final Block PETRIFIED_OAK_SHELF = register("petrified_oak_shelf", ShelfBlock::new, petrifiedWoodProperties());
+
+    public static final Block PETRIFIED_OAK_SIGN = register(
+            "petrified_oak_sign",
+            StandingSignBlock::new,
+            PETRIFIED_OAK_WOOD_TYPE,
+            petrifiedWoodProperties()
+                    .forceSolidOn()
+                    .noCollision()
+    );
+
+    public static final Block PETRIFIED_OAK_WALL_SIGN = register(
+            "petrified_oak_wall_sign",
+            WallSignBlock::new,
+            PETRIFIED_OAK_WOOD_TYPE,
+            variant(PETRIFIED_OAK_SIGN)
+    );
+
+    public static final Block PETRIFIED_OAK_HANGING_SIGN = register(
+            "petrified_oak_hanging_sign",
+            CeilingHangingSignBlock::new,
+            PETRIFIED_OAK_WOOD_TYPE,
+            petrifiedWoodProperties()
+                    .forceSolidOn()
+                    .noCollision()
+    );
+
+    public static final Block PETRIFIED_OAK_WALL_HANGING_SIGN = register(
+            "petrified_oak_wall_hanging_sign",
+            WallHangingSignBlock::new,
+            PETRIFIED_OAK_WOOD_TYPE,
+            variant(PETRIFIED_OAK_HANGING_SIGN)
+    );
+
+    public static final Block PETRIFIED_OAK_PRESSURE_PLATE = register(
+            "petrified_oak_pressure_plate",
+            PressurePlateBlock::new,
+            PETRIFIED_OAK_BLOCK_SET,
+            petrifiedWoodProperties()
+                    .forceSolidOn()
+                    .noCollision()
+                    .pushReaction(PushReaction.DESTROY)
+    );
+
+    public static final Block PETRIFIED_OAK_TRAPDOOR = register(
+            "petrified_oak_trapdoor",
+            TrapDoorBlock::new,
+            PETRIFIED_OAK_BLOCK_SET,
+            petrifiedWoodProperties()
+                    .noOcclusion()
+                    .isValidSpawn(Blocks::never)
+    );
+
+    public static final Block POTTED_PETRIFIED_OAK_SAPLING = register(
+            "potted_petrified_oak_sapling",
+            FlowerPotBlock::new,
+            PETRIFIED_OAK_SAPLING,
+            Blocks.flowerPotProperties()
+    );
+
+    public static final Block PETRIFIED_OAK_BUTTON = register(
+            "petrified_oak_button",
+            properties -> new ButtonBlock(PETRIFIED_OAK_BLOCK_SET, 20, properties),
+            Blocks.buttonProperties()
+    );
+
+    public static final Block PETRIFIED_OAK_STAIRS = register(
+            "petrified_oak_stairs",
+            StairBlock::new,
+            PETRIFIED_OAK_PLANKS.defaultBlockState(),
+            BlockBehaviour.Properties.ofFullCopy(PETRIFIED_OAK_PLANKS)
+    );
+
+    public static final Block PETRIFIED_OAK_SLAB = register(
+            "petrified_oak_slab",
+            SlabBlock::new,
+            petrifiedWoodProperties()
+    );
+
+    public static final Block PETRIFIED_OAK_FENCE_GATE = register(
+            "petrified_oak_fence_gate",
+            FenceGateBlock::new,
+            PETRIFIED_OAK_WOOD_TYPE,
+            petrifiedWoodProperties()
+                    .forceSolidOn()
+    );
+
+    public static final Block PETRIFIED_OAK_FENCE = register(
+            "petrified_oak_fence",
+            FenceBlock::new,
+            petrifiedWoodProperties()
+    );
+
+    public static final Block PETRIFIED_OAK_DOOR = register(
+            "petrified_oak_door",
+            DoorBlock::new,
+            PETRIFIED_OAK_BLOCK_SET,
+            petrifiedWoodProperties()
+                    .noOcclusion()
+                    .pushReaction(PushReaction.DESTROY)
+    );
+
+    public static final BlockFamily PETRIFIED_OAK_FAMILY = BlockFamilies.familyBuilder(PETRIFIED_OAK_PLANKS)
+            .button(PETRIFIED_OAK_BUTTON)
+            .fence(PETRIFIED_OAK_FENCE)
+            .fenceGate(PETRIFIED_OAK_FENCE_GATE)
+            .pressurePlate(PETRIFIED_OAK_PRESSURE_PLATE)
+            .sign(PETRIFIED_OAK_SIGN, PETRIFIED_OAK_WALL_SIGN)
+            .slab(PETRIFIED_OAK_SLAB)
+            .stairs(PETRIFIED_OAK_STAIRS)
+            .door(PETRIFIED_OAK_DOOR)
+            .trapdoor(PETRIFIED_OAK_TRAPDOOR)
+            .recipeGroupPrefix("wooden")
+            .recipeUnlockedBy("has_planks")
+            .getFamily();
+
+    static {
+        BlockEntityType.SIGN.addSupportedBlock(PETRIFIED_OAK_SIGN);
+        BlockEntityType.SIGN.addSupportedBlock(PETRIFIED_OAK_WALL_SIGN);
+        BlockEntityType.HANGING_SIGN.addSupportedBlock(PETRIFIED_OAK_HANGING_SIGN);
+        BlockEntityType.HANGING_SIGN.addSupportedBlock(PETRIFIED_OAK_WALL_HANGING_SIGN);
+        BlockEntityType.SHELF.addSupportedBlock(PETRIFIED_OAK_SHELF);
+    }
+
+    public static void init() {
+
+    }
+}

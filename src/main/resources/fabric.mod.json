@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "petrifiedtimber",
+	"version": "${version}",
+	"name": "PetrifiedTimber",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/petrifiedtimber/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"archives.tater.petrifiedtimber.PetrifiedTimber"
+		],
+		"client": [
+			"archives.tater.petrifiedtimber.PetrifiedTimberClient"
+		],
+		"fabric-datagen": [
+			"archives.tater.petrifiedtimber.PetrifiedTimberDataGenerator"
+		]
+	},
+	"mixins": [
+		"petrifiedtimber.mixins.json",
+		{
+			"config": "petrifiedtimber.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

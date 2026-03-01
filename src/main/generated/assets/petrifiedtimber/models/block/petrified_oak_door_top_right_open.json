@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "petrifiedtimber:block/petrified_oak_door_bottom",
+    "top": "petrifiedtimber:block/petrified_oak_door_top"
+  }
+}

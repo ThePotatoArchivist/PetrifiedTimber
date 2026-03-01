@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "petrifiedtimber:block/petrified_oak_planks",
+    "side": "petrifiedtimber:block/petrified_oak_planks",
+    "top": "petrifiedtimber:block/petrified_oak_planks"
+  }
+}

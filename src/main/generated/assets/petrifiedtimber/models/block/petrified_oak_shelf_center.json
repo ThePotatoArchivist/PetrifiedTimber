@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_center",
+  "textures": {
+    "all": "petrifiedtimber:block/petrified_oak_shelf",
+    "particle": "petrifiedtimber:block/stripped_petrified_oak_log"
+  }
+}

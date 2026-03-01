@@ -1,0 +1,21 @@
+// 1.21.11	-999999999-01-01T00:00:00	PetrifiedTimber/Tags for minecraft:block
+898ff0e11070e07507b4b2252d892577604ba7d1 data/minecraft/tags/block/ceiling_hanging_signs.json
+dcbaedd3f8400f927fe4e33b1bd92f34c24b3788 data/minecraft/tags/block/doors.json
+ec39028232b27c5d71a2b81ba293e22bcf381b83 data/minecraft/tags/block/fence_gates.json
+e621de1b3550fdb051f514b35c02918aca1e1c2a data/minecraft/tags/block/fences.json
+c888cd6544b79e63b89e55ed09084a3ef377e925 data/minecraft/tags/block/flower_pots.json
+5c4414fdae9c8812771d92108655aad8693f3d10 data/minecraft/tags/block/leaves.json
+a0b64aea67a4492a65d243081af28acc44926bdc data/minecraft/tags/block/logs.json
+44b9d7d9978f68a6a750ad6299927901122d620e data/minecraft/tags/block/mineable/pickaxe.json
+3f376807eb38eb023d909122b6af188934dfff01 data/minecraft/tags/block/planks.json
+f1e50ca01b65c97c273fc170c7e5e5f66556cea6 data/minecraft/tags/block/saplings.json
+edea82ac6d5144a177bb841bacc2c650bd069b97 data/minecraft/tags/block/signs.json
+9a305f367638966f5d1c1f3f3b1ac092838d7a39 data/minecraft/tags/block/slabs.json
+1e7d3d15eadc583645c2592d4ae00348f57da5c3 data/minecraft/tags/block/stairs.json
+5d97d7f536337e15d2d0d670f7294c8a1d3356b3 data/minecraft/tags/block/stone_buttons.json
+7d9300db70bf9c3067d57f193f4102340c64815b data/minecraft/tags/block/stone_pressure_plates.json
+b89ad12e119e96a123c31cef11191749c9c7e7d3 data/minecraft/tags/block/trapdoors.json
+18698273bceaafe8c4fce899a42a3b3677d7690e data/minecraft/tags/block/wall_hanging_signs.json
+c0ba04658622eba042853b1fa9f2f7ec7bc5c855 data/minecraft/tags/block/wall_signs.json
+e50268cb1c837ced04f0fd33dc3afbc288e9a549 data/minecraft/tags/block/wooden_shelves.json
+77d8697061fe0ef153b6965de99da8074e759fb5 data/petrifiedtimber/tags/block/petrified_oak_logs.json

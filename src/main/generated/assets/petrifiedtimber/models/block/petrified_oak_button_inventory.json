@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "petrifiedtimber:block/petrified_oak_planks"
+  }
+}
