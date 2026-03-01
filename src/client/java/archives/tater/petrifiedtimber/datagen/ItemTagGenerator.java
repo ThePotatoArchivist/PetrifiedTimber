@@ -23,7 +23,6 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
         copy(PetrifiedTimberBlockTags.PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.PETRIFIED_OAK_LOGS);
-        copy(BlockTags.LOGS, ItemTags.LOGS);
         copy(BlockTags.SIGNS, ItemTags.SIGNS);
         copy(BlockTags.CEILING_HANGING_SIGNS, ItemTags.HANGING_SIGNS);
         copy(BlockTags.FENCES, ItemTags.FENCES);
@@ -36,7 +35,6 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         copy(BlockTags.SLABS, ItemTags.SLABS);
         copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);
         copy(BlockTags.LEAVES, ItemTags.LEAVES);
-        copy(BlockTags.PLANKS, ItemTags.PLANKS);
         valueLookupBuilder(ItemTags.BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_BOAT);
         valueLookupBuilder(ItemTags.CHEST_BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT);
     }
