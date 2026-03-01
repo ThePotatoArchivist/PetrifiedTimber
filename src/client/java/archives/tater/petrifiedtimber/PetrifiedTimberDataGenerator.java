@@ -15,5 +15,6 @@ public class PetrifiedTimberDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(LangGenerator::new);
 		var blockTags = pack.addProvider(BlockTagGenerator::new);
 		pack.addProvider((output, registriesFuture) -> new ItemTagGenerator(output, registriesFuture, blockTags));
+		pack.addProvider(EntityTagGenerator::new);
 	}
 }

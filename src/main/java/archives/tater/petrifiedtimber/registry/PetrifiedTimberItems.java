@@ -75,8 +75,19 @@ public class PetrifiedTimberItems {
     public static final Item PETRIFIED_OAK_HANGING_SIGN = register(PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN, HangingSignItem::new, new Item.Properties().stacksTo(16));
     public static final Item PETRIFIED_OAK_DOOR = register(PetrifiedTimberBlocks.PETRIFIED_OAK_DOOR, DoubleHighBlockItem::new);
 
-    // TODO boat
-    // TODO chest boat
+    public static final Item PETRIFIED_OAK_BOAT = register(
+            "petrified_oak_boat",
+            properties -> new BoatItem(PetrifiedTimberEntities.PETRIFIED_OAK_BOAT, properties),
+            new Item.Properties()
+                    .stacksTo(1)
+    );
+
+    public static final Item PETRIFIED_OAK_CHEST_BOAT = register(
+            "petrified_oak_chest_boat",
+            properties -> new BoatItem(PetrifiedTimberEntities.PETRIFIED_OAK_CHEST_BOAT, properties),
+            new Item.Properties()
+                    .stacksTo(1)
+    );
 
     public static final String PETRIFIED_TIMBER_TAB_TITLE = "itemGroup.petrifiedtimber.petrified_timber";
     public static final CreativeModeTab PETRIFIED_TIMBER_TAB = Registry.register(
@@ -102,6 +113,8 @@ public class PetrifiedTimberItems {
                     output.accept(PETRIFIED_OAK_SIGN);
                     output.accept(PETRIFIED_OAK_HANGING_SIGN);
                     output.accept(PETRIFIED_OAK_SHELF);
+                    output.accept(PETRIFIED_OAK_BOAT);
+                    output.accept(PETRIFIED_OAK_CHEST_BOAT);
                     output.accept(PETRIFIED_OAK_SAPLING);
                     output.accept(PETRIFIED_OAK_LEAVES);
                 })

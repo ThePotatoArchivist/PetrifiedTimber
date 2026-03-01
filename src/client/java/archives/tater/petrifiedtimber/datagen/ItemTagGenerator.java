@@ -2,6 +2,7 @@ package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlockTags;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItemTags;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -36,5 +37,7 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);
         copy(BlockTags.LEAVES, ItemTags.LEAVES);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
+        valueLookupBuilder(ItemTags.BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_BOAT);
+        valueLookupBuilder(ItemTags.CHEST_BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT);
     }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "petrifiedtimber:item/petrified_oak_chest_boat"
+  }
+}

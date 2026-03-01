@@ -1,4 +1,6 @@
 // 1.21.11	-999999999-01-01T00:00:00	PetrifiedTimber/Tags for minecraft:item
+99a6bf6a1aa2bb9293e5a7e27a66aeb1ace26db1 data/minecraft/tags/item/boats.json
+77392d723c869e7424a3a21f12a50bcd223334e3 data/minecraft/tags/item/chest_boats.json
 dcbaedd3f8400f927fe4e33b1bd92f34c24b3788 data/minecraft/tags/item/doors.json
 ec39028232b27c5d71a2b81ba293e22bcf381b83 data/minecraft/tags/item/fence_gates.json
 e621de1b3550fdb051f514b35c02918aca1e1c2a data/minecraft/tags/item/fences.json

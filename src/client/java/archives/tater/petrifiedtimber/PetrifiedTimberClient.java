@@ -1,13 +1,27 @@
 package archives.tater.petrifiedtimber;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberEntities;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.client.renderer.entity.BoatRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 
 public class PetrifiedTimberClient implements ClientModInitializer {
+
+	public static final ModelLayerLocation PETRIFIED_OAK_BOAT = registerModelLayer("boat/petrified_oak");
+	public static final ModelLayerLocation PETRIFIED_OAK_CHEST_BOAT = registerModelLayer("chest_boat/petrified_oak");
+
+    private static ModelLayerLocation registerModelLayer(String path) {
+		return new ModelLayerLocation(PetrifiedTimber.id(path), "main");
+	}
+
 	@Override
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
@@ -17,5 +31,11 @@ public class PetrifiedTimberClient implements ClientModInitializer {
 				PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING,
 				PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING
 		);
+
+		EntityModelLayerRegistry.registerModelLayer(PETRIFIED_OAK_BOAT, BoatModel::createBoatModel);
+		EntityModelLayerRegistry.registerModelLayer(PETRIFIED_OAK_CHEST_BOAT, BoatModel::createChestBoatModel);
+
+		EntityRenderers.register(PetrifiedTimberEntities.PETRIFIED_OAK_BOAT, context -> new BoatRenderer(context, PETRIFIED_OAK_BOAT));
+		EntityRenderers.register(PetrifiedTimberEntities.PETRIFIED_OAK_CHEST_BOAT, context -> new BoatRenderer(context, PETRIFIED_OAK_CHEST_BOAT));
 	}
 }
