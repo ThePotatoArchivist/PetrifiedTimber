@@ -4,6 +4,8 @@ import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.mixin.BlockSetTypeInvoker;
 import archives.tater.petrifiedtimber.mixin.WoodTypeInvoker;
 
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+
 import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -228,12 +230,28 @@ public class PetrifiedTimberBlocks {
             .recipeUnlockedBy("has_planks")
             .getFamily();
 
+    public static final Block RESIN_COVERED_OAK_LOG = register("resin_covered_oak_log", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG));
+
+    public static final Block RESIN_COVERED_OAK_WOOD = register("resin_covered_oak_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD));
+
+    public static final Block RESIN_COVERED_STRIPPED_OAK_LOG = register("resin_covered_stripped_oak_log", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG));
+
+    public static final Block RESIN_COVERED_STRIPPED_OAK_WOOD = register("resin_covered_stripped_oak_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD));
+
+    public static final Block RESIN_COVERED_OAK_PLANKS = register("resin_covered_oak_planks", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS));
+
     static {
         BlockEntityType.SIGN.addSupportedBlock(PETRIFIED_OAK_SIGN);
         BlockEntityType.SIGN.addSupportedBlock(PETRIFIED_OAK_WALL_SIGN);
         BlockEntityType.HANGING_SIGN.addSupportedBlock(PETRIFIED_OAK_HANGING_SIGN);
         BlockEntityType.HANGING_SIGN.addSupportedBlock(PETRIFIED_OAK_WALL_HANGING_SIGN);
         BlockEntityType.SHELF.addSupportedBlock(PETRIFIED_OAK_SHELF);
+
+        FlammableBlockRegistry.getDefaultInstance().add(RESIN_COVERED_OAK_PLANKS, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(RESIN_COVERED_OAK_LOG, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(RESIN_COVERED_OAK_WOOD, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(RESIN_COVERED_STRIPPED_OAK_LOG, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(RESIN_COVERED_STRIPPED_OAK_WOOD, 5, 5);
     }
 
     public static void init() {

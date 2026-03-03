@@ -6,6 +6,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.data.BlockFamily.Variant;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -28,6 +31,13 @@ public class RecipeGenerator extends FabricRecipeProvider {
     }
 
     private static class PTRecipeProvider extends RecipeProvider {
+        private void stonecutterFamily(BlockFamily family) {
+            family.getVariants().forEach((variant, block) -> {
+                if (variant != Variant.WALL_SIGN)
+                    stonecutterResultFromBase(RecipeCategory.DECORATIONS, block, family.getBaseBlock(), variant == Variant.SLAB ? 2 : 1);
+            });
+        }
+
         public PTRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
             super(provider, recipeOutput);
         }
@@ -35,6 +45,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
         @Override
         public void buildRecipes() {
             generateRecipes(PetrifiedTimberBlocks.PETRIFIED_OAK_FAMILY, FeatureFlags.VANILLA_SET);
+            stonecutterFamily(PetrifiedTimberBlocks.PETRIFIED_OAK_FAMILY);
         }
     }
 }

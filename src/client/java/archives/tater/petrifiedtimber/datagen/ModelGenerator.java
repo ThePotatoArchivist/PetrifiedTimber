@@ -30,6 +30,14 @@ public class ModelGenerator extends FabricModelProvider {
         blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
         blockModelGenerators.createShelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, PetrifiedTimberBlocks.STRIPPED_PETRIFIED_OAK_LOG);
         blockModelGenerators.createHangingSign(PetrifiedTimberBlocks.STRIPPED_PETRIFIED_OAK_LOG, PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
+
+        blockModelGenerators.woodProvider(PetrifiedTimberBlocks.RESIN_COVERED_OAK_LOG)
+                .logWithHorizontal(PetrifiedTimberBlocks.RESIN_COVERED_OAK_LOG)
+                .wood(PetrifiedTimberBlocks.RESIN_COVERED_OAK_WOOD);
+        blockModelGenerators.woodProvider(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_LOG)
+                .logWithHorizontal(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_LOG)
+                .wood(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_WOOD);
+        blockModelGenerators.createTrivialCube(PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS);
     }
 
     @Override

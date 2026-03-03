@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "petrifiedtimber:block/resin_covered_oak_planks"
+  }
+}

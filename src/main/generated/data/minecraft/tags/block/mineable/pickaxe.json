@@ -1,11 +1,8 @@
 {
   "values": [
-    "petrifiedtimber:petrified_oak_wood",
+    "#petrifiedtimber:petrified_oak_logs",
     "petrifiedtimber:petrified_oak_planks",
     "petrifiedtimber:petrified_oak_sapling",
-    "petrifiedtimber:petrified_oak_log",
-    "petrifiedtimber:stripped_petrified_oak_log",
-    "petrifiedtimber:stripped_petrified_oak_wood",
     "petrifiedtimber:petrified_oak_leaves",
     "petrifiedtimber:petrified_oak_shelf",
     "petrifiedtimber:petrified_oak_sign",

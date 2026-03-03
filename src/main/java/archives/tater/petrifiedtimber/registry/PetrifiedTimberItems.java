@@ -69,6 +69,11 @@ public class PetrifiedTimberItems {
     public static final Item PETRIFIED_OAK_SLAB = register(PetrifiedTimberBlocks.PETRIFIED_OAK_SLAB);
     public static final Item PETRIFIED_OAK_FENCE_GATE = register(PetrifiedTimberBlocks.PETRIFIED_OAK_FENCE_GATE);
     public static final Item PETRIFIED_OAK_FENCE = register(PetrifiedTimberBlocks.PETRIFIED_OAK_FENCE);
+    public static final Item RESIN_COVERED_OAK_LOG = register(PetrifiedTimberBlocks.RESIN_COVERED_OAK_LOG);
+    public static final Item RESIN_COVERED_OAK_WOOD = register(PetrifiedTimberBlocks.RESIN_COVERED_OAK_WOOD);
+    public static final Item RESIN_COVERED_STRIPPED_OAK_LOG = register(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_LOG);
+    public static final Item RESIN_COVERED_STRIPPED_OAK_WOOD = register(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_WOOD);
+    public static final Item RESIN_COVERED_OAK_PLANKS = register(PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS);
 
     public static final Item PETRIFIED_OAK_SHELF = register(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, new Item.Properties().component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
     public static final Item PETRIFIED_OAK_SIGN = register(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN, SignItem::new, new Item.Properties().stacksTo(16));
@@ -117,6 +122,11 @@ public class PetrifiedTimberItems {
                     output.accept(PETRIFIED_OAK_CHEST_BOAT);
                     output.accept(PETRIFIED_OAK_SAPLING);
                     output.accept(PETRIFIED_OAK_LEAVES);
+                    output.accept(RESIN_COVERED_OAK_LOG);
+                    output.accept(RESIN_COVERED_OAK_WOOD);
+                    output.accept(RESIN_COVERED_STRIPPED_OAK_LOG);
+                    output.accept(RESIN_COVERED_STRIPPED_OAK_WOOD);
+                    output.accept(RESIN_COVERED_OAK_PLANKS);
                 })
                 .build()
     );

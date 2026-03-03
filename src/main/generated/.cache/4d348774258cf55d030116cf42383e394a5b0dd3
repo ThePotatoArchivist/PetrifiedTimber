@@ -5,7 +5,9 @@ ec39028232b27c5d71a2b81ba293e22bcf381b83 data/minecraft/tags/block/fence_gates.j
 e621de1b3550fdb051f514b35c02918aca1e1c2a data/minecraft/tags/block/fences.json
 c888cd6544b79e63b89e55ed09084a3ef377e925 data/minecraft/tags/block/flower_pots.json
 5c4414fdae9c8812771d92108655aad8693f3d10 data/minecraft/tags/block/leaves.json
-44b9d7d9978f68a6a750ad6299927901122d620e data/minecraft/tags/block/mineable/pickaxe.json
+4b88c10d452d30d46b2126061b1e039f6e835f78 data/minecraft/tags/block/logs_that_burn.json
+934f547bf98a65f531e7cafc92c8abf611164d03 data/minecraft/tags/block/mineable/pickaxe.json
+c623fe733a302305b756229cb97d0149964ca833 data/minecraft/tags/block/planks.json
 f1e50ca01b65c97c273fc170c7e5e5f66556cea6 data/minecraft/tags/block/saplings.json
 edea82ac6d5144a177bb841bacc2c650bd069b97 data/minecraft/tags/block/signs.json
 9a305f367638966f5d1c1f3f3b1ac092838d7a39 data/minecraft/tags/block/slabs.json
@@ -17,3 +19,4 @@ b89ad12e119e96a123c31cef11191749c9c7e7d3 data/minecraft/tags/block/trapdoors.jso
 c0ba04658622eba042853b1fa9f2f7ec7bc5c855 data/minecraft/tags/block/wall_signs.json
 e50268cb1c837ced04f0fd33dc3afbc288e9a549 data/minecraft/tags/block/wooden_shelves.json
 77d8697061fe0ef153b6965de99da8074e759fb5 data/petrifiedtimber/tags/block/petrified_oak_logs.json
+1b12dd70c4e236c775f721c552ed0c5613d4b078 data/petrifiedtimber/tags/block/resin_covered_oak_logs.json

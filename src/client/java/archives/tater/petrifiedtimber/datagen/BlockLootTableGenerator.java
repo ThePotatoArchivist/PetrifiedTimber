@@ -34,5 +34,10 @@ public class BlockLootTableGenerator extends FabricBlockLootTableProvider {
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_FENCE_GATE);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_FENCE);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_DOOR);
+        dropSelf(PetrifiedTimberBlocks.RESIN_COVERED_OAK_LOG);
+        dropSelf(PetrifiedTimberBlocks.RESIN_COVERED_OAK_WOOD);
+        dropSelf(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_LOG);
+        dropSelf(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_WOOD);
+        dropSelf(PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS);
     }
 }
