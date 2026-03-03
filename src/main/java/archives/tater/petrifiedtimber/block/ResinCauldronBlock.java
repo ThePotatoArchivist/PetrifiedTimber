@@ -114,8 +114,8 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
         return getPixelContentHeight(state.getValue(LEVEL)) / 16.0;
     }
 
-    private static double getPixelContentHeight(Integer level) {
-        return (4 + HEIGHT_PER_LEVEL + level);
+    public static double getPixelContentHeight(int level) {
+        return (4 + HEIGHT_PER_LEVEL * level);
     }
 
     @Override
