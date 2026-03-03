@@ -1,6 +1,7 @@
 package archives.tater.petrifiedtimber.registry;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
+import archives.tater.petrifiedtimber.block.NoParticleLeavesBlock;
 import archives.tater.petrifiedtimber.block.PetrifyingBlock;
 import archives.tater.petrifiedtimber.block.PetrifyingRotatedPillarBlock;
 import archives.tater.petrifiedtimber.mixin.BlockSetTypeInvoker;
@@ -9,7 +10,6 @@ import archives.tater.petrifiedtimber.mixin.WoodTypeInvoker;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 
 import net.minecraft.core.Registry;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.BlockFamilies;
@@ -70,10 +70,10 @@ public class PetrifiedTimberBlocks {
             SoundEvents.NETHER_WOOD_DOOR_OPEN,
             SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE,
             SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN,
-            SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_OFF,
-            SoundEvents.NETHER_WOOD_PRESSURE_PLATE_CLICK_ON,
-            SoundEvents.NETHER_WOOD_BUTTON_CLICK_OFF,
-            SoundEvents.NETHER_WOOD_BUTTON_CLICK_ON
+            SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF,
+            SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON,
+            SoundEvents.STONE_BUTTON_CLICK_OFF,
+            SoundEvents.STONE_BUTTON_CLICK_ON
     ));
 
     public static final WoodType PETRIFIED_OAK_WOOD_TYPE = WoodTypeInvoker.invokeRegister(new WoodType(
@@ -107,8 +107,9 @@ public class PetrifiedTimberBlocks {
 
     public static final Block PETRIFIED_OAK_LEAVES = register(
             "petrified_oak_leaves",
-            properties -> new UntintedParticleLeavesBlock(0.02f, ParticleTypes.PALE_OAK_LEAVES, properties), // TODO particle
+            NoParticleLeavesBlock::new,
             petrifiedWoodProperties()
+                    .sound(SoundType.TUFF)
                     .noOcclusion()
                     .isSuffocating(Blocks::never)
                     .isViewBlocking(Blocks::never)
