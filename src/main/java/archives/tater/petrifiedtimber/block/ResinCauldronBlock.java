@@ -44,14 +44,16 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
 
     public static CauldronInteraction fillItemInteraction(Item result, int amount, SoundEvent soundEvent, Holder.Reference<GameEvent> event) {
         return (blockState, level, blockPos, player, interactionHand, itemStack) -> {
+            var fillLevel = getFillLevel(blockState) + amount;
+            if (fillLevel < 0 || fillLevel > MAX_LEVEL) return InteractionResult.TRY_WITH_EMPTY_HAND;
+
             if (level.isClientSide()) return InteractionResult.SUCCESS;
 
             var item = itemStack.getItem();
             player.setItemInHand(interactionHand, ItemUtils.createFilledResult(itemStack, player, itemStack.transmuteCopy(result, 1)));
             player.awardStat(Stats.USE_CAULDRON);
             player.awardStat(Stats.ITEM_USED.get(item));
-            if (!changeFillLevel(blockState, level, blockPos, amount))
-                return InteractionResult.TRY_WITH_EMPTY_HAND;
+            setFillLevel(blockState, level, blockPos, fillLevel);
             level.playSound(null, blockPos, soundEvent, SoundSource.BLOCKS, 1.0F, 1.0F);
             level.gameEvent(null, event, blockPos);
 
@@ -76,22 +78,22 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
         empty.put(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, fillItemInteraction(Items.GLASS_BOTTLE, LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_EMPTY, GameEvent.FLUID_PLACE));
     }
 
+    private static int getFillLevel(BlockState state) {
+        return state.hasProperty(LEVEL) ? state.getValue(LEVEL) : 0;
+    }
+
     /**
      * @see net.minecraft.world.level.block.LayeredCauldronBlock#lowerFillLevel
      */
-    public static boolean changeFillLevel(BlockState state, Level level, BlockPos pos, int amount) {
-        var prevResin = state.hasProperty(LEVEL);
-        int fillLevel = (prevResin ? state.getValue(LEVEL) : 0) + amount;
-        if (fillLevel < 0 || fillLevel > MAX_LEVEL) return false;
+    public static void setFillLevel(BlockState state, Level level, BlockPos pos, int fillLevel) {
         var blockState = fillLevel == 0
                 ? Blocks.CAULDRON.defaultBlockState()
-                : (prevResin
+                : (state.hasProperty(LEVEL)
                         ? state
                         : PetrifiedTimberBlocks.RESIN_CAULDRON.defaultBlockState()
                 ).setValue(LEVEL, fillLevel);
         level.setBlockAndUpdate(pos, blockState);
         level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(blockState));
-        return true;
     }
 
     public ResinCauldronBlock(CauldronInteraction.InteractionMap interactions, Properties properties) {
