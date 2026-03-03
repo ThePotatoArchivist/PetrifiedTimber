@@ -2,6 +2,6 @@
   "parent": "minecraft:block/template_shelf_unpowered",
   "textures": {
     "all": "petrifiedtimber:block/petrified_oak_shelf",
-    "particle": "petrifiedtimber:block/stripped_petrified_oak_log"
+    "particle": "petrifiedtimber:block/petrified_stripped_oak_log"
   }
 }

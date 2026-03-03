@@ -23,13 +23,13 @@ public class ModelGenerator extends FabricModelProvider {
         blockModelGenerators.woodProvider(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG)
                 .logWithHorizontal(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG)
                 .wood(PetrifiedTimberBlocks.PETRIFIED_OAK_WOOD);
-        blockModelGenerators.woodProvider(PetrifiedTimberBlocks.STRIPPED_PETRIFIED_OAK_LOG)
-                .logWithHorizontal(PetrifiedTimberBlocks.STRIPPED_PETRIFIED_OAK_LOG)
-                .wood(PetrifiedTimberBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
+        blockModelGenerators.woodProvider(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG)
+                .logWithHorizontal(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG)
+                .wood(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_WOOD);
         blockModelGenerators.createPlantWithDefaultItem(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING, PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
-        blockModelGenerators.createShelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, PetrifiedTimberBlocks.STRIPPED_PETRIFIED_OAK_LOG);
-        blockModelGenerators.createHangingSign(PetrifiedTimberBlocks.STRIPPED_PETRIFIED_OAK_LOG, PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
+        blockModelGenerators.createShelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);
+        blockModelGenerators.createHangingSign(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG, PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
 
         blockModelGenerators.woodProvider(PetrifiedTimberBlocks.RESIN_COVERED_OAK_LOG)
                 .logWithHorizontal(PetrifiedTimberBlocks.RESIN_COVERED_OAK_LOG)

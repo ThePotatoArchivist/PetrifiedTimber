@@ -59,8 +59,8 @@ public class PetrifiedTimberItems {
     public static final Item PETRIFIED_OAK_PLANKS = register(PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS);
     public static final Item PETRIFIED_OAK_SAPLING = register(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
     public static final Item PETRIFIED_OAK_LOG = register(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG);
-    public static final Item STRIPPED_PETRIFIED_OAK_LOG = register(PetrifiedTimberBlocks.STRIPPED_PETRIFIED_OAK_LOG);
-    public static final Item STRIPPED_PETRIFIED_OAK_WOOD = register(PetrifiedTimberBlocks.STRIPPED_PETRIFIED_OAK_WOOD);
+    public static final Item PETRIFIED_STRIPPED_OAK_LOG = register(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);
+    public static final Item PETRIFIED_STRIPPED_OAK_WOOD = register(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_WOOD);
     public static final Item PETRIFIED_OAK_LEAVES = register(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES);
     public static final Item PETRIFIED_OAK_PRESSURE_PLATE = register(PetrifiedTimberBlocks.PETRIFIED_OAK_PRESSURE_PLATE);
     public static final Item PETRIFIED_OAK_TRAPDOOR = register(PetrifiedTimberBlocks.PETRIFIED_OAK_TRAPDOOR);
@@ -104,8 +104,8 @@ public class PetrifiedTimberItems {
                 .displayItems((itemDisplayParameters, output) -> {
                     output.accept(PETRIFIED_OAK_LOG);
                     output.accept(PETRIFIED_OAK_WOOD);
-                    output.accept(STRIPPED_PETRIFIED_OAK_LOG);
-                    output.accept(STRIPPED_PETRIFIED_OAK_WOOD);
+                    output.accept(PETRIFIED_STRIPPED_OAK_LOG);
+                    output.accept(PETRIFIED_STRIPPED_OAK_WOOD);
                     output.accept(PETRIFIED_OAK_PLANKS);
                     output.accept(PETRIFIED_OAK_STAIRS);
                     output.accept(PETRIFIED_OAK_SLAB);

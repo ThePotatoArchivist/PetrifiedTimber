@@ -1,6 +1,7 @@
 package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -46,6 +47,14 @@ public class RecipeGenerator extends FabricRecipeProvider {
         public void buildRecipes() {
             generateRecipes(PetrifiedTimberBlocks.PETRIFIED_OAK_FAMILY, FeatureFlags.VANILLA_SET);
             stonecutterFamily(PetrifiedTimberBlocks.PETRIFIED_OAK_FAMILY);
+
+            shelf(PetrifiedTimberItems.PETRIFIED_OAK_SHELF, PetrifiedTimberItems.PETRIFIED_STRIPPED_OAK_LOG);
+            hangingSign(PetrifiedTimberItems.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);
+            woodenBoat(PetrifiedTimberItems.PETRIFIED_OAK_BOAT, PetrifiedTimberItems.PETRIFIED_OAK_PLANKS);
+            chestBoat(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT, PetrifiedTimberItems.PETRIFIED_OAK_BOAT);
+
+            stonecutterResultFromBase(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_SHELF, PetrifiedTimberItems.PETRIFIED_STRIPPED_OAK_LOG);
+            stonecutterResultFromBase(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberItems.PETRIFIED_STRIPPED_OAK_LOG);
         }
     }
 }

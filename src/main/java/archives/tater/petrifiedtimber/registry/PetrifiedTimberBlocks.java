@@ -99,9 +99,9 @@ public class PetrifiedTimberBlocks {
 
     public static final Block PETRIFIED_OAK_LOG = register("petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
 
-    public static final Block STRIPPED_PETRIFIED_OAK_LOG = register("stripped_petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
+    public static final Block PETRIFIED_STRIPPED_OAK_LOG = register("petrified_stripped_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
 
-    public static final Block STRIPPED_PETRIFIED_OAK_WOOD = register("stripped_petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
+    public static final Block PETRIFIED_STRIPPED_OAK_WOOD = register("petrified_stripped_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
 
     public static final Block PETRIFIED_OAK_LEAVES = register(
             "petrified_oak_leaves",

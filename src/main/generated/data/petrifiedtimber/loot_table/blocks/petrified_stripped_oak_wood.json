@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "petrifiedtimber:stripped_petrified_oak_log"
+          "name": "petrifiedtimber:petrified_stripped_oak_wood"
         }
       ],
       "rolls": 1.0
