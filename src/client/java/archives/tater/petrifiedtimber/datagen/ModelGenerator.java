@@ -73,7 +73,7 @@ public class ModelGenerator extends FabricModelProvider {
     private void createResinCauldron(Block block, BlockModelGenerators blockModelGenerators) {
         JsonElement template;
         try (var reader = Files.newBufferedReader(RESIN_CAULDRON_TEMPLATE); var jsonReader = new JsonReader(reader)) {
-            template = JsonParser.parseReader(jsonReader);;
+            template = JsonParser.parseReader(jsonReader);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
