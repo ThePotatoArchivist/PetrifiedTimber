@@ -3,7 +3,7 @@
 	"package": "archives.tater.petrifiedtimber.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"ExampleClientMixin"
+      "SignRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
