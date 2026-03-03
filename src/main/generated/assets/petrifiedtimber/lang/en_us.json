@@ -18,6 +18,7 @@
   "block.petrifiedtimber.petrified_stripped_oak_log": "Petrified Stripped Oak Log",
   "block.petrifiedtimber.petrified_stripped_oak_wood": "Petrified Stripped Oak Wood",
   "block.petrifiedtimber.potted_petrified_oak_sapling": "Potted Petrified Oak Sapling",
+  "block.petrifiedtimber.resin_cauldron": "Melted Resin Cauldron",
   "block.petrifiedtimber.resin_covered_oak_log": "Resin Covered Oak Log",
   "block.petrifiedtimber.resin_covered_oak_planks": "Resin Covered Oak Planks",
   "block.petrifiedtimber.resin_covered_oak_wood": "Resin Covered Oak Wood",
@@ -25,6 +26,7 @@
   "block.petrifiedtimber.resin_covered_stripped_oak_wood": "Resin Covered Stripped Oak Wood",
   "entity.petrifiedtimber.petrified_oak_boat": "Petrified Oak Boat",
   "entity.petrifiedtimber.petrified_oak_chest_boat": "Petrified Oak Boat with Chest",
+  "item.petrifiedtimber.melted_resin_bottle": "Bottle of Melted Resin",
   "item.petrifiedtimber.petrified_oak_boat": "Petrified Oak Boat",
   "item.petrifiedtimber.petrified_oak_chest_boat": "Petrified Oak Boat with Chest",
   "itemGroup.petrifiedtimber.petrified_timber": "Petrified Timber"

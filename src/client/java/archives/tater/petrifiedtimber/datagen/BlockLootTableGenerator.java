@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -39,5 +40,6 @@ public class BlockLootTableGenerator extends FabricBlockLootTableProvider {
         dropSelf(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_LOG);
         dropSelf(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_WOOD);
         dropSelf(PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS);
+        dropOther(PetrifiedTimberBlocks.RESIN_CAULDRON, Items.CAULDRON);
     }
 }

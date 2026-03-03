@@ -1,11 +1,13 @@
 package archives.tater.petrifiedtimber.block;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -40,7 +42,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
     public static final Property<Integer> LEVEL = IntegerProperty.create("level", 1, MAX_LEVEL);
     public static final CauldronInteraction.InteractionMap INTERACTION = CauldronInteraction.newInteractionMap(PetrifiedTimber.MOD_ID + ":resin");
 
-    public static CauldronInteraction fillItemInteraction(Item result, SoundEvent soundEvent) {
+    public static CauldronInteraction fillItemInteraction(Item result, int amount, SoundEvent soundEvent, Holder.Reference<GameEvent> event) {
         return (blockState, level, blockPos, player, interactionHand, itemStack) -> {
             if (level.isClientSide()) return InteractionResult.SUCCESS;
 
@@ -48,35 +50,48 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
             player.setItemInHand(interactionHand, ItemUtils.createFilledResult(itemStack, player, itemStack.transmuteCopy(result, 1)));
             player.awardStat(Stats.USE_CAULDRON);
             player.awardStat(Stats.ITEM_USED.get(item));
-            lowerFillLevel(blockState, level, blockPos);
+            if (!changeFillLevel(blockState, level, blockPos, amount))
+                return InteractionResult.TRY_WITH_EMPTY_HAND;
             level.playSound(null, blockPos, soundEvent, SoundSource.BLOCKS, 1.0F, 1.0F);
-            level.gameEvent(null, GameEvent.FLUID_PICKUP, blockPos);
+            level.gameEvent(null, event, blockPos);
 
             return InteractionResult.SUCCESS;
         };
     }
 
     public static CauldronInteraction resinCoverInteraction(Item result) {
-        return fillItemInteraction(result, SoundEvents.HONEY_BLOCK_PLACE);
+        return fillItemInteraction(result, -1, SoundEvents.HONEY_BLOCK_PLACE, GameEvent.FLUID_PICKUP);
     }
 
     public static void bootstrap() {
-        var map = INTERACTION.map();
-        map.put(Items.OAK_LOG, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_OAK_LOG));
-        map.put(Items.OAK_WOOD, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_OAK_WOOD));
-        map.put(Items.STRIPPED_OAK_LOG, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_LOG));
-        map.put(Items.STRIPPED_OAK_WOOD, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_WOOD));
-        map.put(Items.OAK_PLANKS, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_OAK_PLANKS));
+        var resin = INTERACTION.map();
+        resin.put(Items.OAK_LOG, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_OAK_LOG));
+        resin.put(Items.OAK_WOOD, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_OAK_WOOD));
+        resin.put(Items.STRIPPED_OAK_LOG, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_LOG));
+        resin.put(Items.STRIPPED_OAK_WOOD, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_WOOD));
+        resin.put(Items.OAK_PLANKS, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_OAK_PLANKS));
+        resin.put(Items.GLASS_BOTTLE, fillItemInteraction(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, -LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_FILL, GameEvent.FLUID_PICKUP));
+        resin.put(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, fillItemInteraction(Items.GLASS_BOTTLE, LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_EMPTY, GameEvent.FLUID_PLACE));
+        var empty = CauldronInteraction.EMPTY.map();
+        empty.put(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, fillItemInteraction(Items.GLASS_BOTTLE, LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_EMPTY, GameEvent.FLUID_PLACE));
     }
 
     /**
      * @see net.minecraft.world.level.block.LayeredCauldronBlock#lowerFillLevel
      */
-    public static void lowerFillLevel(BlockState state, Level level, BlockPos pos) {
-        int fillLevel = state.getValue(LEVEL) - 1;
-        BlockState blockState = fillLevel == 0 ? Blocks.CAULDRON.defaultBlockState() : state.setValue(LEVEL, fillLevel);
+    public static boolean changeFillLevel(BlockState state, Level level, BlockPos pos, int amount) {
+        var prevResin = state.hasProperty(LEVEL);
+        int fillLevel = (prevResin ? state.getValue(LEVEL) : 0) + amount;
+        if (fillLevel < 0 || fillLevel > MAX_LEVEL) return false;
+        var blockState = fillLevel == 0
+                ? Blocks.CAULDRON.defaultBlockState()
+                : (prevResin
+                        ? state
+                        : PetrifiedTimberBlocks.RESIN_CAULDRON.defaultBlockState()
+                ).setValue(LEVEL, fillLevel);
         level.setBlockAndUpdate(pos, blockState);
         level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(blockState));
+        return true;
     }
 
     public ResinCauldronBlock(CauldronInteraction.InteractionMap interactions, Properties properties) {

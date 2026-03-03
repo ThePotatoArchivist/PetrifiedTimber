@@ -62,11 +62,12 @@ public class ModelGenerator extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_OAK_BOAT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, ModelTemplates.FLAT_ITEM);
     }
 
     private static final Path RESIN_CAULDRON_TEMPLATE = FabricLoader.getInstance()
             .getModContainer(PetrifiedTimber.MOD_ID).orElseThrow()
-            .findPath("assets/" + PetrifiedTimber.MOD_ID + "/models/block/template_resin_cauldron.json")
+            .findPath("assets/" + PetrifiedTimber.MOD_ID + "/template_resin_cauldron.json")
             .orElseThrow();
 
     private void createResinCauldron(Block block, BlockModelGenerators blockModelGenerators) {

@@ -66,5 +66,8 @@ public class LangGenerator extends FabricLanguageProvider {
         add(translationBuilder, PetrifiedTimberEntities.PETRIFIED_OAK_BOAT);
         translationBuilder.add(PetrifiedTimberEntities.PETRIFIED_OAK_CHEST_BOAT, "Petrified Oak Boat with Chest");
         translationBuilder.add(PetrifiedTimberItems.PETRIFIED_TIMBER_TAB_TITLE, "Petrified Timber");
+
+        translationBuilder.add(PetrifiedTimberBlocks.RESIN_CAULDRON, "Melted Resin Cauldron");
+        translationBuilder.add(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, "Bottle of Melted Resin");
     }
 }

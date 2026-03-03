@@ -94,6 +94,14 @@ public class PetrifiedTimberItems {
                     .stacksTo(1)
     );
 
+    public static final Item MELTED_RESIN_BOTTLE = register(
+            "melted_resin_bottle",
+            Item::new,
+            new Item.Properties()
+                    .craftRemainder(Items.GLASS_BOTTLE)
+                    .stacksTo(16)
+    );
+
     public static final String PETRIFIED_TIMBER_TAB_TITLE = "itemGroup.petrifiedtimber.petrified_timber";
     public static final CreativeModeTab PETRIFIED_TIMBER_TAB = Registry.register(
             BuiltInRegistries.CREATIVE_MODE_TAB,
