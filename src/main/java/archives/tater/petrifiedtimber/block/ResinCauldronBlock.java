@@ -4,6 +4,8 @@ import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
+
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -35,6 +37,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class ResinCauldronBlock extends AbstractCauldronBlock {
     public static final int LEVELS_PER_BOTTLE = 9;
     public static final int MAX_LEVEL = 3 * LEVELS_PER_BOTTLE;
+    public static final long FLUID_PER_LEVEL = FluidConstants.BLOCK / MAX_LEVEL;
     public static final double HEIGHT_PER_LEVEL = 11.0 / MAX_LEVEL;
     private static final VoxelShape[] FILLED_SHAPES = Block.boxes(MAX_LEVEL - 1, level ->
             Shapes.or(AbstractCauldronBlock.SHAPE, Block.column(12.0, 4.0, getPixelContentHeight(level + 1)))
