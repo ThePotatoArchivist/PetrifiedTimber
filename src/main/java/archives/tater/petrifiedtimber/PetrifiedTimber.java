@@ -1,6 +1,7 @@
 package archives.tater.petrifiedtimber;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
 import net.fabricmc.api.ModInitializer;
@@ -30,5 +31,6 @@ public class PetrifiedTimber implements ModInitializer {
 
 		PetrifiedTimberBlocks.init();
 		PetrifiedTimberItems.init();
+		PetrifiedTimberFluids.init();
 	}
 }
