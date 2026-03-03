@@ -12,6 +12,7 @@ public class PetrifiedTimberBlockTags {
     }
 
     public static final TagKey<Block> PETRIFIED_OAK_LOGS = of("petrified_oak_logs");
-
     public static final TagKey<Block> RESIN_COVERED_OAK_LOGS = of("resin_covered_oak_logs");
+    public static final TagKey<Block> PETRIFICATION_COVER = of("petrification_cover");
+    public static final TagKey<Block> PETRIFICATION_CATALYST = of("petrification_catalyst");
 }

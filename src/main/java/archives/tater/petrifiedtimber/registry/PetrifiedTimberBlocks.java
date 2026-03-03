@@ -1,6 +1,8 @@
 package archives.tater.petrifiedtimber.registry;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
+import archives.tater.petrifiedtimber.block.PetrifyingBlock;
+import archives.tater.petrifiedtimber.block.PetrifyingRotatedPillarBlock;
 import archives.tater.petrifiedtimber.mixin.BlockSetTypeInvoker;
 import archives.tater.petrifiedtimber.mixin.WoodTypeInvoker;
 
@@ -230,15 +232,45 @@ public class PetrifiedTimberBlocks {
             .recipeUnlockedBy("has_planks")
             .getFamily();
 
-    public static final Block RESIN_COVERED_OAK_LOG = register("resin_covered_oak_log", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG));
+    public static final Block RESIN_COVERED_OAK_LOG = register(
+            "resin_covered_oak_log",
+            PetrifyingRotatedPillarBlock::new,
+            PETRIFIED_OAK_LOG,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)
+                    .randomTicks()
+    );
 
-    public static final Block RESIN_COVERED_OAK_WOOD = register("resin_covered_oak_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD));
+    public static final Block RESIN_COVERED_OAK_WOOD = register(
+            "resin_covered_oak_wood",
+            PetrifyingRotatedPillarBlock::new,
+            PETRIFIED_OAK_WOOD,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)
+                    .randomTicks()
+    );
 
-    public static final Block RESIN_COVERED_STRIPPED_OAK_LOG = register("resin_covered_stripped_oak_log", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG));
+    public static final Block RESIN_COVERED_STRIPPED_OAK_LOG = register(
+            "resin_covered_stripped_oak_log",
+            PetrifyingRotatedPillarBlock::new,
+            PETRIFIED_STRIPPED_OAK_LOG,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)
+                    .randomTicks()
+    );
 
-    public static final Block RESIN_COVERED_STRIPPED_OAK_WOOD = register("resin_covered_stripped_oak_wood", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD));
+    public static final Block RESIN_COVERED_STRIPPED_OAK_WOOD = register(
+            "resin_covered_stripped_oak_wood",
+            PetrifyingRotatedPillarBlock::new,
+            PETRIFIED_STRIPPED_OAK_WOOD,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)
+                    .randomTicks()
+    );
 
-    public static final Block RESIN_COVERED_OAK_PLANKS = register("resin_covered_oak_planks", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS));
+    public static final Block RESIN_COVERED_OAK_PLANKS = register(
+            "resin_covered_oak_planks",
+            PetrifyingBlock::new,
+            PETRIFIED_OAK_PLANKS,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+                    .randomTicks()
+    );
 
     static {
         BlockEntityType.SIGN.addSupportedBlock(PETRIFIED_OAK_SIGN);
