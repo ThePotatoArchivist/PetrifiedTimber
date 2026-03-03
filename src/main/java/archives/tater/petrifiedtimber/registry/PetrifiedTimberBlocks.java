@@ -4,6 +4,7 @@ import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.block.NoParticleLeavesBlock;
 import archives.tater.petrifiedtimber.block.PetrifyingBlock;
 import archives.tater.petrifiedtimber.block.PetrifyingRotatedPillarBlock;
+import archives.tater.petrifiedtimber.block.ResinCauldronBlock;
 import archives.tater.petrifiedtimber.mixin.BlockSetTypeInvoker;
 import archives.tater.petrifiedtimber.mixin.WoodTypeInvoker;
 
@@ -16,6 +17,8 @@ import net.minecraft.data.BlockFamilies;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.grower.TreeGrower;
@@ -273,6 +276,13 @@ public class PetrifiedTimberBlocks {
                     .randomTicks()
     );
 
+    public static final Block RESIN_CAULDRON = register(
+            "resin_cauldron",
+            ResinCauldronBlock::new,
+            ResinCauldronBlock.INTERACTION,
+            BlockBehaviour.Properties.ofFullCopy(Blocks.WATER_CAULDRON)
+    );
+
     static {
         BlockEntityType.SIGN.addSupportedBlock(PETRIFIED_OAK_SIGN);
         BlockEntityType.SIGN.addSupportedBlock(PETRIFIED_OAK_WALL_SIGN);
@@ -285,6 +295,10 @@ public class PetrifiedTimberBlocks {
         FlammableBlockRegistry.getDefaultInstance().add(RESIN_COVERED_OAK_WOOD, 5, 5);
         FlammableBlockRegistry.getDefaultInstance().add(RESIN_COVERED_STRIPPED_OAK_LOG, 5, 5);
         FlammableBlockRegistry.getDefaultInstance().add(RESIN_COVERED_STRIPPED_OAK_WOOD, 5, 5);
+
+        ResinCauldronBlock.bootstrap();
+
+        Item.BY_BLOCK.put(RESIN_CAULDRON, Items.CAULDRON);
     }
 
     public static void init() {
