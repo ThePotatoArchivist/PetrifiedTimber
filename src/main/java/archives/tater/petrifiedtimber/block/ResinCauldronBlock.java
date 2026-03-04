@@ -29,20 +29,19 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class ResinCauldronBlock extends AbstractCauldronBlock {
-    public static final int LEVELS_PER_BOTTLE = 9;
+    public static final int LEVELS_PER_BOTTLE = 5;
     public static final int MAX_LEVEL = 3 * LEVELS_PER_BOTTLE;
     public static final long FLUID_PER_LEVEL = FluidConstants.BLOCK / MAX_LEVEL;
     public static final double HEIGHT_PER_LEVEL = 11.0 / MAX_LEVEL;
     private static final VoxelShape[] FILLED_SHAPES = Block.boxes(MAX_LEVEL - 1, level ->
             Shapes.or(AbstractCauldronBlock.SHAPE, Block.column(12.0, 4.0, getPixelContentHeight(level + 1)))
     );
-    public static final Property<Integer> LEVEL = IntegerProperty.create("level", 1, MAX_LEVEL);
+    public static final IntegerProperty LEVEL = IntegerProperty.create("level", 1, MAX_LEVEL);
     public static final CauldronInteraction.InteractionMap INTERACTION = CauldronInteraction.newInteractionMap(PetrifiedTimber.MOD_ID + ":resin");
 
     public static CauldronInteraction fillItemInteraction(Item result, int amount, SoundEvent soundEvent, Holder.Reference<GameEvent> event) {

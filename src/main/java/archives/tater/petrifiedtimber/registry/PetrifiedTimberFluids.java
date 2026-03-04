@@ -7,24 +7,18 @@ import archives.tater.petrifiedtimber.fluid.FakeFluid;
 import net.fabricmc.fabric.api.transfer.v1.fluid.*;
 import net.fabricmc.fabric.api.transfer.v1.fluid.base.EmptyItemFluidStorage;
 import net.fabricmc.fabric.api.transfer.v1.fluid.base.FullItemFluidStorage;
-import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
-import net.fabricmc.fabric.api.transfer.v1.storage.StorageView;
-import net.fabricmc.fabric.api.transfer.v1.transaction.TransactionContext;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluid;
 
-import java.util.Iterator;
-import java.util.Optional;
+import org.jspecify.annotations.Nullable;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
-import static net.minecraft.util.Util.makeDescriptionId;
+import java.util.Optional;
 
 public class PetrifiedTimberFluids {
 
@@ -37,11 +31,6 @@ public class PetrifiedTimberFluids {
     public static void init() {
         FluidVariantAttributes.register(MELTED_RESIN, new FluidVariantAttributeHandler() {
             @Override
-            public Component getName(FluidVariant fluidVariant) {
-                return Component.translatable(makeDescriptionId("fluid", BuiltInRegistries.FLUID.getKey(MELTED_RESIN)));
-            }
-
-            @Override
             public Optional<SoundEvent> getFillSound(FluidVariant variant) {
                 return Optional.of(SoundEvents.BUCKET_FILL_LAVA);
             }
@@ -49,6 +38,11 @@ public class PetrifiedTimberFluids {
             @Override
             public Optional<SoundEvent> getEmptySound(FluidVariant variant) {
                 return Optional.of(SoundEvents.BUCKET_EMPTY_LAVA);
+            }
+
+            @Override
+            public int getViscosity(FluidVariant variant, @Nullable Level world) {
+                return FluidConstants.LAVA_VISCOSITY;
             }
         });
 
@@ -66,26 +60,6 @@ public class PetrifiedTimberFluids {
                 FluidConstants.BOTTLE
         ), PetrifiedTimberItems.MELTED_RESIN_BOTTLE);
 
-        FluidStorage.SIDED.registerForBlocks((world, pos, state, blockEntity, context) -> {
-            var fillLevel = state.getValue(ResinCauldronBlock.LEVEL);
-            return new Storage<>() {
-                @Override
-                public long insert(FluidVariant resource, long maxAmount, TransactionContext transaction) {
-                    var amount = min(maxAmount, ResinCauldronBlock.MAX_LEVEL - fillLevel);
-                    return 0;
-                }
-
-                @Override
-                public long extract(FluidVariant resource, long maxAmount, TransactionContext transaction) {
-                    var amount = max(maxAmount, fillLevel);
-                    return 0;
-                }
-
-                @Override
-                public Iterator<StorageView<FluidVariant>> iterator() {
-                    return null;
-                }
-            };
-        }, PetrifiedTimberBlocks.RESIN_CAULDRON);
+        CauldronFluidContent.registerCauldron(PetrifiedTimberBlocks.RESIN_CAULDRON, MELTED_RESIN, ResinCauldronBlock.FLUID_PER_LEVEL, ResinCauldronBlock.LEVEL);
     }
 }

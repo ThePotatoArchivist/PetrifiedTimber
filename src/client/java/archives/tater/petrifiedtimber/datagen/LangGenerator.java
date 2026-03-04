@@ -2,6 +2,7 @@ package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberEntities;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.block.Block;
 import java.util.concurrent.CompletableFuture;
 
 import static archives.tater.petrifiedtimber.PetrifiedTimberUtil.snakeToTitle;
+import static net.minecraft.util.Util.makeDescriptionId;
 
 public class LangGenerator extends FabricLanguageProvider {
     public LangGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
@@ -69,5 +71,6 @@ public class LangGenerator extends FabricLanguageProvider {
 
         translationBuilder.add(PetrifiedTimberBlocks.RESIN_CAULDRON, "Melted Resin Cauldron");
         translationBuilder.add(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, "Bottle of Melted Resin");
+        translationBuilder.add(makeDescriptionId("block", BuiltInRegistries.FLUID.getKey(PetrifiedTimberFluids.MELTED_RESIN)), "Melted Resin");
     }
 }

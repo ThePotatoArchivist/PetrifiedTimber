@@ -2,8 +2,11 @@ package archives.tater.petrifiedtimber;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberEntities;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
+import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 
@@ -37,5 +40,8 @@ public class PetrifiedTimberClient implements ClientModInitializer {
 
 		EntityRenderers.register(PetrifiedTimberEntities.PETRIFIED_OAK_BOAT, context -> new BoatRenderer(context, PETRIFIED_OAK_BOAT));
 		EntityRenderers.register(PetrifiedTimberEntities.PETRIFIED_OAK_CHEST_BOAT, context -> new BoatRenderer(context, PETRIFIED_OAK_CHEST_BOAT));
+
+		var meltedResinTexture = PetrifiedTimber.id("block/melted_resin");
+		FluidRenderHandlerRegistry.INSTANCE.register(PetrifiedTimberFluids.MELTED_RESIN, new SimpleFluidRenderHandler(meltedResinTexture, meltedResinTexture));
 	}
 }

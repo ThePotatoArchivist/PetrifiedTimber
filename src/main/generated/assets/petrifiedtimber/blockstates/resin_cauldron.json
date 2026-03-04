@@ -21,44 +21,8 @@
     "level=15": {
       "model": "petrifiedtimber:block/resin_cauldron_level15"
     },
-    "level=16": {
-      "model": "petrifiedtimber:block/resin_cauldron_level16"
-    },
-    "level=17": {
-      "model": "petrifiedtimber:block/resin_cauldron_level17"
-    },
-    "level=18": {
-      "model": "petrifiedtimber:block/resin_cauldron_level18"
-    },
-    "level=19": {
-      "model": "petrifiedtimber:block/resin_cauldron_level19"
-    },
     "level=2": {
       "model": "petrifiedtimber:block/resin_cauldron_level2"
-    },
-    "level=20": {
-      "model": "petrifiedtimber:block/resin_cauldron_level20"
-    },
-    "level=21": {
-      "model": "petrifiedtimber:block/resin_cauldron_level21"
-    },
-    "level=22": {
-      "model": "petrifiedtimber:block/resin_cauldron_level22"
-    },
-    "level=23": {
-      "model": "petrifiedtimber:block/resin_cauldron_level23"
-    },
-    "level=24": {
-      "model": "petrifiedtimber:block/resin_cauldron_level24"
-    },
-    "level=25": {
-      "model": "petrifiedtimber:block/resin_cauldron_level25"
-    },
-    "level=26": {
-      "model": "petrifiedtimber:block/resin_cauldron_level26"
-    },
-    "level=27": {
-      "model": "petrifiedtimber:block/resin_cauldron_level27"
     },
     "level=3": {
       "model": "petrifiedtimber:block/resin_cauldron_level3"
