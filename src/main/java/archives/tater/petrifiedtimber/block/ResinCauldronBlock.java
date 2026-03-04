@@ -2,6 +2,7 @@ package archives.tater.petrifiedtimber.block;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
@@ -18,6 +19,8 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
@@ -30,8 +33,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import java.util.Map;
 
 public class ResinCauldronBlock extends AbstractCauldronBlock {
     public static final int LEVELS_PER_BOTTLE = 5;
@@ -43,6 +50,14 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
     );
     public static final IntegerProperty LEVEL = IntegerProperty.create("level", 1, MAX_LEVEL);
     public static final CauldronInteraction.InteractionMap INTERACTION = CauldronInteraction.newInteractionMap(PetrifiedTimber.MOD_ID + ":resin");
+
+    public static final Map<Item, Item> RESIN_COATING = Map.of(
+            Items.OAK_LOG, PetrifiedTimberItems.RESIN_COVERED_OAK_LOG,
+            Items.OAK_WOOD, PetrifiedTimberItems.RESIN_COVERED_OAK_WOOD,
+            Items.STRIPPED_OAK_LOG, PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_LOG,
+            Items.STRIPPED_OAK_WOOD, PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_WOOD,
+            Items.OAK_PLANKS, PetrifiedTimberItems.RESIN_COVERED_OAK_PLANKS
+    );
 
     public static CauldronInteraction fillItemInteraction(Item result, int amount, SoundEvent soundEvent, Holder.Reference<GameEvent> event) {
         return (blockState, level, blockPos, player, interactionHand, itemStack) -> {
@@ -63,17 +78,11 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
         };
     }
 
-    public static CauldronInteraction resinCoverInteraction(Item result) {
-        return fillItemInteraction(result, -1, SoundEvents.HONEY_BLOCK_PLACE, GameEvent.FLUID_PICKUP);
-    }
-
     public static void bootstrap() {
         var resin = INTERACTION.map();
-        resin.put(Items.OAK_LOG, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_OAK_LOG));
-        resin.put(Items.OAK_WOOD, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_OAK_WOOD));
-        resin.put(Items.STRIPPED_OAK_LOG, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_LOG));
-        resin.put(Items.STRIPPED_OAK_WOOD, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_WOOD));
-        resin.put(Items.OAK_PLANKS, resinCoverInteraction(PetrifiedTimberItems.RESIN_COVERED_OAK_PLANKS));
+        RESIN_COATING.forEach((input, result) ->
+                resin.put(input, fillItemInteraction(result, -1, SoundEvents.HONEYCOMB_WAX_ON, GameEvent.FLUID_PICKUP)) // TODO sound event
+        );
         resin.put(Items.GLASS_BOTTLE, fillItemInteraction(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, -LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_FILL, GameEvent.FLUID_PICKUP));
         resin.put(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, fillItemInteraction(Items.GLASS_BOTTLE, LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_EMPTY, GameEvent.FLUID_PLACE));
         var empty = CauldronInteraction.EMPTY.map();
@@ -117,16 +126,17 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
         return state.getValue(LEVEL) >= MAX_LEVEL;
     }
 
-    // TODO
-//    @Override
-//    protected boolean canReceiveStalactiteDrip(Fluid fluid) {
-//        return super.canReceiveStalactiteDrip(fluid);
-//    }
+    @Override
+    protected boolean canReceiveStalactiteDrip(Fluid fluid) {
+        return fluid.isSame(PetrifiedTimberFluids.MELTED_RESIN);
+    }
 
-//    @Override
-//    protected void receiveStalactiteDrip(BlockState state, Level level, BlockPos pos, Fluid fluid) {
-//        super.receiveStalactiteDrip(state, level, pos, fluid);
-//    }
+    @Override
+    protected void receiveStalactiteDrip(BlockState state, Level level, BlockPos pos, Fluid fluid) {
+        int fillLevel = state.getValue(LEVEL);
+        if (fillLevel < MAX_LEVEL)
+            setFillLevel(state, level, pos, fillLevel + 1);
+    }
 
     @Override
     protected double getContentHeight(BlockState state) {
@@ -144,11 +154,33 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
 
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier applier, boolean intersects) {
-        super.entityInside(state, level, pos, entity, applier, intersects); // TODO stack waxing
+        if (entity instanceof LivingEntity)
+            entity.makeStuckInBlock(state, new Vec3(0.4F, 0.5, 0.4F));
+
+        if (!(entity instanceof ItemEntity itemEntity)) return;
+
+        var stack = itemEntity.getItem();
+
+        var resultItem = RESIN_COATING.get(stack.getItem());
+        if (resultItem == null) return;
+
+        int fillLevel = state.getValue(LEVEL);
+        var count = stack.getCount();
+
+        if (count > fillLevel) {
+            var newItem = new ItemEntity(level, entity.getX(), entity.getY(), entity.getZ(), stack.split(fillLevel).transmuteCopy(resultItem), 0, 0, 0);
+            newItem.setDefaultPickUpDelay();
+            level.addFreshEntity(newItem);
+            setFillLevel(state, level, pos, 0);
+        } else {
+            itemEntity.setItem(stack.transmuteCopy(resultItem));
+            setFillLevel(state, level, pos, fillLevel - count);
+        }
+        level.playSound(null, pos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1.0F, 1.0F); // TODO sound event
     }
 
     @Override
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, Direction direction) {
-        return 0; // TODO
+        return state.getValue(LEVEL);
     }
 }
