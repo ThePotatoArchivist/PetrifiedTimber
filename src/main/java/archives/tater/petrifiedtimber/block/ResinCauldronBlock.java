@@ -1,6 +1,7 @@
 package archives.tater.petrifiedtimber.block;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
+import archives.tater.petrifiedtimber.mixin.PointedDripstoneBlockInvoker;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
@@ -29,6 +30,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractCauldronBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.PointedDripstoneBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -96,7 +98,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
     /**
      * @see net.minecraft.world.level.block.LayeredCauldronBlock#lowerFillLevel
      */
-    public static void setFillLevel(BlockState state, Level level, BlockPos pos, int fillLevel) {
+    public static BlockState setFillLevel(BlockState state, Level level, BlockPos pos, int fillLevel) {
         var blockState = fillLevel == 0
                 ? Blocks.CAULDRON.defaultBlockState()
                 : (state.hasProperty(LEVEL)
@@ -105,6 +107,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
                 ).setValue(LEVEL, fillLevel);
         level.setBlockAndUpdate(pos, blockState);
         level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(blockState));
+        return blockState;
     }
 
     public ResinCauldronBlock(CauldronInteraction.InteractionMap interactions, Properties properties) {
@@ -128,14 +131,28 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
 
     @Override
     protected boolean canReceiveStalactiteDrip(Fluid fluid) {
-        return fluid.isSame(PetrifiedTimberFluids.MELTED_RESIN);
+        return fluid == PetrifiedTimberFluids.MELTED_RESIN;
+    }
+
+    public static void receiveStalactiteDrip(BlockState state, Level level, BlockPos pos) {
+        var dripstonePos = PointedDripstoneBlock.findStalactiteTipAboveCauldron(level, pos);
+        if (dripstonePos == null) return;
+
+        var fluidInfo = PointedDripstoneBlockInvoker.invokeGetFluidAboveStalactite(level, dripstonePos, level.getBlockState(dripstonePos)).orElse(null);
+        if (fluidInfo == null) return;
+
+        if (!fluidInfo.sourceState().is(Blocks.RESIN_BLOCK)) return;
+
+        level.destroyBlock(fluidInfo.pos(), false);
+        var newState = setFillLevel(state, level, pos, MAX_LEVEL);
+        level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(newState));
+        level.playSound(null, pos, SoundEvents.BEEHIVE_DRIP, SoundSource.BLOCKS, 2f, 0.1f * level.random.nextFloat() + 0.9f); // TODO sound
     }
 
     @Override
     protected void receiveStalactiteDrip(BlockState state, Level level, BlockPos pos, Fluid fluid) {
-        int fillLevel = state.getValue(LEVEL);
-        if (fillLevel < MAX_LEVEL)
-            setFillLevel(state, level, pos, fillLevel + 1);
+        if (state.getValue(LEVEL) < MAX_LEVEL)
+            receiveStalactiteDrip(state, level, pos);
     }
 
     @Override

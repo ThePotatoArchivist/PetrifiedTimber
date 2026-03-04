@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -36,6 +37,15 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .forceAddTag(BlockTags.BASE_STONE_OVERWORLD)
                 .forceAddTag(BlockTags.DIRT)
                 .addTag(PetrifiedTimberBlockTags.PETRIFICATION_CATALYST);
+        valueLookupBuilder(PetrifiedTimberBlockTags.MELTS_RESIN).add(
+                Blocks.MAGMA_BLOCK,
+                Blocks.LAVA,
+                Blocks.LAVA_CAULDRON,
+                Blocks.FIRE,
+                Blocks.SOUL_FIRE,
+                Blocks.CAMPFIRE,
+                Blocks.SOUL_CAMPFIRE
+        );
 
         valueLookupBuilder(BlockTags.SIGNS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN);
         valueLookupBuilder(BlockTags.WALL_SIGNS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN);
