@@ -92,9 +92,8 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 PetrifiedTimberBlocks.PETRIFIED_OAK_FENCE,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_DOOR
         );
-        valueLookupBuilder(BlockTags.LOGS_THAT_BURN)
-                .addTag(PetrifiedTimberBlockTags.RESIN_COVERED_OAK_LOGS);
-        valueLookupBuilder(BlockTags.PLANKS)
-                .add(PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS);
+        valueLookupBuilder(BlockTags.LOGS_THAT_BURN).addTag(PetrifiedTimberBlockTags.RESIN_COVERED_OAK_LOGS);
+        valueLookupBuilder(BlockTags.PLANKS).add(PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS);
+        valueLookupBuilder(BlockTags.CAULDRONS).add(PetrifiedTimberBlocks.RESIN_CAULDRON);
     }
 }
