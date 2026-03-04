@@ -1,7 +1,10 @@
 {
   "values": [
-    "#minecraft:base_stone_overworld",
-    "#minecraft:dirt",
-    "#petrifiedtimber:petrification_catalyst"
+    "#petrifiedtimber:petrification_catalyst",
+    "#petrifiedtimber:petrification_accelerator",
+    "#petrifiedtimber:petrified_oak_logs",
+    "#petrifiedtimber:resin_covered_oak_logs",
+    "petrifiedtimber:petrified_oak_planks",
+    "petrifiedtimber:resin_covered_oak_planks"
   ]
 }

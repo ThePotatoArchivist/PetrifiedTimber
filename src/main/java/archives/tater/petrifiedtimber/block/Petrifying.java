@@ -22,12 +22,20 @@ public interface Petrifying {
     }
 
     default void tickPetrification(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        for (var direction : Direction.values())
-            if (!level.getBlockState(pos.relative(direction)).is(PetrifiedTimberBlockTags.PETRIFICATION_COVER)) return;
+        var catalyst = false;
+        var accelerator = false;
 
-        var accelerated = level.getBlockState(pos.below()).is(PetrifiedTimberBlockTags.PETRIFICATION_CATALYST);
+        for (var direction : Direction.values()) {
+            var sideState = level.getBlockState(pos.relative(direction));
+            if (!sideState.is(PetrifiedTimberBlockTags.PETRIFICATION_COVER)) return;
 
-        if (!(random.nextFloat() < (accelerated ? ACCELERATED_PETRIFY_CHANCE : PETRIFY_CHANCE))) return;
+            catalyst = catalyst || sideState.is(PetrifiedTimberBlockTags.PETRIFICATION_CATALYST);
+            accelerator = accelerator || sideState.is(PetrifiedTimberBlockTags.PETRIFICATION_ACCELERATOR);
+        }
+
+        if (!catalyst) return;
+
+        if (!(random.nextFloat() < (accelerator ? ACCELERATED_PETRIFY_CHANCE : PETRIFY_CHANCE))) return;
 
         level.setBlockAndUpdate(pos, getPetrifiedState(state));
         level.playSound(null, pos, SoundEvents.COMPOSTER_READY, SoundSource.BLOCKS, 1f, 1f); // TODO custom sound event

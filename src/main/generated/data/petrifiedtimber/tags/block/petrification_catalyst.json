@@ -1,5 +1,7 @@
 {
   "values": [
-    "#minecraft:ice"
+    "#minecraft:base_stone_overworld",
+    "#minecraft:dirt",
+    "#c:stones"
   ]
 }

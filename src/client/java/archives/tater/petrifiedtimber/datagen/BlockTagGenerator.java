@@ -5,6 +5,7 @@ import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
@@ -32,11 +33,20 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_WOOD
         );
         valueLookupBuilder(PetrifiedTimberBlockTags.PETRIFICATION_CATALYST)
-                .forceAddTag(BlockTags.ICE);
-        valueLookupBuilder(PetrifiedTimberBlockTags.PETRIFICATION_COVER)
                 .forceAddTag(BlockTags.BASE_STONE_OVERWORLD)
                 .forceAddTag(BlockTags.DIRT)
-                .addTag(PetrifiedTimberBlockTags.PETRIFICATION_CATALYST);
+                .forceAddTag(ConventionalBlockTags.STONES);
+        valueLookupBuilder(PetrifiedTimberBlockTags.PETRIFICATION_ACCELERATOR)
+                .forceAddTag(BlockTags.ICE);
+        valueLookupBuilder(PetrifiedTimberBlockTags.PETRIFICATION_COVER)
+                .addTag(PetrifiedTimberBlockTags.PETRIFICATION_CATALYST)
+                .addTag(PetrifiedTimberBlockTags.PETRIFICATION_ACCELERATOR)
+                .addTag(PetrifiedTimberBlockTags.PETRIFIED_OAK_LOGS)
+                .addTag(PetrifiedTimberBlockTags.RESIN_COVERED_OAK_LOGS)
+                .add(
+                        PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS,
+                        PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS
+                );
         valueLookupBuilder(PetrifiedTimberBlockTags.MELTS_RESIN).add(
                 Blocks.MAGMA_BLOCK,
                 Blocks.LAVA,
