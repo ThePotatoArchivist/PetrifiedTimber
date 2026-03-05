@@ -45,4 +45,8 @@ public class PetrifiedTimberEntities {
             (entityType, level) -> new ChestBoat(entityType, level, () -> PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT),
             BOAT_TYPE
     );
+
+    public static void init() {
+
+    }
 }

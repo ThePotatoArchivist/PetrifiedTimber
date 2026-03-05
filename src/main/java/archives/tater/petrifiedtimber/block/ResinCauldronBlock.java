@@ -51,7 +51,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
             Shapes.or(AbstractCauldronBlock.SHAPE, Block.column(12.0, 4.0, getPixelContentHeight(level + 1)))
     );
     public static final IntegerProperty LEVEL = IntegerProperty.create("level", 1, MAX_LEVEL);
-    public static final CauldronInteraction.InteractionMap INTERACTION = CauldronInteraction.newInteractionMap(PetrifiedTimber.MOD_ID + ":resin");
+    public static final CauldronInteraction.InteractionMap INTERACTION = CauldronInteraction.newInteractionMap(PetrifiedTimber.sId("resin"));
 
     public static final Map<Item, Item> RESIN_COATING = Map.of(
             Items.OAK_LOG, PetrifiedTimberItems.RESIN_COVERED_OAK_LOG,

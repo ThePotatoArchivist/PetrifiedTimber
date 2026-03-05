@@ -21,7 +21,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -63,7 +62,7 @@ public class PetrifiedTimberBlocks {
     }
 
     public static final BlockSetType PETRIFIED_OAK_BLOCK_SET = BlockSetTypeInvoker.invokeRegister(new BlockSetType(
-            PetrifiedTimber.MOD_ID + "_petrified_oak",
+            PetrifiedTimber.sId("petrified_oak"),
             true,
             true,
             false,
@@ -80,7 +79,7 @@ public class PetrifiedTimberBlocks {
     ));
 
     public static final WoodType PETRIFIED_OAK_WOOD_TYPE = WoodTypeInvoker.invokeRegister(new WoodType(
-            PetrifiedTimber.MOD_ID + "_petrified_oak",
+            PetrifiedTimber.sId("petrified_oak"),
             PETRIFIED_OAK_BLOCK_SET,
             SoundType.STONE,
             SoundType.NETHER_WOOD_HANGING_SIGN,
@@ -95,7 +94,7 @@ public class PetrifiedTimberBlocks {
     public static final Block PETRIFIED_OAK_SAPLING = register(
             "petrified_oak_sapling",
             SaplingBlock::new,
-            TreeGrower.PALE_OAK, // TODO
+            PetrifiedTimberWorldgen.PETRIFIED_OAK_GROWER,
             petrifiedWoodProperties()
                     .noCollision()
                     .strength(1f, 3f)

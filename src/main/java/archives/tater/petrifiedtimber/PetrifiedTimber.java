@@ -1,8 +1,6 @@
 package archives.tater.petrifiedtimber;
 
-import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
-import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
-import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
+import archives.tater.petrifiedtimber.registry.*;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -16,6 +14,10 @@ public class PetrifiedTimber implements ModInitializer {
 
 	public static Identifier id(String path) {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
+	}
+
+	public static String sId(String path) {
+		return MOD_ID + ":" + path;
 	}
 
 	// This logger is used to write text to the console and the log file.
@@ -32,5 +34,7 @@ public class PetrifiedTimber implements ModInitializer {
 		PetrifiedTimberBlocks.init();
 		PetrifiedTimberItems.init();
 		PetrifiedTimberFluids.init();
+		PetrifiedTimberEntities.init();
+		PetrifiedTimberWorldgen.init();
 	}
 }
