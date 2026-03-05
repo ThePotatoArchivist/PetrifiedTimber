@@ -1,11 +1,14 @@
 {
-	"required": true,
-	"package": "archives.tater.petrifiedtimber.mixin.client",
-	"compatibilityLevel": "JAVA_21",
-	"client": [
-      "SignRendererMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	}
+  "required": true,
+  "package": "archives.tater.petrifiedtimber.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "SignRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "EmptyTagLookupMixin"
+  ]
 }

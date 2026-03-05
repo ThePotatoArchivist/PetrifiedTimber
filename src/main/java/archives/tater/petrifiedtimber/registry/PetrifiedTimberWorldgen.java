@@ -14,12 +14,19 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import java.util.Optional;
 
 public class PetrifiedTimberWorldgen {
-    private static ResourceKey<ConfiguredFeature<?, ?>> feature(String path) {
+    private static ResourceKey<ConfiguredFeature<?, ?>> configuredFeature(String path) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, PetrifiedTimber.id(path));
     }
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_FEATURE = feature("petrified_oak");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CLASSIC_PETRIFIED_OAK_FEATURE = feature("classic_petrified_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_FEATURE = configuredFeature("petrified_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CLASSIC_PETRIFIED_OAK_FEATURE = configuredFeature("classic_petrified_oak");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_OAK = configuredFeature("petrified_oak_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_SPRUCE = configuredFeature("petrified_oak_spruce");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_BIRCH = configuredFeature("petrified_oak_birch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_ACACIA = configuredFeature("petrified_oak_acacia");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_JUNGLE = configuredFeature("petrified_oak_jungle");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_DARK_OAK = configuredFeature("petrified_oak_dark_oak");
 
     public static final Feature<BiomeDependentFeature.Configuration> BIOME_DEPENDENT = Registry.register(
             BuiltInRegistries.FEATURE,

@@ -2,42 +2,42 @@
   "type": "petrifiedtimber:biome_dependent",
   "config": {
     "default": {
-      "feature": "minecraft:oak",
+      "feature": "petrifiedtimber:petrified_oak_oak",
       "placement": []
     },
     "entries": [
       {
         "biomes": "#c:primary_wood_type/spruce",
         "feature": {
-          "feature": "minecraft:spruce",
+          "feature": "petrifiedtimber:petrified_oak_spruce",
           "placement": []
         }
       },
       {
         "biomes": "#c:primary_wood_type/birch",
         "feature": {
-          "feature": "minecraft:birch",
+          "feature": "petrifiedtimber:petrified_oak_birch",
           "placement": []
         }
       },
       {
         "biomes": "#c:primary_wood_type/acacia",
         "feature": {
-          "feature": "minecraft:acacia",
+          "feature": "petrifiedtimber:petrified_oak_acacia",
           "placement": []
         }
       },
       {
         "biomes": "#c:primary_wood_type/jungle",
         "feature": {
-          "feature": "minecraft:jungle_tree",
+          "feature": "petrifiedtimber:petrified_oak_jungle",
           "placement": []
         }
       },
       {
         "biomes": "#c:primary_wood_type/dark_oak",
         "feature": {
-          "feature": "minecraft:dark_oak",
+          "feature": "petrifiedtimber:petrified_oak_dark_oak",
           "placement": []
         }
       }

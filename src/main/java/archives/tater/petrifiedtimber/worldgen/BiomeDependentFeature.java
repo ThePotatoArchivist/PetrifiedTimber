@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -32,18 +32,14 @@ public class BiomeDependentFeature extends Feature<BiomeDependentFeature.Configu
         return context.config().defaultFeature.value().place(context.level(), context.chunkGenerator(), context.random(), context.origin());
     }
 
-    public static Configuration.Entry entry(Holder<PlacedFeature> feature, HolderSet<Biome> biomes) {
-        return new Configuration.Entry(feature, biomes);
+    public static Builder builder(Holder<PlacedFeature> defaultFeature) {
+        return new Builder(defaultFeature);
     }
 
     public record Configuration(
             List<Entry> entries,
             Holder<PlacedFeature> defaultFeature
     ) implements FeatureConfiguration {
-
-        public Configuration(Holder<PlacedFeature> defaultFeature, Entry... entries) {
-            this(Arrays.asList(entries), defaultFeature);
-        }
 
         public static final Codec<Configuration> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 Entry.CODEC.listOf().fieldOf("entries").forGetter(Configuration::entries),
@@ -62,6 +58,24 @@ public class BiomeDependentFeature extends Feature<BiomeDependentFeature.Configu
                     PlacedFeature.CODEC.fieldOf("feature").forGetter(Entry::feature),
                     RegistryCodecs.homogeneousList(Registries.BIOME, true).fieldOf("biomes").forGetter(Entry::biomes)
             ).apply(instance, Entry::new));
+        }
+    }
+
+    public static class Builder {
+        private final Holder<PlacedFeature> defaultFeature;
+        private final List<Configuration.Entry> entries = new ArrayList<>();
+
+        public Builder(Holder<PlacedFeature> defaultFeature) {
+            this.defaultFeature = defaultFeature;
+        }
+
+        public Builder entry(Holder<PlacedFeature> feature, HolderSet<Biome> biomes) {
+            entries.add(new Configuration.Entry(feature, biomes));
+            return this;
+        }
+
+        public Configuration build() {
+            return new Configuration(entries, defaultFeature);
         }
     }
 }
