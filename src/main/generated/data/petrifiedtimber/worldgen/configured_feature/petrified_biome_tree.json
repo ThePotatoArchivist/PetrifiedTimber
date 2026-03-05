@@ -1,0 +1,46 @@
+{
+  "type": "petrifiedtimber:biome_dependent",
+  "config": {
+    "default": {
+      "feature": "petrifiedtimber:petrified_oak",
+      "placement": []
+    },
+    "entries": [
+      {
+        "biomes": "#c:primary_wood_type/spruce",
+        "feature": {
+          "feature": "petrifiedtimber:petrified_spruce",
+          "placement": []
+        }
+      },
+      {
+        "biomes": "#c:primary_wood_type/birch",
+        "feature": {
+          "feature": "petrifiedtimber:petrified_birch",
+          "placement": []
+        }
+      },
+      {
+        "biomes": "#c:primary_wood_type/acacia",
+        "feature": {
+          "feature": "petrifiedtimber:petrified_acacia",
+          "placement": []
+        }
+      },
+      {
+        "biomes": "#c:primary_wood_type/jungle",
+        "feature": {
+          "feature": "petrifiedtimber:petrified_jungle",
+          "placement": []
+        }
+      },
+      {
+        "biomes": "#c:primary_wood_type/dark_oak",
+        "feature": {
+          "feature": "petrifiedtimber:petrified_dark_oak",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

@@ -18,15 +18,15 @@ public class PetrifiedTimberWorldgen {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, PetrifiedTimber.id(path));
     }
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_FEATURE = configuredFeature("petrified_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_BIOME_TREE_FEATURE = configuredFeature("petrified_biome_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLASSIC_PETRIFIED_OAK_FEATURE = configuredFeature("classic_petrified_oak");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_OAK = configuredFeature("petrified_oak_oak");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_SPRUCE = configuredFeature("petrified_oak_spruce");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_BIRCH = configuredFeature("petrified_oak_birch");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_ACACIA = configuredFeature("petrified_oak_acacia");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_JUNGLE = configuredFeature("petrified_oak_jungle");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK_DARK_OAK = configuredFeature("petrified_oak_dark_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK = configuredFeature("petrified_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_SPRUCE = configuredFeature("petrified_spruce");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_BIRCH = configuredFeature("petrified_birch");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_ACACIA = configuredFeature("petrified_acacia");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_JUNGLE = configuredFeature("petrified_jungle");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_DARK_OAK = configuredFeature("petrified_dark_oak");
 
     public static final Feature<BiomeDependentFeature.Configuration> BIOME_DEPENDENT = Registry.register(
             BuiltInRegistries.FEATURE,
@@ -39,7 +39,7 @@ public class PetrifiedTimberWorldgen {
             0.05f,
             Optional.empty(),
             Optional.empty(),
-            Optional.of(PETRIFIED_OAK_FEATURE),
+            Optional.of(PETRIFIED_BIOME_TREE_FEATURE),
             Optional.of(CLASSIC_PETRIFIED_OAK_FEATURE),
             Optional.empty(),
             Optional.empty()
