@@ -2,6 +2,7 @@ package archives.tater.petrifiedtimber.worldgen;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberWorldgen;
 
+import com.mojang.datafixers.Products;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -14,12 +15,17 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerTy
 
 public class CuboidFoliagePlacer extends FoliagePlacer {
 
+    public static <P extends CuboidFoliagePlacer> Products.P3<RecordCodecBuilder.Mu<P>, IntProvider, IntProvider, Integer> cuboidFoliagePlacerParts(RecordCodecBuilder.Instance<P> instance) {
+        return foliagePlacerParts(instance).and(
+                Codec.intRange(0, 16).fieldOf("height").forGetter(placer -> placer.height)
+        );
+    }
+
     public static final MapCodec<CuboidFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(instance ->
-            FoliagePlacer.foliagePlacerParts(instance).and(
-                    Codec.intRange(0, 16).fieldOf("height").forGetter(placer -> placer.height)
-            ).apply(instance, CuboidFoliagePlacer::new)
+            cuboidFoliagePlacerParts(instance).apply(instance, CuboidFoliagePlacer::new)
     );
-    private final int height;
+
+    public final int height;
 
     public CuboidFoliagePlacer(IntProvider radius, IntProvider offset, int height) {
         super(radius, offset);

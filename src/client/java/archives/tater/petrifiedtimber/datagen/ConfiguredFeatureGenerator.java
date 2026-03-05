@@ -3,6 +3,7 @@ package archives.tater.petrifiedtimber.datagen;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberWorldgen;
 import archives.tater.petrifiedtimber.worldgen.BiomeDependentFeature;
+import archives.tater.petrifiedtimber.worldgen.CornerCutFoliagePlacer;
 import archives.tater.petrifiedtimber.worldgen.CuboidFoliagePlacer;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -75,6 +76,13 @@ public class ConfiguredFeatureGenerator extends FabricDynamicRegistryProvider {
                                 new StraightTrunkPlacer(5, 0, 0),
                                 BlockStateProvider.simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES),
                                 new CuboidFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), 3),
+                                new TwoLayersFeatureSize(1, 0, 1)
+                        ).build()))),
+                        placedFeature(Holder.direct(new ConfiguredFeature<>(Feature.TREE, new TreeConfigurationBuilder(
+                                BlockStateProvider.simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG),
+                                new StraightTrunkPlacer(5, 0, 0),
+                                BlockStateProvider.simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES),
+                                new CornerCutFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), 3, 1),
                                 new TwoLayersFeatureSize(1, 0, 1)
                         ).build())))
                 ))

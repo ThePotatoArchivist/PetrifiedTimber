@@ -2,6 +2,7 @@ package archives.tater.petrifiedtimber.registry;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.worldgen.BiomeDependentFeature;
+import archives.tater.petrifiedtimber.worldgen.CornerCutFoliagePlacer;
 import archives.tater.petrifiedtimber.worldgen.CuboidFoliagePlacer;
 
 import com.mojang.serialization.MapCodec;
@@ -44,8 +45,7 @@ public class PetrifiedTimberWorldgen {
 
     public static final TreeGrower PETRIFIED_OAK_GROWER = new TreeGrower(
             PetrifiedTimber.sId("petrified_oak"),
-//            0.05f,
-            1f,
+            0.05f,
             Optional.empty(),
             Optional.empty(),
             Optional.of(PETRIFIED_BIOME_TREE_FEATURE),
@@ -55,6 +55,7 @@ public class PetrifiedTimberWorldgen {
     );
 
     public static final FoliagePlacerType<CuboidFoliagePlacer> CUBOID_FOLIAGE_PLACER = foliagePlacer("cuboid", CuboidFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<CornerCutFoliagePlacer> CORNER_CUT_FOLIAGE_PLACER = foliagePlacer("corner_cut", CornerCutFoliagePlacer.CODEC);
 
     public static void init() {
 
