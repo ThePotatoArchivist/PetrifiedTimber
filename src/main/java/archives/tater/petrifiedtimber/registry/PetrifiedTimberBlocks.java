@@ -1,7 +1,7 @@
 package archives.tater.petrifiedtimber.registry;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
-import archives.tater.petrifiedtimber.block.NoParticleLeavesBlock;
+import archives.tater.petrifiedtimber.block.PetrifiedLeavesBlock;
 import archives.tater.petrifiedtimber.block.PetrifyingBlock;
 import archives.tater.petrifiedtimber.block.PetrifyingRotatedPillarBlock;
 import archives.tater.petrifiedtimber.block.ResinCauldronBlock;
@@ -109,7 +109,7 @@ public class PetrifiedTimberBlocks {
 
     public static final Block PETRIFIED_OAK_LEAVES = register(
             "petrified_oak_leaves",
-            NoParticleLeavesBlock::new,
+            PetrifiedLeavesBlock::new,
             petrifiedWoodProperties()
                     .sound(SoundType.TUFF)
                     .noOcclusion()
