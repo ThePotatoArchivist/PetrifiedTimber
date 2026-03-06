@@ -1,5 +1,6 @@
 package archives.tater.petrifiedtimber.datagen;
 
+import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
@@ -13,7 +14,9 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Items;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class RecipeGenerator extends FabricRecipeProvider {
@@ -57,6 +60,47 @@ public class RecipeGenerator extends FabricRecipeProvider {
             stonecutterResultFromBase(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberItems.PETRIFIED_STRIPPED_OAK_LOG);
 
             threeByThreePacker(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_LEAVES, PetrifiedTimberItems.PETRIFIED_LEAF);
+
+            colorItemWithDye(
+                    List.of(
+                            Items.BLACK_DYE,
+                            Items.BLUE_DYE,
+                            Items.BROWN_DYE,
+                            Items.CYAN_DYE,
+                            Items.GRAY_DYE,
+                            Items.GREEN_DYE,
+                            Items.LIGHT_BLUE_DYE,
+                            Items.LIGHT_GRAY_DYE,
+                            Items.LIME_DYE,
+                            Items.MAGENTA_DYE,
+                            Items.ORANGE_DYE,
+                            Items.PINK_DYE,
+                            Items.PURPLE_DYE,
+                            Items.RED_DYE,
+                            Items.YELLOW_DYE,
+                            Items.WHITE_DYE
+                    ),
+                    List.of(
+                            PetrifiedTimberItems.BLACK_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.BLUE_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.BROWN_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.CYAN_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.GRAY_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.GREEN_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.LIGHT_BLUE_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.LIGHT_GRAY_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.LIME_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.MAGENTA_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.ORANGE_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.PINK_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.PURPLE_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.RED_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.YELLOW_PETRIFIED_APPLE,
+                            PetrifiedTimberItems.WHITE_PETRIFIED_APPLE
+                    ),
+                    PetrifiedTimber.sId("petrified_apple"),
+                    RecipeCategory.DECORATIONS
+            );
         }
     }
 }

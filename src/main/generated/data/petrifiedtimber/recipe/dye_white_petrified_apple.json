@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "petrifiedtimber:petrified_apple",
+  "ingredients": [
+    "minecraft:white_dye",
+    [
+      "petrifiedtimber:black_petrified_apple",
+      "petrifiedtimber:blue_petrified_apple",
+      "petrifiedtimber:brown_petrified_apple",
+      "petrifiedtimber:cyan_petrified_apple",
+      "petrifiedtimber:gray_petrified_apple",
+      "petrifiedtimber:green_petrified_apple",
+      "petrifiedtimber:light_blue_petrified_apple",
+      "petrifiedtimber:light_gray_petrified_apple",
+      "petrifiedtimber:lime_petrified_apple",
+      "petrifiedtimber:magenta_petrified_apple",
+      "petrifiedtimber:orange_petrified_apple",
+      "petrifiedtimber:pink_petrified_apple",
+      "petrifiedtimber:purple_petrified_apple",
+      "petrifiedtimber:red_petrified_apple",
+      "petrifiedtimber:yellow_petrified_apple"
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "petrifiedtimber:white_petrified_apple"
+  }
+}

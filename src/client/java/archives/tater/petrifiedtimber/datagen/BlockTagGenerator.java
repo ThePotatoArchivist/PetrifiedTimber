@@ -61,6 +61,45 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .forceAddTag(BlockTags.LOGS)
                 .addTag(PetrifiedTimberBlockTags.PETRIFIED_OAK_LOGS)
                 .add(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES);
+        valueLookupBuilder(PetrifiedTimberBlockTags.PETRIFIED_APPLES).add(
+                PetrifiedTimberBlocks.WHITE_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.ORANGE_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.MAGENTA_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.LIGHT_BLUE_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.YELLOW_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.LIME_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.PINK_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.GRAY_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.LIGHT_GRAY_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.CYAN_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.PURPLE_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.BLUE_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.BROWN_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.GREEN_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.RED_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.BLACK_PETRIFIED_APPLE
+        );
+        valueLookupBuilder(PetrifiedTimberBlockTags.HANGING_PETRIFIED_APPLES).add(
+                PetrifiedTimberBlocks.WHITE_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.ORANGE_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.MAGENTA_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.LIGHT_BLUE_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.LIME_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.PINK_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.GRAY_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.LIGHT_GRAY_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.CYAN_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.PURPLE_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.BLUE_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.BROWN_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.GREEN_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE,
+                PetrifiedTimberBlocks.BLACK_HANGING_PETRIFIED_APPLE
+        );
+        valueLookupBuilder(PetrifiedTimberBlockTags.ALL_PETRIFIED_APPLES)
+                .addTag(PetrifiedTimberBlockTags.PETRIFIED_APPLES)
+                .addTag(PetrifiedTimberBlockTags.HANGING_PETRIFIED_APPLES);
 
         valueLookupBuilder(BlockTags.SIGNS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN);
         valueLookupBuilder(BlockTags.WALL_SIGNS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN);

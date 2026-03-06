@@ -24,6 +24,7 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
     protected void addTags(HolderLookup.Provider wrapperLookup) {
         copy(PetrifiedTimberBlockTags.PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.PETRIFIED_OAK_LOGS);
         copy(PetrifiedTimberBlockTags.RESIN_COVERED_OAK_LOGS, PetrifiedTimberItemTags.RESIN_COVERED_OAK_LOGS);
+        copy(PetrifiedTimberBlockTags.PETRIFIED_APPLES, PetrifiedTimberItemTags.PETRIFIED_APPLES);
         copy(BlockTags.SIGNS, ItemTags.SIGNS);
         copy(BlockTags.CEILING_HANGING_SIGNS, ItemTags.HANGING_SIGNS);
         copy(BlockTags.FENCES, ItemTags.FENCES);

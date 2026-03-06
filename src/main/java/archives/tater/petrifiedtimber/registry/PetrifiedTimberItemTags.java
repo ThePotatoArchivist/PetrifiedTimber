@@ -17,6 +17,6 @@ public class PetrifiedTimberItemTags {
     }
 
     public static final TagKey<Item> PETRIFIED_OAK_LOGS = of(PetrifiedTimberBlockTags.PETRIFIED_OAK_LOGS);
-
     public static final TagKey<Item> RESIN_COVERED_OAK_LOGS = of(PetrifiedTimberBlockTags.RESIN_COVERED_OAK_LOGS);
+    public static final TagKey<Item> PETRIFIED_APPLES = of("petrified_apples");
 }
