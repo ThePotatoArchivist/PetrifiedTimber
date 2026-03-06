@@ -130,6 +130,7 @@ public class PetrifiedTimberItems {
                     output.accept(PETRIFIED_OAK_CHEST_BOAT);
                     output.accept(PETRIFIED_OAK_SAPLING);
                     output.accept(PETRIFIED_OAK_LEAVES);
+                    output.accept(MELTED_RESIN_BOTTLE);
                     output.accept(RESIN_COVERED_OAK_LOG);
                     output.accept(RESIN_COVERED_OAK_WOOD);
                     output.accept(RESIN_COVERED_STRIPPED_OAK_LOG);
