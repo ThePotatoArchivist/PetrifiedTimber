@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
@@ -24,13 +25,16 @@ import net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFea
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration.TreeConfigurationBuilder;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
+
+import static net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider.simple;
 
 public class ConfiguredFeatureGenerator extends FabricDynamicRegistryProvider {
 
@@ -45,13 +49,24 @@ public class ConfiguredFeatureGenerator extends FabricDynamicRegistryProvider {
     private static ConfiguredFeature<TreeConfiguration, TreeFeature> modifyTree(Holder<ConfiguredFeature<?, ?>> original) {
         var config = (TreeConfiguration) original.value().config();
         return new ConfiguredFeature<>((TreeFeature) original.value().feature(), new TreeConfigurationBuilder(
-                BlockStateProvider.simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG),
+                simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG),
                 config.trunkPlacer,
-                BlockStateProvider.simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES),
+                simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES),
                 config.foliagePlacer,
                 config.rootPlacer,
                 config.minimumSize
-        ).build());
+        )
+                .decorators(List.of(
+                        new AttachedToLeavesDecorator(
+                                0.05f,
+                                2,
+                                1,
+                                simple(PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE),
+                                1,
+                                List.of(Direction.UP)
+                        )
+                ))
+                .build());
     }
 
     @Override
@@ -83,16 +98,16 @@ public class ConfiguredFeatureGenerator extends FabricDynamicRegistryProvider {
                 TreeFeature.SIMPLE_RANDOM_SELECTOR,
                 new SimpleRandomFeatureConfiguration(HolderSet.direct(
                         placedFeature(Holder.direct(new ConfiguredFeature<>(Feature.TREE, new TreeConfigurationBuilder(
-                                BlockStateProvider.simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG),
+                                simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG),
                                 new StraightTrunkPlacer(5, 0, 0),
-                                BlockStateProvider.simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES),
+                                simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES),
                                 new CuboidFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), 3),
                                 new TwoLayersFeatureSize(1, 0, 1)
                         ).build()))),
                         placedFeature(Holder.direct(new ConfiguredFeature<>(Feature.TREE, new TreeConfigurationBuilder(
-                                BlockStateProvider.simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG),
+                                simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG),
                                 new StraightTrunkPlacer(5, 0, 0),
-                                BlockStateProvider.simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES),
+                                simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES),
                                 new CornerCutFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0), 3, 1),
                                 new TwoLayersFeatureSize(1, 0, 1)
                         ).build())))
