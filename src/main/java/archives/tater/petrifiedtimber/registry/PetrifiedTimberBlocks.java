@@ -54,7 +54,7 @@ public class PetrifiedTimberBlocks {
 
     private static BlockBehaviour.Properties appleProperties() {
         return BlockBehaviour.Properties.of()
-                .strength(1f)
+                .strength(0f, 1f)
                 .sound(SoundType.STONE);
     }
 

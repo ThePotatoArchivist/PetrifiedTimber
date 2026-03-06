@@ -157,6 +157,22 @@ public class PetrifiedTimberItems {
                     output.accept(RESIN_COVERED_STRIPPED_OAK_LOG);
                     output.accept(RESIN_COVERED_STRIPPED_OAK_WOOD);
                     output.accept(RESIN_COVERED_OAK_PLANKS);
+                    output.accept(WHITE_PETRIFIED_APPLE);
+                    output.accept(LIGHT_GRAY_PETRIFIED_APPLE);
+                    output.accept(GRAY_PETRIFIED_APPLE);
+                    output.accept(BLACK_PETRIFIED_APPLE);
+                    output.accept(BROWN_PETRIFIED_APPLE);
+                    output.accept(RED_PETRIFIED_APPLE);
+                    output.accept(ORANGE_PETRIFIED_APPLE);
+                    output.accept(YELLOW_PETRIFIED_APPLE);
+                    output.accept(LIME_PETRIFIED_APPLE);
+                    output.accept(GREEN_PETRIFIED_APPLE);
+                    output.accept(CYAN_PETRIFIED_APPLE);
+                    output.accept(LIGHT_BLUE_PETRIFIED_APPLE);
+                    output.accept(BLUE_PETRIFIED_APPLE);
+                    output.accept(PURPLE_PETRIFIED_APPLE);
+                    output.accept(MAGENTA_PETRIFIED_APPLE);
+                    output.accept(PINK_PETRIFIED_APPLE);
                 })
                 .build()
     );
