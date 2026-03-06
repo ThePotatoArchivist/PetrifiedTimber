@@ -1,3 +1,3 @@
-The art of this project is by MiffenKop and is ARR. Art means any file that is a PNG texture.
+The art of this project is by MiffenKop and is licensed CC BY-NC-SA 4.0. This includes all textures and files under `src/main/resources/assets/petrifiedtimber/textures` and `src/main/resources/assets/petrifiedtimber/models`.
 
-All non-art files are licensed MIT.
+The code of this project is licensed MIT. This includes all Java code, generated json files, and other data.
