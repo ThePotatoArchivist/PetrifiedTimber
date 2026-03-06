@@ -35,9 +35,9 @@
         }
       },
       {
-        "biomes": "#c:primary_wood_type/dark_oak",
+        "biomes": "#c:primary_wood_type/cherry",
         "feature": {
-          "feature": "petrifiedtimber:petrified_dark_oak",
+          "feature": "petrifiedtimber:petrified_cherry",
           "placement": []
         }
       }

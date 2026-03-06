@@ -19,6 +19,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration.TreeConfigurationBuilder;
@@ -64,7 +65,17 @@ public class ConfiguredFeatureGenerator extends FabricDynamicRegistryProvider {
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_BIRCH, modifyTree(registries.getOrThrow(TreeFeatures.BIRCH)))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_BIRCH))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_ACACIA, modifyTree(registries.getOrThrow(TreeFeatures.ACACIA)))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_ACACIA))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_JUNGLE, modifyTree(registries.getOrThrow(TreeFeatures.JUNGLE_TREE)))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_JUNGLE))
+                        .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_CHERRY, modifyTree(registries.getOrThrow(TreeFeatures.CHERRY)))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_CHERRY))
+                        .build()
+        ));
+
+        entries.add(PetrifiedTimberWorldgen.MEGA_PETRIFIED_BIOME_TREE_FEATURE, new ConfiguredFeature<>(
+                PetrifiedTimberWorldgen.BIOME_DEPENDENT,
+                BiomeDependentFeature.builder(placedFeature(Holder.direct(new ConfiguredFeature<>(Feature.NO_OP, NoneFeatureConfiguration.INSTANCE))))
+                        .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.MEGA_PETRIFIED_SPRUCE, modifyTree(registries.getOrThrow(TreeFeatures.MEGA_SPRUCE)))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_SPRUCE))
+                        .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.MEGA_PETRIFIED_JUNGLE, modifyTree(registries.getOrThrow(TreeFeatures.MEGA_JUNGLE_TREE)))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_JUNGLE))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_DARK_OAK, modifyTree(registries.getOrThrow(TreeFeatures.DARK_OAK)))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_DARK_OAK))
+                        .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_PALE_OAK, modifyTree(registries.getOrThrow(TreeFeatures.PALE_OAK)))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_PALE_OAK))
                         .build()
         ));
 

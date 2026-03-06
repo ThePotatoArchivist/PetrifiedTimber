@@ -28,6 +28,7 @@ public class PetrifiedTimberWorldgen {
     }
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_BIOME_TREE_FEATURE = configuredFeature("petrified_biome_tree");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_PETRIFIED_BIOME_TREE_FEATURE = configuredFeature("mega_petrified_biome_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> CLASSIC_PETRIFIED_OAK_FEATURE = configuredFeature("classic_petrified_oak");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_OAK = configuredFeature("petrified_oak");
@@ -35,7 +36,12 @@ public class PetrifiedTimberWorldgen {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_BIRCH = configuredFeature("petrified_birch");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_ACACIA = configuredFeature("petrified_acacia");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_JUNGLE = configuredFeature("petrified_jungle");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_CHERRY = configuredFeature("petrified_cherry");
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_PETRIFIED_SPRUCE = configuredFeature("mega_petrified_spruce");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_PETRIFIED_JUNGLE = configuredFeature("mega_petrified_jungle");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_DARK_OAK = configuredFeature("petrified_dark_oak");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_PALE_OAK = configuredFeature("petrified_pale_oak");
 
     public static final Feature<BiomeDependentFeature.Configuration> BIOME_DEPENDENT = Registry.register(
             BuiltInRegistries.FEATURE,
@@ -46,7 +52,7 @@ public class PetrifiedTimberWorldgen {
     public static final TreeGrower PETRIFIED_OAK_GROWER = new TreeGrower(
             PetrifiedTimber.sId("petrified_oak"),
             0.05f,
-            Optional.empty(),
+            Optional.of(MEGA_PETRIFIED_BIOME_TREE_FEATURE),
             Optional.empty(),
             Optional.of(PETRIFIED_BIOME_TREE_FEATURE),
             Optional.of(CLASSIC_PETRIFIED_OAK_FEATURE),

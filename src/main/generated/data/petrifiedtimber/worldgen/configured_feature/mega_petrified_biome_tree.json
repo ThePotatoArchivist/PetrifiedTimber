@@ -1,0 +1,42 @@
+{
+  "type": "petrifiedtimber:biome_dependent",
+  "config": {
+    "default": {
+      "feature": {
+        "type": "minecraft:no_op",
+        "config": {}
+      },
+      "placement": []
+    },
+    "entries": [
+      {
+        "biomes": "#c:primary_wood_type/spruce",
+        "feature": {
+          "feature": "petrifiedtimber:mega_petrified_spruce",
+          "placement": []
+        }
+      },
+      {
+        "biomes": "#c:primary_wood_type/jungle",
+        "feature": {
+          "feature": "petrifiedtimber:mega_petrified_jungle",
+          "placement": []
+        }
+      },
+      {
+        "biomes": "#c:primary_wood_type/dark_oak",
+        "feature": {
+          "feature": "petrifiedtimber:petrified_dark_oak",
+          "placement": []
+        }
+      },
+      {
+        "biomes": "#c:primary_wood_type/pale_oak",
+        "feature": {
+          "feature": "petrifiedtimber:petrified_pale_oak",
+          "placement": []
+        }
+      }
+    ]
+  }
+}
