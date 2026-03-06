@@ -71,6 +71,8 @@ public class LangGenerator extends FabricLanguageProvider {
 
         translationBuilder.add(PetrifiedTimberBlocks.RESIN_CAULDRON, "Melted Resin Cauldron");
         translationBuilder.add(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, "Bottle of Melted Resin");
+        translationBuilder.add(PetrifiedTimberItems.PETRIFIED_LEAF, "Petrified Leaf");
+
         translationBuilder.add(makeDescriptionId("block", BuiltInRegistries.FLUID.getKey(PetrifiedTimberFluids.MELTED_RESIN)), "Melted Resin");
     }
 }

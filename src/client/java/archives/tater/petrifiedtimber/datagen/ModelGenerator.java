@@ -63,6 +63,7 @@ public class ModelGenerator extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_OAK_BOAT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_LEAF, ModelTemplates.FLAT_ITEM);
     }
 
     private static final Path RESIN_CAULDRON_TEMPLATE = FabricLoader.getInstance()

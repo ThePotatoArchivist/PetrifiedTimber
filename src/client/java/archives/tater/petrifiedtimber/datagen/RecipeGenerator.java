@@ -55,6 +55,8 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
             stonecutterResultFromBase(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_SHELF, PetrifiedTimberItems.PETRIFIED_STRIPPED_OAK_LOG);
             stonecutterResultFromBase(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberItems.PETRIFIED_STRIPPED_OAK_LOG);
+
+            threeByThreePacker(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_LEAVES, PetrifiedTimberItems.PETRIFIED_LEAF);
         }
     }
 }

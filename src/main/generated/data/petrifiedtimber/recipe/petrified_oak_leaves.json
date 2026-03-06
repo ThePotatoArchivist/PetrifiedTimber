@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "petrifiedtimber:petrified_leaf",
+    "petrifiedtimber:petrified_leaf",
+    "petrifiedtimber:petrified_leaf",
+    "petrifiedtimber:petrified_leaf",
+    "petrifiedtimber:petrified_leaf",
+    "petrifiedtimber:petrified_leaf",
+    "petrifiedtimber:petrified_leaf",
+    "petrifiedtimber:petrified_leaf",
+    "petrifiedtimber:petrified_leaf"
+  ],
+  "result": {
+    "count": 1,
+    "id": "petrifiedtimber:petrified_oak_leaves"
+  }
+}

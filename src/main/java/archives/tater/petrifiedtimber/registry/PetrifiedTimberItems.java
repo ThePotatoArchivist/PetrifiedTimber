@@ -102,6 +102,8 @@ public class PetrifiedTimberItems {
                     .stacksTo(16)
     );
 
+    public static final Item PETRIFIED_LEAF = register("petrified_leaf", new Item.Properties());
+
     public static final String PETRIFIED_TIMBER_TAB_TITLE = "itemGroup.petrifiedtimber.petrified_timber";
     public static final CreativeModeTab PETRIFIED_TIMBER_TAB = Registry.register(
             BuiltInRegistries.CREATIVE_MODE_TAB,
@@ -130,6 +132,7 @@ public class PetrifiedTimberItems {
                     output.accept(PETRIFIED_OAK_CHEST_BOAT);
                     output.accept(PETRIFIED_OAK_SAPLING);
                     output.accept(PETRIFIED_OAK_LEAVES);
+                    output.accept(PETRIFIED_LEAF);
                     output.accept(MELTED_RESIN_BOTTLE);
                     output.accept(RESIN_COVERED_OAK_LOG);
                     output.accept(RESIN_COVERED_OAK_WOOD);

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_petrified_leaf": {
+      "conditions": {
+        "items": [
+          {
+            "items": "petrifiedtimber:petrified_leaf"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "petrifiedtimber:petrified_oak_leaves"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_petrified_leaf"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "petrifiedtimber:petrified_oak_leaves"
+    ]
+  }
+}
