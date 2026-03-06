@@ -62,7 +62,7 @@ public class PetrifiedTimberBlocks {
     }
 
     public static final BlockSetType PETRIFIED_OAK_BLOCK_SET = BlockSetTypeInvoker.invokeRegister(new BlockSetType(
-            PetrifiedTimber.sId("petrified_oak"),
+            PetrifiedTimber.uId("petrified_oak"),
             true,
             true,
             false,
@@ -79,7 +79,7 @@ public class PetrifiedTimberBlocks {
     ));
 
     public static final WoodType PETRIFIED_OAK_WOOD_TYPE = WoodTypeInvoker.invokeRegister(new WoodType(
-            PetrifiedTimber.sId("petrified_oak"),
+            PetrifiedTimber.uId("petrified_oak"),
             PETRIFIED_OAK_BLOCK_SET,
             SoundType.STONE,
             SoundType.NETHER_WOOD_HANGING_SIGN,
