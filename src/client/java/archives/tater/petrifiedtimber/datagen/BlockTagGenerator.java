@@ -56,6 +56,11 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 Blocks.CAMPFIRE,
                 Blocks.SOUL_CAMPFIRE
         );
+        valueLookupBuilder(PetrifiedTimberBlockTags.SUPPORTS_HANGING_APPLE)
+                .forceAddTag(BlockTags.LEAVES)
+                .forceAddTag(BlockTags.LOGS)
+                .addTag(PetrifiedTimberBlockTags.PETRIFIED_OAK_LOGS)
+                .add(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES);
 
         valueLookupBuilder(BlockTags.SIGNS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN);
         valueLookupBuilder(BlockTags.WALL_SIGNS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN);

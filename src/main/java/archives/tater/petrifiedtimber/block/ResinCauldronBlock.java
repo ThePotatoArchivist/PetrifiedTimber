@@ -40,6 +40,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class ResinCauldronBlock extends AbstractCauldronBlock {
@@ -53,13 +54,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
     public static final IntegerProperty LEVEL = IntegerProperty.create("level", 1, MAX_LEVEL);
     public static final CauldronInteraction.InteractionMap INTERACTION = CauldronInteraction.newInteractionMap(PetrifiedTimber.sId("resin"));
 
-    public static final Map<Item, Item> RESIN_COATING = Map.of(
-            Items.OAK_LOG, PetrifiedTimberItems.RESIN_COVERED_OAK_LOG,
-            Items.OAK_WOOD, PetrifiedTimberItems.RESIN_COVERED_OAK_WOOD,
-            Items.STRIPPED_OAK_LOG, PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_LOG,
-            Items.STRIPPED_OAK_WOOD, PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_WOOD,
-            Items.OAK_PLANKS, PetrifiedTimberItems.RESIN_COVERED_OAK_PLANKS
-    );
+    public static final Map<Item, Item> RESIN_COATING = new HashMap<>();
 
     public static CauldronInteraction fillItemInteraction(Item result, int amount, SoundEvent soundEvent, Holder.Reference<GameEvent> event) {
         return (blockState, level, blockPos, player, interactionHand, itemStack) -> {
@@ -81,6 +76,12 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
     }
 
     public static void bootstrap() {
+        RESIN_COATING.put(Items.OAK_LOG, PetrifiedTimberItems.RESIN_COVERED_OAK_LOG);
+        RESIN_COATING.put(Items.OAK_WOOD, PetrifiedTimberItems.RESIN_COVERED_OAK_WOOD);
+        RESIN_COATING.put(Items.STRIPPED_OAK_LOG, PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_LOG);
+        RESIN_COATING.put(Items.STRIPPED_OAK_WOOD, PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_WOOD);
+        RESIN_COATING.put(Items.OAK_PLANKS, PetrifiedTimberItems.RESIN_COVERED_OAK_PLANKS);
+
         var resin = INTERACTION.map();
         RESIN_COATING.forEach((input, result) ->
                 resin.put(input, fillItemInteraction(result, -1, SoundEvents.HONEYCOMB_WAX_ON, GameEvent.FLUID_PICKUP)) // TODO sound event

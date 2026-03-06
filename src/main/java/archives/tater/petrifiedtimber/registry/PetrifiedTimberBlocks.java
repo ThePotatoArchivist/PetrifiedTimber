@@ -1,10 +1,7 @@
 package archives.tater.petrifiedtimber.registry;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
-import archives.tater.petrifiedtimber.block.PetrifiedLeavesBlock;
-import archives.tater.petrifiedtimber.block.PetrifyingBlock;
-import archives.tater.petrifiedtimber.block.PetrifyingRotatedPillarBlock;
-import archives.tater.petrifiedtimber.block.ResinCauldronBlock;
+import archives.tater.petrifiedtimber.block.*;
 import archives.tater.petrifiedtimber.mixin.BlockSetTypeInvoker;
 import archives.tater.petrifiedtimber.mixin.WoodTypeInvoker;
 
@@ -53,6 +50,18 @@ public class PetrifiedTimberBlocks {
                 .strength(2f, 6f)
                 .sound(SoundType.STONE)
                 .requiresCorrectToolForDrops();
+    }
+
+    private static BlockBehaviour.Properties appleProperties() {
+        return BlockBehaviour.Properties.of()
+                .strength(1f)
+                .sound(SoundType.STONE);
+    }
+
+    private static BlockBehaviour.Properties hangingAppleProperties() {
+        return appleProperties()
+                .offsetType(BlockBehaviour.OffsetType.XZ)
+                .noCollision();
     }
 
     private static BlockBehaviour.Properties variant(Block block) {
@@ -281,6 +290,40 @@ public class PetrifiedTimberBlocks {
             ResinCauldronBlock.INTERACTION,
             BlockBehaviour.Properties.ofFullCopy(Blocks.WATER_CAULDRON)
     );
+
+    public static final Block WHITE_PETRIFIED_APPLE = register("white_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block ORANGE_PETRIFIED_APPLE = register("orange_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block MAGENTA_PETRIFIED_APPLE = register("magenta_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block LIGHT_BLUE_PETRIFIED_APPLE = register("light_blue_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block YELLOW_PETRIFIED_APPLE = register("yellow_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block LIME_PETRIFIED_APPLE = register("lime_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block PINK_PETRIFIED_APPLE = register("pink_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block GRAY_PETRIFIED_APPLE = register("gray_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block LIGHT_GRAY_PETRIFIED_APPLE = register("light_gray_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block CYAN_PETRIFIED_APPLE = register("cyan_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block PURPLE_PETRIFIED_APPLE = register("purple_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block BLUE_PETRIFIED_APPLE = register("blue_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block BROWN_PETRIFIED_APPLE = register("brown_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block GREEN_PETRIFIED_APPLE = register("green_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block RED_PETRIFIED_APPLE = register("red_petrified_apple", AppleBlock::new, appleProperties());
+    public static final Block BLACK_PETRIFIED_APPLE = register("black_petrified_apple", AppleBlock::new, appleProperties());
+
+    public static final Block WHITE_HANGING_PETRIFIED_APPLE = register("white_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block ORANGE_HANGING_PETRIFIED_APPLE = register("orange_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block MAGENTA_HANGING_PETRIFIED_APPLE = register("magenta_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block LIGHT_BLUE_HANGING_PETRIFIED_APPLE = register("light_blue_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block YELLOW_HANGING_PETRIFIED_APPLE = register("yellow_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block LIME_HANGING_PETRIFIED_APPLE = register("lime_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block PINK_HANGING_PETRIFIED_APPLE = register("pink_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block GRAY_HANGING_PETRIFIED_APPLE = register("gray_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block LIGHT_GRAY_HANGING_PETRIFIED_APPLE = register("light_gray_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block CYAN_HANGING_PETRIFIED_APPLE = register("cyan_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block PURPLE_HANGING_PETRIFIED_APPLE = register("purple_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block BLUE_HANGING_PETRIFIED_APPLE = register("blue_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block BROWN_HANGING_PETRIFIED_APPLE = register("brown_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block GREEN_HANGING_PETRIFIED_APPLE = register("green_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block RED_HANGING_PETRIFIED_APPLE = register("red_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
+    public static final Block BLACK_HANGING_PETRIFIED_APPLE = register("black_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
 
     static {
         BlockEntityType.SIGN.addSupportedBlock(PETRIFIED_OAK_SIGN);

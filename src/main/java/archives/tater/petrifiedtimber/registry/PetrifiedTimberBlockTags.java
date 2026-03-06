@@ -17,4 +17,5 @@ public class PetrifiedTimberBlockTags {
     public static final TagKey<Block> PETRIFICATION_CATALYST = of("petrification_catalyst");
     public static final TagKey<Block> PETRIFICATION_ACCELERATOR = of("petrification_accelerator");
     public static final TagKey<Block> MELTS_RESIN = of("melts_resin");
+    public static final TagKey<Block> SUPPORTS_HANGING_APPLE = of("supports_hanging_apple");
 }

@@ -1,6 +1,7 @@
 package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
+import archives.tater.petrifiedtimber.block.AppleBlock;
 import archives.tater.petrifiedtimber.block.ResinCauldronBlock;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
@@ -13,9 +14,7 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
-import net.minecraft.client.data.models.model.ModelLocationUtils;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.world.level.block.Block;
 
 import com.google.gson.JsonElement;
@@ -26,8 +25,36 @@ import com.google.gson.stream.JsonReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
+
+import static net.minecraft.client.data.models.BlockModelGenerators.createSimpleBlock;
+import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
 
 public class ModelGenerator extends FabricModelProvider {
+
+    public static final TextureSlot APPLE = TextureSlot.create("apple");
+    public static final ModelTemplate APPLE_ONE = new ModelTemplate(Optional.of(PetrifiedTimber.id("block/template_petrified_apple_one")), Optional.of("_one"), APPLE);
+    public static final ModelTemplate APPLE_TWO = new ModelTemplate(Optional.of(PetrifiedTimber.id("block/template_petrified_apple_two")), Optional.of("_two"), APPLE);
+    public static final ModelTemplate APPLE_THREE = new ModelTemplate(Optional.of(PetrifiedTimber.id("block/template_petrified_apple_three")), Optional.of("_three"), APPLE);
+    public static final ModelTemplate APPLE_FOUR = new ModelTemplate(Optional.of(PetrifiedTimber.id("block/template_petrified_apple_four")), Optional.of("_four"), APPLE);
+    public static final ModelTemplate APPLE_HANGING = new ModelTemplate(Optional.of(PetrifiedTimber.id("block/template_petrified_apple_hanging")), Optional.empty(), APPLE);
+
+    private static TextureMapping apple(Block block) {
+        return new TextureMapping().put(APPLE, ModelLocationUtils.getModelLocation(block));
+    }
+
+    private void createApple(Block main, Block hanging, BlockModelGenerators blockModelGenerators) {
+        var mapping = apple(main);
+        blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(main).with(PropertyDispatch.initial(AppleBlock.APPLES)
+                .select(1, plainVariant(APPLE_ONE.create(main, mapping, blockModelGenerators.modelOutput)))
+                .select(2, plainVariant(APPLE_TWO.create(main, mapping, blockModelGenerators.modelOutput)))
+                .select(3, plainVariant(APPLE_THREE.create(main, mapping, blockModelGenerators.modelOutput)))
+                .select(4, plainVariant(APPLE_FOUR.create(main, mapping, blockModelGenerators.modelOutput)))
+        ));
+        blockModelGenerators.blockStateOutput.accept(createSimpleBlock(hanging, plainVariant(APPLE_HANGING.create(hanging, mapping, blockModelGenerators.modelOutput))));
+        blockModelGenerators.registerSimpleFlatItemModel(main.asItem());
+    }
+
     public ModelGenerator(FabricDataOutput output) {
         super(output);
     }
@@ -54,6 +81,23 @@ public class ModelGenerator extends FabricModelProvider {
                 .logWithHorizontal(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_LOG)
                 .wood(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_WOOD);
         blockModelGenerators.createTrivialCube(PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS);
+
+        createApple(PetrifiedTimberBlocks.WHITE_PETRIFIED_APPLE, PetrifiedTimberBlocks.WHITE_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.ORANGE_PETRIFIED_APPLE, PetrifiedTimberBlocks.ORANGE_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.MAGENTA_PETRIFIED_APPLE, PetrifiedTimberBlocks.MAGENTA_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.LIGHT_BLUE_PETRIFIED_APPLE, PetrifiedTimberBlocks.LIGHT_BLUE_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.YELLOW_PETRIFIED_APPLE, PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.LIME_PETRIFIED_APPLE, PetrifiedTimberBlocks.LIME_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.PINK_PETRIFIED_APPLE, PetrifiedTimberBlocks.PINK_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.GRAY_PETRIFIED_APPLE, PetrifiedTimberBlocks.GRAY_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.LIGHT_GRAY_PETRIFIED_APPLE, PetrifiedTimberBlocks.LIGHT_GRAY_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.CYAN_PETRIFIED_APPLE, PetrifiedTimberBlocks.CYAN_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.PURPLE_PETRIFIED_APPLE, PetrifiedTimberBlocks.PURPLE_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.BLUE_PETRIFIED_APPLE, PetrifiedTimberBlocks.BLUE_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.BROWN_PETRIFIED_APPLE, PetrifiedTimberBlocks.BROWN_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.GREEN_PETRIFIED_APPLE, PetrifiedTimberBlocks.GREEN_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.RED_PETRIFIED_APPLE, PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE, blockModelGenerators);
+        createApple(PetrifiedTimberBlocks.BLACK_PETRIFIED_APPLE, PetrifiedTimberBlocks.BLACK_HANGING_PETRIFIED_APPLE, blockModelGenerators);
 
         createResinCauldron(PetrifiedTimberBlocks.RESIN_CAULDRON, blockModelGenerators);
     }
@@ -93,7 +137,7 @@ public class ModelGenerator extends FabricModelProvider {
                         return model;
                     });
 
-                    return BlockModelGenerators.plainVariant(id);
+                    return plainVariant(id);
                 }))
         );
     }

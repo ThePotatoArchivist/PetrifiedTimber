@@ -1,0 +1,6 @@
+{
+  "parent": "petrifiedtimber:block/template_petrified_apple_three",
+  "textures": {
+    "apple": "petrifiedtimber:block/magenta_petrified_apple"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "apples=1": {
+      "model": "petrifiedtimber:block/brown_petrified_apple_one"
+    },
+    "apples=2": {
+      "model": "petrifiedtimber:block/brown_petrified_apple_two"
+    },
+    "apples=3": {
+      "model": "petrifiedtimber:block/brown_petrified_apple_three"
+    },
+    "apples=4": {
+      "model": "petrifiedtimber:block/brown_petrified_apple_four"
+    }
+  }
+}

@@ -1,6 +1,7 @@
 package archives.tater.petrifiedtimber.registry;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
+import archives.tater.petrifiedtimber.item.StandingAndHangingBlockItem;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 
@@ -74,6 +75,23 @@ public class PetrifiedTimberItems {
     public static final Item RESIN_COVERED_STRIPPED_OAK_LOG = register(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_LOG);
     public static final Item RESIN_COVERED_STRIPPED_OAK_WOOD = register(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_WOOD);
     public static final Item RESIN_COVERED_OAK_PLANKS = register(PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS);
+
+    public static final Item WHITE_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.WHITE_PETRIFIED_APPLE, PetrifiedTimberBlocks.WHITE_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item ORANGE_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.ORANGE_PETRIFIED_APPLE, PetrifiedTimberBlocks.ORANGE_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item MAGENTA_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.MAGENTA_PETRIFIED_APPLE, PetrifiedTimberBlocks.MAGENTA_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item LIGHT_BLUE_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.LIGHT_BLUE_PETRIFIED_APPLE, PetrifiedTimberBlocks.LIGHT_BLUE_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item YELLOW_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.YELLOW_PETRIFIED_APPLE, PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item LIME_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.LIME_PETRIFIED_APPLE, PetrifiedTimberBlocks.LIME_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item PINK_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.PINK_PETRIFIED_APPLE, PetrifiedTimberBlocks.PINK_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item GRAY_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.GRAY_PETRIFIED_APPLE, PetrifiedTimberBlocks.GRAY_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item LIGHT_GRAY_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.LIGHT_GRAY_PETRIFIED_APPLE, PetrifiedTimberBlocks.LIGHT_GRAY_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item CYAN_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.CYAN_PETRIFIED_APPLE, PetrifiedTimberBlocks.CYAN_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item PURPLE_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.PURPLE_PETRIFIED_APPLE, PetrifiedTimberBlocks.PURPLE_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item BLUE_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.BLUE_PETRIFIED_APPLE, PetrifiedTimberBlocks.BLUE_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item BROWN_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.BROWN_PETRIFIED_APPLE, PetrifiedTimberBlocks.BROWN_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item GREEN_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.GREEN_PETRIFIED_APPLE, PetrifiedTimberBlocks.GREEN_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item RED_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.RED_PETRIFIED_APPLE, PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
+    public static final Item BLACK_PETRIFIED_APPLE = register(PetrifiedTimberBlocks.BLACK_PETRIFIED_APPLE, PetrifiedTimberBlocks.BLACK_HANGING_PETRIFIED_APPLE, StandingAndHangingBlockItem::new, new Item.Properties());
 
     public static final Item PETRIFIED_OAK_SHELF = register(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, new Item.Properties().component(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
     public static final Item PETRIFIED_OAK_SIGN = register(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN, SignItem::new, new Item.Properties().stacksTo(16));

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "petrifiedtimber:item/brown_petrified_apple"
+  }
+}
