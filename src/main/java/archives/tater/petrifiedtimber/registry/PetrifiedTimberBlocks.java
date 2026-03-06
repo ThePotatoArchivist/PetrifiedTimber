@@ -2,9 +2,9 @@ package archives.tater.petrifiedtimber.registry;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.block.*;
-import archives.tater.petrifiedtimber.mixin.BlockSetTypeInvoker;
-import archives.tater.petrifiedtimber.mixin.WoodTypeInvoker;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 
 import net.minecraft.core.Registry;
@@ -70,31 +70,26 @@ public class PetrifiedTimberBlocks {
                 .overrideDescription(block.getDescriptionId());
     }
 
-    public static final BlockSetType PETRIFIED_OAK_BLOCK_SET = BlockSetTypeInvoker.invokeRegister(new BlockSetType(
-            PetrifiedTimber.sId("petrified_oak"),
-            true,
-            true,
-            false,
-            BlockSetType.PressurePlateSensitivity.MOBS,
-            SoundType.STONE,
-            SoundEvents.NETHER_WOOD_DOOR_CLOSE,
-            SoundEvents.NETHER_WOOD_DOOR_OPEN,
-            SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE,
-            SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN,
-            SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF,
-            SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON,
-            SoundEvents.STONE_BUTTON_CLICK_OFF,
-            SoundEvents.STONE_BUTTON_CLICK_ON
-    ));
+    public static final BlockSetType PETRIFIED_OAK_BLOCK_SET = new BlockSetTypeBuilder()
+                .buttonActivatedByArrows(false)
+                .pressurePlateActivationRule(BlockSetType.PressurePlateSensitivity.MOBS)
+                .soundGroup(SoundType.STONE)
+                .doorCloseSound(SoundEvents.NETHER_WOOD_DOOR_CLOSE)
+                .doorOpenSound(SoundEvents.NETHER_WOOD_DOOR_OPEN)
+                .trapdoorCloseSound(SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE)
+                .trapdoorOpenSound(SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN)
+                .pressurePlateClickOffSound(SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF)
+                .pressurePlateClickOnSound(SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON)
+                .buttonClickOffSound(SoundEvents.STONE_BUTTON_CLICK_OFF)
+                .buttonClickOnSound(SoundEvents.STONE_BUTTON_CLICK_ON)
+                .register(PetrifiedTimber.id("petrified_oak"));
 
-    public static final WoodType PETRIFIED_OAK_WOOD_TYPE = WoodTypeInvoker.invokeRegister(new WoodType(
-            PetrifiedTimber.sId("petrified_oak"),
-            PETRIFIED_OAK_BLOCK_SET,
-            SoundType.STONE,
-            SoundType.NETHER_WOOD_HANGING_SIGN,
-            SoundEvents.NETHER_WOOD_FENCE_GATE_CLOSE,
-            SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN
-    ));
+    public static final WoodType PETRIFIED_OAK_WOOD_TYPE = new WoodTypeBuilder()
+                .soundGroup(SoundType.STONE)
+                .hangingSignSoundGroup(SoundType.NETHER_WOOD_HANGING_SIGN)
+                .fenceGateCloseSound(SoundEvents.NETHER_WOOD_FENCE_GATE_CLOSE)
+                .fenceGateOpenSound(SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN)
+                .build(PetrifiedTimber.id("petrified_oak"), PETRIFIED_OAK_BLOCK_SET);
 
     public static final Block PETRIFIED_OAK_WOOD = register("petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
 

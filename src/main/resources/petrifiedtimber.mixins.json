@@ -3,12 +3,10 @@
   "package": "archives.tater.petrifiedtimber.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "BlockSetTypeInvoker",
     "CauldronBlockMixin",
     "ExampleMixin",
     "PointedDripstoneBlockInvoker",
-    "PointedDripstoneBlockMixin",
-    "WoodTypeInvoker"
+    "PointedDripstoneBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
