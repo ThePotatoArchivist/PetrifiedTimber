@@ -20,7 +20,7 @@ public class SignRendererMixin {
 	private void bigStandingSign(PoseStack poseStack, float yRot, BlockState state, CallbackInfo ci) {
         if (!state.is(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN)) return;
         poseStack.translate(0.5f, 0, 0.5f);
-		poseStack.scale(1.5f, 1.5f, 1.5f);
+		poseStack.scale(1.51f, 1.498f, 1.51f);
 		poseStack.translate(-0.5f, 0, -0.5f);
     }
 
