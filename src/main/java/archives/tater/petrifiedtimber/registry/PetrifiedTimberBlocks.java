@@ -96,7 +96,25 @@ public class PetrifiedTimberBlocks {
             SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN
     ));
 
+    public static final Block PETRIFIED_OAK_LOG = register("petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
+
     public static final Block PETRIFIED_OAK_WOOD = register("petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block PETRIFIED_STRIPPED_OAK_LOG = register("petrified_stripped_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block PETRIFIED_STRIPPED_OAK_WOOD = register("petrified_stripped_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block SHADOW_PETRIFIED_OAK_LOG = register("shadow_petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block SHADOW_PETRIFIED_OAK_WOOD = register("shadow_petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block WARM_PETRIFIED_OAK_LOG = register("warm_petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block WARM_PETRIFIED_OAK_WOOD = register("warm_petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block CHERRY_PETRIFIED_OAK_LOG = register("cherry_petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block CHERRY_PETRIFIED_OAK_WOOD = register("cherry_petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
 
     public static final Block PETRIFIED_OAK_PLANKS = register("petrified_oak_planks", petrifiedWoodProperties());
 
@@ -109,12 +127,6 @@ public class PetrifiedTimberBlocks {
                     .strength(1f, 3f)
                     .pushReaction(PushReaction.DESTROY)
     );
-
-    public static final Block PETRIFIED_OAK_LOG = register("petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
-
-    public static final Block PETRIFIED_STRIPPED_OAK_LOG = register("petrified_stripped_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
-
-    public static final Block PETRIFIED_STRIPPED_OAK_WOOD = register("petrified_stripped_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
 
     public static final Block PETRIFIED_OAK_LEAVES = register(
             "petrified_oak_leaves",

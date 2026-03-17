@@ -23,6 +23,10 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
         copy(PetrifiedTimberBlockTags.PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.PETRIFIED_OAK_LOGS);
+        copy(PetrifiedTimberBlockTags.SHADOW_PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.SHADOW_PETRIFIED_OAK_LOGS);
+        copy(PetrifiedTimberBlockTags.WARM_PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.WARM_PETRIFIED_OAK_LOGS);
+        copy(PetrifiedTimberBlockTags.CHERRY_PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.CHERRY_PETRIFIED_OAK_LOGS);
+        copy(PetrifiedTimberBlockTags.ALL_PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.ALL_PETRIFIED_OAK_LOGS);
         copy(PetrifiedTimberBlockTags.RESIN_COVERED_OAK_LOGS, PetrifiedTimberItemTags.RESIN_COVERED_OAK_LOGS);
         copy(PetrifiedTimberBlockTags.PETRIFIED_APPLES, PetrifiedTimberItemTags.PETRIFIED_APPLES);
         copy(BlockTags.SIGNS, ItemTags.SIGNS);

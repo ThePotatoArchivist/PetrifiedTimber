@@ -69,6 +69,15 @@ public class ModelGenerator extends FabricModelProvider {
         blockModelGenerators.woodProvider(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG)
                 .logWithHorizontal(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG)
                 .wood(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_WOOD);
+        blockModelGenerators.woodProvider(PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LOG)
+                .logWithHorizontal(PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LOG)
+                .wood(PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_WOOD);
+        blockModelGenerators.woodProvider(PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG)
+                .logWithHorizontal(PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG)
+                .wood(PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_WOOD);
+        blockModelGenerators.woodProvider(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG)
+                .logWithHorizontal(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG)
+                .wood(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
         blockModelGenerators.createPlantWithDefaultItem(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING, PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
         blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
         blockModelGenerators.createShelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);

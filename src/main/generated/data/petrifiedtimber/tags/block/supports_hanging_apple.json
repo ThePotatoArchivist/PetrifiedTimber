@@ -2,7 +2,7 @@
   "values": [
     "#minecraft:leaves",
     "#minecraft:logs",
-    "#petrifiedtimber:petrified_oak_logs",
+    "#petrifiedtimber:all_petrified_oak_logs",
     "petrifiedtimber:petrified_oak_leaves"
   ]
 }

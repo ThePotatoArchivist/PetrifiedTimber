@@ -34,12 +34,18 @@ public class BlockLootTableGenerator extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_WOOD);
-        dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS);
-        dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG);
+        dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_WOOD);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_WOOD);
+        dropSelf(PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LOG);
+        dropSelf(PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_WOOD);
+        dropSelf(PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG);
+        dropSelf(PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_WOOD);
+        dropSelf(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG);
+        dropSelf(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
+        dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS);
+        dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN);
