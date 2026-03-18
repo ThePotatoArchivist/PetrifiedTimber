@@ -1,4 +1,4 @@
-// 1.21.11	-999999999-01-01T00:00:00	PetrifiedTimber/Configured Features
+// 1.21.11	-999999999-01-01T00:00:00	PetrifiedTimber/Features
 f925a4dfcc53337876cbe82f4b9316605bc587fa data/petrifiedtimber/worldgen/configured_feature/classic_petrified_oak.json
 ee8619fe9115beb1bf95e8c86f6914428d6ee7c7 data/petrifiedtimber/worldgen/configured_feature/mega_petrified_biome_tree.json
 d818470951a003b128412fd2d3035110b96b2572 data/petrifiedtimber/worldgen/configured_feature/mega_petrified_jungle.json
@@ -12,3 +12,5 @@ b76ff0e8fce101c49ebe5ca98e6ad79db6713f81 data/petrifiedtimber/worldgen/configure
 d616ee41352fecda4fcefb9c0be47ce77783b796 data/petrifiedtimber/worldgen/configured_feature/petrified_oak.json
 5d1c65b2d5067643d0f2e949f255dc9944c3dcba data/petrifiedtimber/worldgen/configured_feature/petrified_pale_oak.json
 8889ad93bbee5661310a69c08dc72e35678ae865 data/petrifiedtimber/worldgen/configured_feature/petrified_spruce.json
+0a16a9e6d5054b9be63003ed02d4f5cc130496b7 data/petrifiedtimber/worldgen/configured_feature/swamp_bush.json
+12edb2548a357cbf516467640562b6509092bc4f data/petrifiedtimber/worldgen/placed_feature/swamp_bush.json

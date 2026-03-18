@@ -23,6 +23,6 @@ public class PetrifiedSaplingBlock extends CropSaplingBlock {
 
     public static boolean canGrowNaturally(Level level, BlockPos pos) {
         var below = level.getBlockState(pos.below());
-        return below.is(PetrifiedTimberBlockTags.PETRIFIED_SAPLING_GROWS_ON) && (!below.hasProperty(FarmBlock.MOISTURE) || below.getValue(FarmBlock.MOISTURE) > 0);
+        return below.is(PetrifiedTimberBlockTags.PETRIFIED_SAPLING_GROWS_ON) && below.getValueOrElse(FarmBlock.MOISTURE, 1) > 0;
     }
 }

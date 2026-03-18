@@ -6,6 +6,8 @@ import archives.tater.petrifiedtimber.worldgen.CornerCutFoliagePlacer;
 import archives.tater.petrifiedtimber.worldgen.CuboidFoliagePlacer;
 import archives.tater.petrifiedtimber.worldgen.FailFeature;
 
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -14,12 +16,14 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.grower.TreeGrower;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.Optional;
 
@@ -52,6 +56,9 @@ public class PetrifiedTimberWorldgen {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_DARK_OAK = configuredFeature("petrified_dark_oak");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_PALE_OAK = configuredFeature("petrified_pale_oak");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SWAMP_BUSH = configuredFeature("swamp_bush");
+    public static final ResourceKey<PlacedFeature> PLACED_SWAMP_BUSH = ResourceKey.create(Registries.PLACED_FEATURE, SWAMP_BUSH.identifier());
+
     public static final Feature<BiomeDependentFeature.Configuration> BIOME_DEPENDENT = featureType(
             "biome_dependent",
             new BiomeDependentFeature(BiomeDependentFeature.Configuration.CODEC)
@@ -74,11 +81,16 @@ public class PetrifiedTimberWorldgen {
     );
 
     public static final TagKey<Biome> HAS_MEGA_PETRIFIED_OAK_TREE = TagKey.create(Registries.BIOME, PetrifiedTimber.id("has_mega_petrified_oak_tree"));
+    public static final TagKey<Biome> HAS_SWAMP_BUSH = TagKey.create(Registries.BIOME, PetrifiedTimber.id("has_swamp_bush"));
 
     public static final FoliagePlacerType<CuboidFoliagePlacer> CUBOID_FOLIAGE_PLACER = foliagePlacer("cuboid", CuboidFoliagePlacer.CODEC);
     public static final FoliagePlacerType<CornerCutFoliagePlacer> CORNER_CUT_FOLIAGE_PLACER = foliagePlacer("corner_cut", CornerCutFoliagePlacer.CODEC);
 
     public static void init() {
-
+        BiomeModifications.addFeature(
+                context -> context.hasTag(HAS_SWAMP_BUSH),
+                GenerationStep.Decoration.VEGETAL_DECORATION,
+                PLACED_SWAMP_BUSH
+        );
     }
 }

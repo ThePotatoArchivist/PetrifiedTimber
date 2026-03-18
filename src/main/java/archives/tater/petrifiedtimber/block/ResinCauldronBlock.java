@@ -93,7 +93,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
     }
 
     private static int getFillLevel(BlockState state) {
-        return state.hasProperty(LEVEL) ? state.getValue(LEVEL) : 0;
+        return state.getValueOrElse(LEVEL, 0);
     }
 
     /**

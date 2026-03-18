@@ -10,14 +10,16 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 
-import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.HolderSet;
+import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.TreeFeatures;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
@@ -26,20 +28,28 @@ import net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFea
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration.TreeConfigurationBuilder;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import static net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate.*;
 import static net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider.simple;
+import static net.minecraft.world.level.levelgen.placement.HeightmapPlacement.onHeightmap;
+import static net.minecraft.world.level.levelgen.placement.InSquarePlacement.spread;
+import static net.minecraft.world.level.levelgen.placement.RarityFilter.onAverageOnceEvery;
 
-public class ConfiguredFeatureGenerator extends FabricDynamicRegistryProvider {
+public class FeatureGenerator extends FabricDynamicRegistryProvider {
 
-    public ConfiguredFeatureGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public FeatureGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
@@ -96,7 +106,7 @@ public class ConfiguredFeatureGenerator extends FabricDynamicRegistryProvider {
         ));
 
         entries.add(PetrifiedTimberWorldgen.CLASSIC_PETRIFIED_OAK_FEATURE, new ConfiguredFeature<>(
-                TreeFeature.SIMPLE_RANDOM_SELECTOR,
+                Feature.SIMPLE_RANDOM_SELECTOR,
                 new SimpleRandomFeatureConfiguration(HolderSet.direct(
                         placedFeature(Holder.direct(new ConfiguredFeature<>(Feature.TREE, new TreeConfigurationBuilder(
                                 simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG),
@@ -114,10 +124,32 @@ public class ConfiguredFeatureGenerator extends FabricDynamicRegistryProvider {
                         ).build())))
                 ))
         ));
+
+        entries.add(PetrifiedTimberWorldgen.PLACED_SWAMP_BUSH, new PlacedFeature(
+                entries.add(PetrifiedTimberWorldgen.SWAMP_BUSH, new ConfiguredFeature<>(Feature.TREE, new TreeConfigurationBuilder(
+                        simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG),
+                        new StraightTrunkPlacer(1, 0, 0),
+                        new WeightedStateProvider(new WeightedList.Builder<BlockState>()
+                                .add(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, true), 1)
+                                .add(Blocks.WATER.defaultBlockState(), 3)
+                        ),
+                        new BushFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 1),
+                        new TwoLayersFeatureSize(1, 0, 1)
+                ).build())),
+                List.of(
+                        spread(),
+                        onHeightmap(Heightmap.Types.OCEAN_FLOOR_WG),
+                        BlockPredicateFilter.forPredicate(allOf(
+                                matchesFluids(new Vec3i(0, 1, 0), Fluids.WATER),
+                                wouldSurvive(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING.defaultBlockState(), Vec3i.ZERO)
+                        )),
+                        onAverageOnceEvery(4)
+                )
+        ));
     }
 
     @Override
     public String getName() {
-        return "Configured Features";
+        return "Features";
     }
 }
