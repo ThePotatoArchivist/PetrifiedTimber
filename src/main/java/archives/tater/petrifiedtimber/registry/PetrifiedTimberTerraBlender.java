@@ -52,13 +52,9 @@ public class PetrifiedTimberTerraBlender implements TerraBlenderApi {
         Regions.register(new Region(PetrifiedTimberWorldgen.PETRIFIED_FOREST.identifier(), RegionType.OVERWORLD, 2) {
             @Override
             public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
-                addSurfaceBiome(mapper, FULL_RANGE, FULL_RANGE, mushroomFieldsContinentalness, FULL_RANGE, FULL_RANGE, 0f, PetrifiedTimberWorldgen.PETRIFIED_FOREST);
-
-                for (int i = 0; i < temperatures.length; i++) {
-                    var temperature = temperatures[i];
-                    addSurfaceBiome(mapper, temperature, FULL_RANGE, deepOceanContinentalness, FULL_RANGE, FULL_RANGE, 0f, OCEANS[0][i]);
-                    addSurfaceBiome(mapper, temperature, FULL_RANGE, oceanContinentalness, FULL_RANGE, FULL_RANGE, 0f, OCEANS[1][i]);
-                }
+                addModifiedVanillaOverworldBiomes(mapper, builder -> {
+                    builder.replaceBiome(Biomes.MUSHROOM_FIELDS, PetrifiedTimberWorldgen.PETRIFIED_FOREST);
+                });
             }
         });
     }
