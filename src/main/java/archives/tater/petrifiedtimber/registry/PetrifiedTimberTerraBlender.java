@@ -1,0 +1,29 @@
+package archives.tater.petrifiedtimber.registry;
+
+import com.mojang.datafixers.util.Pair;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Climate;
+
+import terrablender.api.Region;
+import terrablender.api.RegionType;
+import terrablender.api.Regions;
+import terrablender.api.TerraBlenderApi;
+
+import java.util.function.Consumer;
+
+public class PetrifiedTimberTerraBlender implements TerraBlenderApi {
+
+    public static final Climate.Parameter FULL_RANGE = Climate.Parameter.span(-1f, 1f);
+
+    @Override
+    public void onTerraBlenderInitialized() {
+        Regions.register(new Region(PetrifiedTimberWorldgen.PETRIFIED_FOREST.identifier(), RegionType.OVERWORLD, 2) {
+            @Override
+            public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
+                mapper.accept(new Pair<>(Climate.parameters(FULL_RANGE, FULL_RANGE, Climate.Parameter.span(-1.2f, -1.15f), FULL_RANGE, FULL_RANGE, Climate.Parameter.point(0f), 0f), PetrifiedTimberWorldgen.PETRIFIED_FOREST));
+            }
+        });
+    }
+}
