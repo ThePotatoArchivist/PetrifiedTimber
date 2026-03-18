@@ -56,6 +56,10 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         return Holder.direct(new PlacedFeature(feature, Arrays.asList(modifiers)));
     }
 
+    private static Holder<PlacedFeature> placedFeature(ConfiguredFeature<?, ?> feature, PlacementModifier... modifiers) {
+        return placedFeature(Holder.direct(feature), modifiers);
+    }
+
     private static ConfiguredFeature<TreeConfiguration, TreeFeature> modifyTree(Holder<ConfiguredFeature<?, ?>> original, Block log) {
         var config = (TreeConfiguration) original.value().config();
         return new ConfiguredFeature<>((TreeFeature) original.value().feature(), new TreeConfigurationBuilder(
@@ -167,9 +171,14 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         ));
 
         entries.add(PetrifiedTimberWorldgen.PLACED_ROCK, new PlacedFeature(
-                entries.add(PetrifiedTimberWorldgen.ROCK, new ConfiguredFeature<>(Feature.FOREST_ROCK, new BlockStateConfiguration(
-                        Blocks.STONE.defaultBlockState()
-                ))),
+                entries.add(PetrifiedTimberWorldgen.ROCK, new ConfiguredFeature<>(Feature.SIMPLE_RANDOM_SELECTOR, new SimpleRandomFeatureConfiguration(HolderSet.direct(
+                        placedFeature(new ConfiguredFeature<>(Feature.FOREST_ROCK, new BlockStateConfiguration(
+                                Blocks.COBBLESTONE.defaultBlockState()
+                        ))),
+                        placedFeature(new ConfiguredFeature<>(Feature.BLOCK_PILE, new BlockPileConfiguration(
+                                simple(Blocks.COBBLESTONE)
+                        )))
+                )))),
                 List.of(
                     CountPlacement.of(ConstantInt.of(12)),
                     spread(),
