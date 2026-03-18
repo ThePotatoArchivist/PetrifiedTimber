@@ -78,6 +78,9 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .forceAddTag(BlockTags.LOGS)
                 .addTag(PetrifiedTimberBlockTags.ALL_PETRIFIED_OAK_LOGS)
                 .add(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES);
+        valueLookupBuilder(PetrifiedTimberBlockTags.PETRIFIED_SAPLING_GROWS_ON).add(
+                Blocks.FARMLAND
+        );
         valueLookupBuilder(PetrifiedTimberBlockTags.PETRIFIED_APPLES).add(
                 PetrifiedTimberBlocks.WHITE_PETRIFIED_APPLE,
                 PetrifiedTimberBlocks.ORANGE_PETRIFIED_APPLE,

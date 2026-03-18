@@ -3,6 +3,8 @@ package archives.tater.petrifiedtimber.block;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -30,6 +32,12 @@ public class PetrifiedSaplingCropBlock extends TransformingCropBlock {
     protected BlockState getResult() {
         return PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING.defaultBlockState()
                 .setValue(CropSaplingBlock.CROP, true);
+    }
+
+    @Override
+    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (PetrifiedSaplingBlock.canGrowNaturally(level, pos))
+            super.randomTick(state, level, pos, random);
     }
 
     @Override

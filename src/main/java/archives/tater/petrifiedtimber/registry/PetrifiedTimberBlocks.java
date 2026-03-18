@@ -115,11 +115,12 @@ public class PetrifiedTimberBlocks {
 
     public static final Block PETRIFIED_OAK_SAPLING = register(
             "petrified_oak_sapling",
-            CropSaplingBlock::new,
+            PetrifiedSaplingBlock::new,
             PetrifiedTimberWorldgen.PETRIFIED_OAK_GROWER,
             petrifiedWoodProperties()
                     .noCollision()
                     .strength(1f, 3f)
+                    .randomTicks()
                     .pushReaction(PushReaction.DESTROY)
     );
 
@@ -129,6 +130,7 @@ public class PetrifiedTimberBlocks {
             petrifiedWoodProperties()
                     .noCollision()
                     .strength(1f, 3f)
+                    .randomTicks()
                     .pushReaction(PushReaction.DESTROY)
     );
 
