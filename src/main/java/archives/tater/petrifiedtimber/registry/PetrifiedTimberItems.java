@@ -32,6 +32,10 @@ public class PetrifiedTimberItems {
         return register(PetrifiedTimber.id(path), block, properties);
     }
 
+    private static Item register(String path, Function<Item.Properties, Item> block) {
+        return register(PetrifiedTimber.id(path), block, new Item.Properties());
+    }
+
     private static Item register(String path, Item.Properties properties) {
         return register(path, Item::new, properties);
     }
@@ -68,6 +72,7 @@ public class PetrifiedTimberItems {
     public static final Item CHERRY_PETRIFIED_OAK_WOOD = register(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
     public static final Item PETRIFIED_OAK_PLANKS = register(PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS);
     public static final Item PETRIFIED_OAK_SAPLING = register(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
+    public static final Item PETRIFIED_OAK_SEEDS = register("petrified_oak_seeds", properties -> new BlockItem(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP, properties));
     public static final Item PETRIFIED_OAK_LEAVES = register(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES);
     public static final Item PETRIFIED_OAK_PRESSURE_PLATE = register(PetrifiedTimberBlocks.PETRIFIED_OAK_PRESSURE_PLATE);
     public static final Item PETRIFIED_OAK_TRAPDOOR = register(PetrifiedTimberBlocks.PETRIFIED_OAK_TRAPDOOR);
@@ -161,6 +166,7 @@ public class PetrifiedTimberItems {
                     output.accept(PETRIFIED_OAK_BOAT);
                     output.accept(PETRIFIED_OAK_CHEST_BOAT);
                     output.accept(PETRIFIED_OAK_SAPLING);
+                    output.accept(PETRIFIED_OAK_SEEDS);
                     output.accept(PETRIFIED_OAK_LEAVES);
                     output.accept(PETRIFIED_LEAF);
                     output.accept(MELTED_RESIN_BOTTLE);

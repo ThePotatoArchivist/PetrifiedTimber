@@ -123,6 +123,15 @@ public class PetrifiedTimberBlocks {
                     .pushReaction(PushReaction.DESTROY)
     );
 
+    public static final Block PETRIFIED_OAK_SAPLING_CROP = register(
+            "petrified_oak_sapling_crop",
+            PetrifiedSaplingCropBlock::new,
+            petrifiedWoodProperties()
+                    .noCollision()
+                    .strength(1f, 3f)
+                    .pushReaction(PushReaction.DESTROY)
+    );
+
     public static final Block PETRIFIED_OAK_LEAVES = register(
             "petrified_oak_leaves",
             PetrifiedLeavesBlock::new,

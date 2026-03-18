@@ -1,13 +1,15 @@
 // 1.21.11	-999999999-01-01T00:00:00	PetrifiedTimber/Tags for minecraft:block
 e237920ef1c2bc205347fad1f9287e544f223b76 data/minecraft/tags/block/cauldrons.json
 898ff0e11070e07507b4b2252d892577604ba7d1 data/minecraft/tags/block/ceiling_hanging_signs.json
+2199407769498a69c8531a81e78c7ed098e3a80e data/minecraft/tags/block/crops.json
 dcbaedd3f8400f927fe4e33b1bd92f34c24b3788 data/minecraft/tags/block/doors.json
 ec39028232b27c5d71a2b81ba293e22bcf381b83 data/minecraft/tags/block/fence_gates.json
 e621de1b3550fdb051f514b35c02918aca1e1c2a data/minecraft/tags/block/fences.json
 c888cd6544b79e63b89e55ed09084a3ef377e925 data/minecraft/tags/block/flower_pots.json
 5c4414fdae9c8812771d92108655aad8693f3d10 data/minecraft/tags/block/leaves.json
 4b88c10d452d30d46b2126061b1e039f6e835f78 data/minecraft/tags/block/logs_that_burn.json
-d1f2372424cb3d420e79283ee2981ff9776aeaea data/minecraft/tags/block/mineable/pickaxe.json
+0a4efc11ae1f7da445e316a30a0e1fef62cdde4c data/minecraft/tags/block/maintains_farmland.json
+b45bb362006ded06f36849b64d153f95814c5567 data/minecraft/tags/block/mineable/pickaxe.json
 c623fe733a302305b756229cb97d0149964ca833 data/minecraft/tags/block/planks.json
 f1e50ca01b65c97c273fc170c7e5e5f66556cea6 data/minecraft/tags/block/saplings.json
 edea82ac6d5144a177bb841bacc2c650bd069b97 data/minecraft/tags/block/signs.json

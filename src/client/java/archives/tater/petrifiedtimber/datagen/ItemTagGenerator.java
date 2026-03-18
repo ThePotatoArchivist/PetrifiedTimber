@@ -6,6 +6,7 @@ import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
@@ -45,5 +46,6 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
         valueLookupBuilder(ItemTags.BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_BOAT);
         valueLookupBuilder(ItemTags.CHEST_BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT);
+        valueLookupBuilder(ConventionalItemTags.SEEDS).add(PetrifiedTimberItems.PETRIFIED_OAK_SEEDS);
     }
 }

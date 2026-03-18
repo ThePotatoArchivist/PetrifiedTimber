@@ -2,6 +2,7 @@ package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.block.AppleBlock;
+import archives.tater.petrifiedtimber.block.PetrifiedSaplingCropBlock;
 import archives.tater.petrifiedtimber.block.ResinCauldronBlock;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
@@ -16,6 +17,7 @@ import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -79,6 +81,7 @@ public class ModelGenerator extends FabricModelProvider {
                 .logWithHorizontal(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG)
                 .wood(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
         blockModelGenerators.createPlantWithDefaultItem(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING, PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        createCrossCrop(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP, PetrifiedSaplingCropBlock.AGE, blockModelGenerators);
         blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
         blockModelGenerators.createShelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);
         blockModelGenerators.createHangingSign(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG, PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
@@ -117,6 +120,22 @@ public class ModelGenerator extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_LEAF, ModelTemplates.FLAT_ITEM);
+    }
+
+    public static final ModelTemplate CROSS_CROP = new ModelTemplate(Optional.of(PetrifiedTimber.id("block/cross_crop")), Optional.empty(), TextureSlot.CROP);
+
+    private void createCrossCrop(Block block, IntegerProperty ageProperty, BlockModelGenerators blockModelGenerators) {
+        blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
+                .with(PropertyDispatch.initial(ageProperty).generate(age ->
+                        plainVariant(blockModelGenerators.createSuffixedVariant(
+                                block,
+                                "_stage" + age,
+                                CROSS_CROP,
+                                TextureMapping::crop
+                        ))
+                ))
+        );
+        blockModelGenerators.registerSimpleFlatItemModel(block.asItem());
     }
 
     private static final Path RESIN_CAULDRON_TEMPLATE = FabricLoader.getInstance()

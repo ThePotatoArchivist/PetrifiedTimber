@@ -1,0 +1,6 @@
+{
+  "parent": "petrifiedtimber:block/cross_crop",
+  "textures": {
+    "crop": "petrifiedtimber:block/petrified_oak_sapling_crop_stage2"
+  }
+}

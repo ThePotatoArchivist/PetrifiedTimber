@@ -46,6 +46,7 @@ public class BlockLootTableGenerator extends FabricBlockLootTableProvider {
         dropSelf(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
+        dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN);
@@ -62,55 +63,40 @@ public class BlockLootTableGenerator extends FabricBlockLootTableProvider {
         dropSelf(PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_WOOD);
         dropSelf(PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS);
 
-        dropAppleCount(PetrifiedTimberBlocks.WHITE_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.WHITE_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.WHITE_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.ORANGE_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.ORANGE_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.ORANGE_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.MAGENTA_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.MAGENTA_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.MAGENTA_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.LIGHT_BLUE_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.LIGHT_BLUE_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.LIGHT_BLUE_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.YELLOW_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.YELLOW_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.LIME_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.LIME_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.LIME_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.PINK_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.PINK_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.PINK_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.GRAY_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.GRAY_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.GRAY_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.LIGHT_GRAY_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.LIGHT_GRAY_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.LIGHT_GRAY_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.CYAN_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.CYAN_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.CYAN_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.PURPLE_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.PURPLE_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.PURPLE_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.BLUE_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.BLUE_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.BLUE_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.BROWN_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.BROWN_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.BROWN_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.GREEN_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.GREEN_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.GREEN_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.RED_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.RED_PETRIFIED_APPLE);
-        dropAppleCount(PetrifiedTimberBlocks.BLACK_PETRIFIED_APPLE);
-        dropOther(PetrifiedTimberBlocks.BLACK_HANGING_PETRIFIED_APPLE, PetrifiedTimberItems.BLACK_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.WHITE_PETRIFIED_APPLE, PetrifiedTimberBlocks.WHITE_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.ORANGE_PETRIFIED_APPLE, PetrifiedTimberBlocks.ORANGE_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.MAGENTA_PETRIFIED_APPLE, PetrifiedTimberBlocks.MAGENTA_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.LIGHT_BLUE_PETRIFIED_APPLE, PetrifiedTimberBlocks.LIGHT_BLUE_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.YELLOW_PETRIFIED_APPLE, PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.LIME_PETRIFIED_APPLE, PetrifiedTimberBlocks.LIME_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.PINK_PETRIFIED_APPLE, PetrifiedTimberBlocks.PINK_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.GRAY_PETRIFIED_APPLE, PetrifiedTimberBlocks.GRAY_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.LIGHT_GRAY_PETRIFIED_APPLE, PetrifiedTimberBlocks.LIGHT_GRAY_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.CYAN_PETRIFIED_APPLE, PetrifiedTimberBlocks.CYAN_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.PURPLE_PETRIFIED_APPLE, PetrifiedTimberBlocks.PURPLE_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.BLUE_PETRIFIED_APPLE, PetrifiedTimberBlocks.BLUE_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.BROWN_PETRIFIED_APPLE, PetrifiedTimberBlocks.BROWN_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.GREEN_PETRIFIED_APPLE, PetrifiedTimberBlocks.GREEN_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.RED_PETRIFIED_APPLE, PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE);
+        addApple(PetrifiedTimberBlocks.BLACK_PETRIFIED_APPLE, PetrifiedTimberBlocks.BLACK_HANGING_PETRIFIED_APPLE);
 
         add(PetrifiedTimberBlocks.PETRIFIED_OAK_DOOR, this::createDoorTable);
         dropOther(PetrifiedTimberBlocks.RESIN_CAULDRON, Items.CAULDRON);
         add(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, this::createPetrifiedLeavesTable);
     }
 
-    private void dropAppleCount(Block block) {
-        add(block, lootTable().withPool(lootPool()
+    private void addApple(Block main, Block hanging) {
+        add(main, lootTable().withPool(lootPool()
                 .setRolls(exactly(1))
-                .add(applyExplosionDecay(block, lootTableItem(block)
+                .add(applyExplosionDecay(main, lootTableItem(main)
                         .apply(List.of(2, 3, 4), count -> setCount(exactly(count))
-                                .when(hasBlockStateProperties(block).setProperties(properties()
+                                .when(hasBlockStateProperties(main).setProperties(properties()
                                         .hasProperty(AppleBlock.APPLES, count)
                                 ))
                         )
                 ))
         ));
+        dropOther(hanging, main);
     }
 
     private LootTable.Builder createPetrifiedLeavesTable(Block block) {

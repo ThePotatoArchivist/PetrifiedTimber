@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "petrifiedtimber:block/petrified_oak_sapling_crop_stage0"
+    },
+    "age=1": {
+      "model": "petrifiedtimber:block/petrified_oak_sapling_crop_stage1"
+    },
+    "age=2": {
+      "model": "petrifiedtimber:block/petrified_oak_sapling_crop_stage2"
+    }
+  }
+}

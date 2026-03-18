@@ -34,6 +34,7 @@
   "block.petrifiedtimber.petrified_oak_planks": "Petrified Oak Planks",
   "block.petrifiedtimber.petrified_oak_pressure_plate": "Petrified Oak Pressure Plate",
   "block.petrifiedtimber.petrified_oak_sapling": "Petrified Oak Sapling",
+  "block.petrifiedtimber.petrified_oak_sapling_crop": "Petrified Oak Sapling Crop",
   "block.petrifiedtimber.petrified_oak_shelf": "Petrified Oak Shelf",
   "block.petrifiedtimber.petrified_oak_sign": "Petrified Oak Sign",
   "block.petrifiedtimber.petrified_oak_slab": "Petrified Oak Slab",
@@ -69,5 +70,6 @@
   "item.petrifiedtimber.petrified_leaf": "Petrified Leaf",
   "item.petrifiedtimber.petrified_oak_boat": "Petrified Oak Boat",
   "item.petrifiedtimber.petrified_oak_chest_boat": "Petrified Oak Boat with Chest",
+  "item.petrifiedtimber.petrified_oak_seeds": "Petrified Oak Seeds",
   "itemGroup.petrifiedtimber.petrified_timber": "Petrified Timber"
 }

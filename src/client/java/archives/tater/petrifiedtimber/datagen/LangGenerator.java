@@ -59,6 +59,7 @@ public class LangGenerator extends FabricLanguageProvider {
         add(translationBuilder, PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG);
         add(translationBuilder, PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
         add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
+        add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP);
         add(translationBuilder, PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING);
         add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES);
         add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF);
@@ -69,6 +70,7 @@ public class LangGenerator extends FabricLanguageProvider {
         add(translationBuilder, PetrifiedTimberBlocks.RESIN_COVERED_STRIPPED_OAK_WOOD);
         add(translationBuilder, PetrifiedTimberBlocks.RESIN_COVERED_OAK_PLANKS);
 
+        add(translationBuilder, PetrifiedTimberItems.PETRIFIED_OAK_SEEDS);
         add(translationBuilder, PetrifiedTimberBlocks.WHITE_PETRIFIED_APPLE);
         add(translationBuilder, PetrifiedTimberBlocks.WHITE_HANGING_PETRIFIED_APPLE);
         add(translationBuilder, PetrifiedTimberBlocks.ORANGE_PETRIFIED_APPLE);
