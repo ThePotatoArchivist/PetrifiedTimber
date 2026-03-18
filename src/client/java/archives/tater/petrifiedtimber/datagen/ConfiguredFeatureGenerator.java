@@ -64,7 +64,7 @@ public class ConfiguredFeatureGenerator extends FabricDynamicRegistryProvider {
                                 1,
                                 simple(PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE),
                                 1,
-                                List.of(Direction.UP)
+                                List.of(Direction.DOWN)
                         )
                 ))
                 .build());
@@ -87,7 +87,7 @@ public class ConfiguredFeatureGenerator extends FabricDynamicRegistryProvider {
 
         entries.add(PetrifiedTimberWorldgen.MEGA_PETRIFIED_BIOME_TREE_FEATURE, new ConfiguredFeature<>(
                 PetrifiedTimberWorldgen.BIOME_DEPENDENT,
-                BiomeDependentFeature.builder(placedFeature(Holder.direct(new ConfiguredFeature<>(Feature.NO_OP, NoneFeatureConfiguration.INSTANCE))))
+                BiomeDependentFeature.builder(placedFeature(Holder.direct(new ConfiguredFeature<>(PetrifiedTimberWorldgen.FAIL, NoneFeatureConfiguration.INSTANCE))))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.MEGA_PETRIFIED_SPRUCE, modifyTree(registries.getOrThrow(TreeFeatures.MEGA_SPRUCE), PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LOG))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_SPRUCE))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.MEGA_PETRIFIED_JUNGLE, modifyTree(registries.getOrThrow(TreeFeatures.MEGA_JUNGLE_TREE), PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_JUNGLE))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_DARK_OAK, modifyTree(registries.getOrThrow(TreeFeatures.DARK_OAK), PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LOG))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_DARK_OAK))

@@ -14,7 +14,7 @@
           }
         },
         "directions": [
-          "up"
+          "down"
         ],
         "exclusion_radius_xz": 2,
         "exclusion_radius_y": 1,

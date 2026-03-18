@@ -3,7 +3,7 @@
   "config": {
     "default": {
       "feature": {
-        "type": "minecraft:no_op",
+        "type": "petrifiedtimber:fail",
         "config": {}
       },
       "placement": []

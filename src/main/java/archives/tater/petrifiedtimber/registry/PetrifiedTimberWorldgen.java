@@ -4,6 +4,7 @@ import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.worldgen.BiomeDependentFeature;
 import archives.tater.petrifiedtimber.worldgen.CornerCutFoliagePlacer;
 import archives.tater.petrifiedtimber.worldgen.CuboidFoliagePlacer;
+import archives.tater.petrifiedtimber.worldgen.FailFeature;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;
@@ -13,12 +14,18 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 
 import java.util.Optional;
 
 public class PetrifiedTimberWorldgen {
+    private static <F extends Feature<FC>, FC extends FeatureConfiguration> F featureType(String path, F type) {
+        return Registry.register(BuiltInRegistries.FEATURE, PetrifiedTimber.id(path), type);
+    }
+
     private static ResourceKey<ConfiguredFeature<?, ?>> configuredFeature(String path) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, PetrifiedTimber.id(path));
     }
@@ -43,10 +50,14 @@ public class PetrifiedTimberWorldgen {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_DARK_OAK = configuredFeature("petrified_dark_oak");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_PALE_OAK = configuredFeature("petrified_pale_oak");
 
-    public static final Feature<BiomeDependentFeature.Configuration> BIOME_DEPENDENT = Registry.register(
-            BuiltInRegistries.FEATURE,
-            PetrifiedTimber.id("biome_dependent"),
+    public static final Feature<BiomeDependentFeature.Configuration> BIOME_DEPENDENT = featureType(
+            "biome_dependent",
             new BiomeDependentFeature(BiomeDependentFeature.Configuration.CODEC)
+    );
+    
+    public static final Feature<NoneFeatureConfiguration> FAIL = featureType(
+            "fail",
+            new FailFeature(NoneFeatureConfiguration.CODEC)
     );
 
     public static final TreeGrower PETRIFIED_OAK_GROWER = new TreeGrower(
