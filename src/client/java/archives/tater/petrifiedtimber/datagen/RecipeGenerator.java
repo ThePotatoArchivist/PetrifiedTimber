@@ -2,6 +2,7 @@ package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberItemTags;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -58,6 +59,11 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
             stonecutterResultFromBase(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_SHELF, PetrifiedTimberItems.PETRIFIED_STRIPPED_OAK_LOG);
             stonecutterResultFromBase(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberItems.PETRIFIED_STRIPPED_OAK_LOG);
+
+            shapeless(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_SEEDS, 4)
+                    .requires(PetrifiedTimberItemTags.PETRIFIED_APPLES)
+                    .unlockedBy("has_petrified_aple", has(PetrifiedTimberItemTags.PETRIFIED_APPLES))
+                    .save(output);
 
             threeByThreePacker(RecipeCategory.DECORATIONS, PetrifiedTimberItems.PETRIFIED_OAK_LEAVES, PetrifiedTimberItems.PETRIFIED_LEAF);
 
