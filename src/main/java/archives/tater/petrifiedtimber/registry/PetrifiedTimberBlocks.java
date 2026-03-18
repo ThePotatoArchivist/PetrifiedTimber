@@ -115,7 +115,7 @@ public class PetrifiedTimberBlocks {
 
     public static final Block PETRIFIED_OAK_SAPLING = register(
             "petrified_oak_sapling",
-            SaplingBlock::new,
+            CropSaplingBlock::new,
             PetrifiedTimberWorldgen.PETRIFIED_OAK_GROWER,
             petrifiedWoodProperties()
                     .noCollision()

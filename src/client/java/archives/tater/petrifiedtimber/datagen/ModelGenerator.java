@@ -2,6 +2,7 @@ package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.block.AppleBlock;
+import archives.tater.petrifiedtimber.block.CropSaplingBlock;
 import archives.tater.petrifiedtimber.block.PetrifiedSaplingCropBlock;
 import archives.tater.petrifiedtimber.block.ResinCauldronBlock;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
@@ -80,7 +81,7 @@ public class ModelGenerator extends FabricModelProvider {
         blockModelGenerators.woodProvider(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG)
                 .logWithHorizontal(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG)
                 .wood(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
-        blockModelGenerators.createPlantWithDefaultItem(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING, PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED);
+        createCropSapling(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING, PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED, blockModelGenerators);
         createCrossCrop(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP, PetrifiedSaplingCropBlock.AGE, blockModelGenerators);
         blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
         blockModelGenerators.createShelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);
@@ -124,7 +125,7 @@ public class ModelGenerator extends FabricModelProvider {
 
     public static final ModelTemplate CROSS_CROP = new ModelTemplate(Optional.of(PetrifiedTimber.id("block/cross_crop")), Optional.empty(), TextureSlot.CROP);
 
-    private void createCrossCrop(Block block, IntegerProperty ageProperty, BlockModelGenerators blockModelGenerators) {
+    private static void createCrossCrop(Block block, IntegerProperty ageProperty, BlockModelGenerators blockModelGenerators) {
         blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
                 .with(PropertyDispatch.initial(ageProperty).generate(age ->
                         plainVariant(blockModelGenerators.createSuffixedVariant(
@@ -136,6 +137,24 @@ public class ModelGenerator extends FabricModelProvider {
                 ))
         );
         blockModelGenerators.registerSimpleFlatItemModel(block.asItem());
+    }
+
+    private static void createCropSapling(Block block, Block pottedBlock, BlockModelGenerators.PlantType plantType, BlockModelGenerators blockModelGenerators) {
+        blockModelGenerators.registerSimpleItemModel(block.asItem(), plantType.createItemModel(blockModelGenerators, block));
+        var texture = TextureMapping.getBlockTexture(block);
+        blockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(block)
+                .with(PropertyDispatch.initial(CropSaplingBlock.CROP)
+                        .select(false, plainVariant(ModelTemplates.CROSS.create(block, TextureMapping.cross(texture), blockModelGenerators.modelOutput)))
+                        .select(true, plainVariant(CROSS_CROP.createWithSuffix(block, "_crop", TextureMapping.crop(texture), blockModelGenerators.modelOutput)))
+                )
+        );
+        blockModelGenerators.blockStateOutput.accept(createSimpleBlock(pottedBlock, plainVariant(
+                plantType.getCrossPot().create(
+                        pottedBlock,
+                        plantType.getPlantTextureMapping(block),
+                        blockModelGenerators.modelOutput
+                )
+        )));
     }
 
     private static final Path RESIN_CAULDRON_TEMPLATE = FabricLoader.getInstance()

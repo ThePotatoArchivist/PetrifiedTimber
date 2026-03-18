@@ -28,7 +28,8 @@ public class PetrifiedSaplingCropBlock extends TransformingCropBlock {
 
     @Override
     protected BlockState getResult() {
-        return PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING.defaultBlockState();
+        return PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING.defaultBlockState()
+                .setValue(CropSaplingBlock.CROP, true);
     }
 
     @Override

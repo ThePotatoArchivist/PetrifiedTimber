@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "crop=false": {
       "model": "petrifiedtimber:block/petrified_oak_sapling"
+    },
+    "crop=true": {
+      "model": "petrifiedtimber:block/petrified_oak_sapling_crop"
     }
   }
 }
