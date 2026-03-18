@@ -1,8 +1,10 @@
 package archives.tater.petrifiedtimber;
 
+import archives.tater.petrifiedtimber.client.particle.DripParticleProvider;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberEntities;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberParticles;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
@@ -76,5 +78,15 @@ public class PetrifiedTimberClient implements ClientModInitializer {
 
 		var meltedResinTexture = PetrifiedTimber.id("block/melted_resin");
 		FluidRenderHandlerRegistry.INSTANCE.register(PetrifiedTimberFluids.MELTED_RESIN, new SimpleFluidRenderHandler(meltedResinTexture, meltedResinTexture));
+
+		DripParticleProvider.registerDrippingParticles(
+				0.87f,
+				0.43f,
+				0.02f,
+				PetrifiedTimberFluids.MELTED_RESIN,
+				PetrifiedTimberParticles.DRIPPING_RESIN,
+				PetrifiedTimberParticles.FALLING_RESIN,
+				PetrifiedTimberParticles.LANDING_RESIN
+		);
 	}
 }

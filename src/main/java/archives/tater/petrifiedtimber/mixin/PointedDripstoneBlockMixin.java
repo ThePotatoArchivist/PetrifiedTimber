@@ -2,6 +2,7 @@ package archives.tater.petrifiedtimber.mixin;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlockTags;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberParticles;
 
 import com.llamalad7.mixinextras.expression.Definition;
 import com.llamalad7.mixinextras.expression.Expression;
@@ -17,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.PointedDripstoneBlock;
@@ -67,5 +69,13 @@ public class PointedDripstoneBlockMixin {
     )
     private static float resinChance(float original, @Share("resin") LocalBooleanRef resin) {
         return resin.get() ? 0.25f : original;
+    }
+
+    @ModifyReturnValue(
+            method = "getDripParticle",
+            at = @At("RETURN")
+    )
+    private static ParticleOptions resinParticle(ParticleOptions original, Level level, Fluid fluid) {
+        return fluid == PetrifiedTimberFluids.MELTED_RESIN ? PetrifiedTimberParticles.DRIPPING_RESIN : original;
     }
 }

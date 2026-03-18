@@ -35,6 +35,7 @@ public class PetrifiedTimber implements ModInitializer {
 		PetrifiedTimberItems.init();
 		PetrifiedTimberFluids.init();
 		PetrifiedTimberEntities.init();
+		PetrifiedTimberParticles.init();
 		PetrifiedTimberWorldgen.init();
 	}
 }
