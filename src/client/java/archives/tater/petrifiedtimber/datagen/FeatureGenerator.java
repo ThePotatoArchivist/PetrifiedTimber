@@ -24,20 +24,14 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration.TreeConfigurationBuilder;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.Arrays;
@@ -169,6 +163,18 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                         forMaxDepth(0),
                         onHeightmap(Heightmap.Types.OCEAN_FLOOR),
                         biome()
+                )
+        ));
+
+        entries.add(PetrifiedTimberWorldgen.PLACED_ROCK, new PlacedFeature(
+                entries.add(PetrifiedTimberWorldgen.ROCK, new ConfiguredFeature<>(Feature.FOREST_ROCK, new BlockStateConfiguration(
+                        Blocks.STONE.defaultBlockState()
+                ))),
+                List.of(
+                    CountPlacement.of(ConstantInt.of(12)),
+                    spread(),
+                    onHeightmap(Heightmap.Types.MOTION_BLOCKING),
+                    biome()
                 )
         ));
     }

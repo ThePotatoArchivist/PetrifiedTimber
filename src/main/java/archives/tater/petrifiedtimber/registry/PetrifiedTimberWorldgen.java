@@ -36,6 +36,10 @@ public class PetrifiedTimberWorldgen {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, PetrifiedTimber.id(path));
     }
 
+    private static ResourceKey<PlacedFeature> placedFeature(ResourceKey<ConfiguredFeature<?, ?>> key) {
+        return ResourceKey.create(Registries.PLACED_FEATURE, key.identifier());
+    }
+
     private static <T extends FoliagePlacer> FoliagePlacerType<T> foliagePlacer(String path, MapCodec<T> codec) {
         return Registry.register(BuiltInRegistries.FOLIAGE_PLACER_TYPE, PetrifiedTimber.id(path), new FoliagePlacerType<>(codec));
     }
@@ -57,12 +61,16 @@ public class PetrifiedTimberWorldgen {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_PALE_OAK = configuredFeature("petrified_pale_oak");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SWAMP_BUSH = configuredFeature("swamp_bush");
-    public static final ResourceKey<PlacedFeature> PLACED_SWAMP_BUSH = ResourceKey.create(Registries.PLACED_FEATURE, SWAMP_BUSH.identifier());
+    public static final ResourceKey<PlacedFeature> PLACED_SWAMP_BUSH = placedFeature(SWAMP_BUSH);
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_PETRIFIED_OAK = configuredFeature("trees_petrified_oak");
-    public static final ResourceKey<PlacedFeature> PLACED_TREES_PETRIFIED_OAK = ResourceKey.create(Registries.PLACED_FEATURE, TREES_PETRIFIED_OAK.identifier());
+    public static final ResourceKey<PlacedFeature> PLACED_TREES_PETRIFIED_OAK = placedFeature(TREES_PETRIFIED_OAK);
+
+    public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK = configuredFeature("rock");
+    public static final ResourceKey<PlacedFeature> PLACED_ROCK = placedFeature(ROCK);
 
     public static final ResourceKey<Biome> PETRIFIED_FOREST = ResourceKey.create(Registries.BIOME, PetrifiedTimber.id("petrified_forest"));
+    public static final ResourceKey<Biome> PETRIFIED_FOREST_EDGE = ResourceKey.create(Registries.BIOME, PetrifiedTimber.id("petrified_forest_edge"));
 
     public static final Feature<BiomeDependentFeature.Configuration> BIOME_DEPENDENT = featureType(
             "biome_dependent",
