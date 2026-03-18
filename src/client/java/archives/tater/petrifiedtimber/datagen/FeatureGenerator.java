@@ -23,7 +23,9 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
+import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration.TreeConfigurationBuilder;
@@ -33,6 +35,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStatePr
 import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.material.Fluids;
@@ -43,9 +46,11 @@ import java.util.concurrent.CompletableFuture;
 
 import static net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate.*;
 import static net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider.simple;
+import static net.minecraft.world.level.levelgen.placement.BiomeFilter.biome;
 import static net.minecraft.world.level.levelgen.placement.HeightmapPlacement.onHeightmap;
 import static net.minecraft.world.level.levelgen.placement.InSquarePlacement.spread;
 import static net.minecraft.world.level.levelgen.placement.RarityFilter.onAverageOnceEvery;
+import static net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilter.forMaxDepth;
 
 public class FeatureGenerator extends FabricDynamicRegistryProvider {
 
@@ -84,9 +89,11 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
     protected void configure(HolderLookup.Provider registries, Entries entries) {
         var biomes = registries.lookupOrThrow(Registries.BIOME);
 
+        var petrifiedOak = entries.add(PetrifiedTimberWorldgen.PETRIFIED_OAK, modifyTree(registries.getOrThrow(TreeFeatures.OAK), PetrifiedTimberBlocks.PETRIFIED_OAK_LOG));
+
         entries.add(PetrifiedTimberWorldgen.PETRIFIED_BIOME_TREE_FEATURE, new ConfiguredFeature<>(
                 PetrifiedTimberWorldgen.BIOME_DEPENDENT,
-                BiomeDependentFeature.builder(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_OAK, modifyTree(registries.getOrThrow(TreeFeatures.OAK), PetrifiedTimberBlocks.PETRIFIED_OAK_LOG))))
+                BiomeDependentFeature.builder(placedFeature(petrifiedOak))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_SPRUCE, modifyTree(registries.getOrThrow(TreeFeatures.SPRUCE), PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LOG))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_SPRUCE))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_BIRCH, modifyTree(registries.getOrThrow(TreeFeatures.BIRCH), PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_BIRCH))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_ACACIA, modifyTree(registries.getOrThrow(TreeFeatures.ACACIA), PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_ACACIA))
@@ -105,7 +112,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                         .build()
         ));
 
-        entries.add(PetrifiedTimberWorldgen.CLASSIC_PETRIFIED_OAK_FEATURE, new ConfiguredFeature<>(
+        var classicPetrifiedOak = entries.add(PetrifiedTimberWorldgen.CLASSIC_PETRIFIED_OAK_FEATURE, new ConfiguredFeature<>(
                 Feature.SIMPLE_RANDOM_SELECTOR,
                 new SimpleRandomFeatureConfiguration(HolderSet.direct(
                         placedFeature(Holder.direct(new ConfiguredFeature<>(Feature.TREE, new TreeConfigurationBuilder(
@@ -144,6 +151,24 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                                 wouldSurvive(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING.defaultBlockState(), Vec3i.ZERO)
                         )),
                         onAverageOnceEvery(4)
+                )
+        ));
+
+        var saplingSurvives = BlockPredicateFilter.forPredicate(wouldSurvive(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING.defaultBlockState(), Vec3i.ZERO));
+
+        entries.add(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK, new PlacedFeature(
+                entries.add(PetrifiedTimberWorldgen.TREES_PETRIFIED_OAK, new ConfiguredFeature<>(Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(
+                        List.of(
+                                new WeightedPlacedFeature(placedFeature(classicPetrifiedOak, saplingSurvives), 0.05f)
+                        ),
+                        placedFeature(petrifiedOak, saplingSurvives)
+                ))),
+                List.of(
+                        CountPlacement.of(ConstantInt.of(10)),
+                        spread(),
+                        forMaxDepth(0),
+                        onHeightmap(Heightmap.Types.OCEAN_FLOOR),
+                        biome()
                 )
         ));
     }

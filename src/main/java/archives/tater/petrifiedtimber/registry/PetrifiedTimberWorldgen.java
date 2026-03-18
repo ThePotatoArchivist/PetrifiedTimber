@@ -59,6 +59,11 @@ public class PetrifiedTimberWorldgen {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SWAMP_BUSH = configuredFeature("swamp_bush");
     public static final ResourceKey<PlacedFeature> PLACED_SWAMP_BUSH = ResourceKey.create(Registries.PLACED_FEATURE, SWAMP_BUSH.identifier());
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_PETRIFIED_OAK = configuredFeature("trees_petrified_oak");
+    public static final ResourceKey<PlacedFeature> PLACED_TREES_PETRIFIED_OAK = ResourceKey.create(Registries.PLACED_FEATURE, TREES_PETRIFIED_OAK.identifier());
+
+    public static final ResourceKey<Biome> PETRIFIED_FOREST = ResourceKey.create(Registries.BIOME, PetrifiedTimber.id("petrified_forest"));
+
     public static final Feature<BiomeDependentFeature.Configuration> BIOME_DEPENDENT = featureType(
             "biome_dependent",
             new BiomeDependentFeature(BiomeDependentFeature.Configuration.CODEC)
