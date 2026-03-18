@@ -136,7 +136,6 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         valueLookupBuilder(BlockTags.STAIRS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_STAIRS);
         valueLookupBuilder(BlockTags.SLABS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_SLAB);
         valueLookupBuilder(BlockTags.SAPLINGS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
-        valueLookupBuilder(BlockTags.LEAVES).add(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES);
         valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
                 .addTag(PetrifiedTimberBlockTags.ALL_PETRIFIED_OAK_LOGS).add(
                 PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS,
