@@ -164,7 +164,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                         placedFeature(petrifiedOak, saplingSurvives)
                 ))),
                 List.of(
-                        CountPlacement.of(ConstantInt.of(10)),
+                        CountPlacement.of(ConstantInt.of(6)),
                         spread(),
                         forMaxDepth(0),
                         onHeightmap(Heightmap.Types.OCEAN_FLOOR),

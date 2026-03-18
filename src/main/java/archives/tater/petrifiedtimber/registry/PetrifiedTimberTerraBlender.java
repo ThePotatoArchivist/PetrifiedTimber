@@ -22,7 +22,7 @@ public class PetrifiedTimberTerraBlender implements TerraBlenderApi {
                 var builder = new VanillaParameterOverlayBuilder();
 
                 new ParameterPointListBuilder()
-                        .continentalness(Parameter.span(-1.3F, -1.2F))
+                        .continentalness(Parameter.span(-1.3F, -1.15F))
                         .build()
                         .forEach(point -> builder.add(point, PetrifiedTimberWorldgen.PETRIFIED_FOREST));
 
