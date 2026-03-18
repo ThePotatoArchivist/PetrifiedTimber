@@ -11,6 +11,8 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -70,6 +72,8 @@ public class PetrifiedTimberWorldgen {
             Optional.empty(),
             Optional.empty()
     );
+
+    public static final TagKey<Biome> HAS_MEGA_PETRIFIED_OAK_TREE = TagKey.create(Registries.BIOME, PetrifiedTimber.id("has_mega_petrified_oak_tree"));
 
     public static final FoliagePlacerType<CuboidFoliagePlacer> CUBOID_FOLIAGE_PLACER = foliagePlacer("cuboid", CuboidFoliagePlacer.CODEC);
     public static final FoliagePlacerType<CornerCutFoliagePlacer> CORNER_CUT_FOLIAGE_PLACER = foliagePlacer("corner_cut", CornerCutFoliagePlacer.CODEC);

@@ -6,7 +6,8 @@
     "CauldronBlockMixin",
     "ExampleMixin",
     "PointedDripstoneBlockInvoker",
-    "PointedDripstoneBlockMixin"
+    "PointedDripstoneBlockMixin",
+    "TreeGrowerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
