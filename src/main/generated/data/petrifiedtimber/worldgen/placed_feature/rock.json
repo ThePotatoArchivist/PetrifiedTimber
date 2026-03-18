@@ -1,20 +1,16 @@
 {
-  "feature": "petrifiedtimber:trees_petrified_oak",
+  "feature": "petrifiedtimber:rock",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 6
+      "count": 12
     },
     {
       "type": "minecraft:in_square"
     },
     {
-      "type": "minecraft:surface_water_depth_filter",
-      "max_water_depth": 0
-    },
-    {
       "type": "minecraft:heightmap",
-      "heightmap": "OCEAN_FLOOR"
+      "heightmap": "MOTION_BLOCKING"
     },
     {
       "type": "minecraft:biome"

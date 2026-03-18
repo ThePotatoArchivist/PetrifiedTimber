@@ -21,6 +21,7 @@ repositories {
 		name = 'ParchmentMC'
 		url = 'https://maven.parchmentmc.org'
 	}
+	maven { url = 'https://maven.minecraftforge.net/' }
 }
 
 loom {
@@ -53,7 +54,8 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-	
+
+	modImplementation include("com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}")
 }
 
 processResources {

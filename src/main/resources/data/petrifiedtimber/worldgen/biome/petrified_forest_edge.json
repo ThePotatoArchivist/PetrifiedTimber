@@ -27,7 +27,8 @@
       "minecraft:lake_lava_surface"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "petrifiedtimber:rock"
     ],
     [
       "minecraft:monster_room",
@@ -73,7 +74,6 @@
     ],
     [
       "minecraft:glow_lichen",
-      "petrifiedtimber:trees_petrified_oak",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal"
     ],
