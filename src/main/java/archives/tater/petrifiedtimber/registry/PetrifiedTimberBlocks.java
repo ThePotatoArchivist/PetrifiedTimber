@@ -124,6 +124,13 @@ public class PetrifiedTimberBlocks {
                     .pushReaction(PushReaction.DESTROY)
     );
 
+    public static final Block POTTED_PETRIFIED_OAK_SAPLING = register(
+            "potted_petrified_oak_sapling",
+            FlowerPotBlock::new,
+            PETRIFIED_OAK_SAPLING,
+            Blocks.flowerPotProperties()
+    );
+
     public static final Block PETRIFIED_OAK_SAPLING_CROP = register(
             "petrified_oak_sapling_crop",
             PetrifiedSaplingCropBlock::new,
@@ -132,6 +139,13 @@ public class PetrifiedTimberBlocks {
                     .strength(1f, 3f)
                     .randomTicks()
                     .pushReaction(PushReaction.DESTROY)
+    );
+
+    public static final Block POTTED_PETRIFIED_OAK_SAPLING_CROP = register(
+            "potted_petrified_oak_sapling_crop",
+            FlowerPotBlock::new,
+            PETRIFIED_OAK_SAPLING_CROP,
+            Blocks.flowerPotProperties()
     );
 
     public static final Block PETRIFIED_OAK_LEAVES = register(
@@ -197,13 +211,6 @@ public class PetrifiedTimberBlocks {
             petrifiedWoodProperties()
                     .noOcclusion()
                     .isValidSpawn(Blocks::never)
-    );
-
-    public static final Block POTTED_PETRIFIED_OAK_SAPLING = register(
-            "potted_petrified_oak_sapling",
-            FlowerPotBlock::new,
-            PETRIFIED_OAK_SAPLING,
-            Blocks.flowerPotProperties()
     );
 
     public static final Block PETRIFIED_OAK_BUTTON = register(

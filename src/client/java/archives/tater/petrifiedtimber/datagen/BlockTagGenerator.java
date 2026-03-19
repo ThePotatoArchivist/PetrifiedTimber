@@ -130,7 +130,10 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         valueLookupBuilder(BlockTags.STONE_BUTTONS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_BUTTON);
         valueLookupBuilder(BlockTags.STONE_PRESSURE_PLATES).add(PetrifiedTimberBlocks.PETRIFIED_OAK_PRESSURE_PLATE);
         valueLookupBuilder(BlockTags.WOODEN_SHELVES).add(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF);
-        valueLookupBuilder(BlockTags.FLOWER_POTS).add(PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING);
+        valueLookupBuilder(BlockTags.FLOWER_POTS).add(
+                PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING,
+                PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING_CROP
+        );
         valueLookupBuilder(BlockTags.DOORS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_DOOR);
         valueLookupBuilder(BlockTags.TRAPDOORS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_TRAPDOOR);
         valueLookupBuilder(BlockTags.STAIRS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_STAIRS);

@@ -83,6 +83,7 @@ public class ModelGenerator extends FabricModelProvider {
                 .wood(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
         createCropSapling(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING, PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED, blockModelGenerators);
         createCrossCrop(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP, PetrifiedSaplingCropBlock.AGE, blockModelGenerators);
+        createPotted(PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING_CROP, BlockModelGenerators.PlantType.NOT_TINTED, blockModelGenerators, TextureMapping.plant(TextureMapping.getBlockTexture(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP, "_stage1")));
         blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
         blockModelGenerators.createShelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);
         blockModelGenerators.createHangingSign(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG, PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
@@ -148,10 +149,19 @@ public class ModelGenerator extends FabricModelProvider {
                         .select(true, plainVariant(CROSS_CROP.createWithSuffix(block, "_crop", TextureMapping.crop(texture), blockModelGenerators.modelOutput)))
                 )
         );
-        blockModelGenerators.blockStateOutput.accept(createSimpleBlock(pottedBlock, plainVariant(
+        createPotted(block, pottedBlock, plantType, blockModelGenerators);
+    }
+
+    private static void createPotted(Block block, Block pottedBlock, BlockModelGenerators.PlantType plantType, BlockModelGenerators blockModelGenerators) {
+        createPotted(pottedBlock, plantType, blockModelGenerators, plantType.getPlantTextureMapping(block));
+    }
+
+    private static void createPotted(Block pottedBlock, BlockModelGenerators.PlantType plantType, BlockModelGenerators blockModelGenerators, TextureMapping plantTextureMapping) {
+        blockModelGenerators.blockStateOutput.accept(createSimpleBlock(
+                pottedBlock, plainVariant(
                 plantType.getCrossPot().create(
                         pottedBlock,
-                        plantType.getPlantTextureMapping(block),
+                        plantTextureMapping,
                         blockModelGenerators.modelOutput
                 )
         )));
