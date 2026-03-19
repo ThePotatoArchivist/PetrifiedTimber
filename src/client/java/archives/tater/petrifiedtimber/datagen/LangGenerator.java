@@ -1,9 +1,6 @@
 package archives.tater.petrifiedtimber.datagen;
 
-import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
-import archives.tater.petrifiedtimber.registry.PetrifiedTimberEntities;
-import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
-import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
+import archives.tater.petrifiedtimber.registry.*;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -11,8 +8,10 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamily;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 import java.util.concurrent.CompletableFuture;
@@ -42,6 +41,14 @@ public class LangGenerator extends FabricLanguageProvider {
 
     private static void add(TranslationBuilder translationBuilder, EntityType<?> item) {
         translationBuilder.add(item, snakeToTitle(BuiltInRegistries.ENTITY_TYPE.getKey(item).getPath()));
+    }
+
+    private static void addBiome(TranslationBuilder translationBuilder, ResourceKey<Biome> biome, String value) {
+        translationBuilder.add(biome.identifier().toLanguageKey("biome"), value);
+    }
+
+    private static void addBiome(TranslationBuilder translationBuilder, ResourceKey<Biome> biome) {
+        addBiome(translationBuilder, biome, snakeToTitle(biome.identifier().getPath()));
     }
 
     @Override
@@ -115,5 +122,8 @@ public class LangGenerator extends FabricLanguageProvider {
         translationBuilder.add(PetrifiedTimberItems.PETRIFIED_LEAF, "Petrified Leaf");
 
         translationBuilder.add(makeDescriptionId("block", BuiltInRegistries.FLUID.getKey(PetrifiedTimberFluids.MELTED_RESIN)), "Melted Resin");
+
+        addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST);
+        addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
     }
 }

@@ -63,6 +63,7 @@ public class PetrifiedTimberWorldgen {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_PETRIFIED_OAK = configuredFeature("trees_petrified_oak");
     public static final ResourceKey<PlacedFeature> PLACED_TREES_PETRIFIED_OAK = placedFeature(TREES_PETRIFIED_OAK);
+    public static final ResourceKey<PlacedFeature> PLACED_TREES_PETRIFIED_OAK_SPARSE = ResourceKey.create(Registries.PLACED_FEATURE, PetrifiedTimber.id("trees_petrified_oak_sparse"));
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK = configuredFeature("rock");
     public static final ResourceKey<PlacedFeature> PLACED_ROCK = placedFeature(ROCK);

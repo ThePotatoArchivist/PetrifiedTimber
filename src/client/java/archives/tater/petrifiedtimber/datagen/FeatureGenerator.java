@@ -25,10 +25,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
-import net.minecraft.world.level.levelgen.placement.CountPlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.Arrays;
@@ -158,19 +155,37 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
 
         var saplingSurvives = BlockPredicateFilter.forPredicate(wouldSurvive(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING.defaultBlockState(), Vec3i.ZERO));
 
-        entries.add(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK, new PlacedFeature(
-                entries.add(PetrifiedTimberWorldgen.TREES_PETRIFIED_OAK, new ConfiguredFeature<>(Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(
+        var treesPetrifiedOak = entries.add(
+                PetrifiedTimberWorldgen.TREES_PETRIFIED_OAK, new ConfiguredFeature<>(
+                        Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(
                         List.of(
                                 new WeightedPlacedFeature(placedFeature(classicPetrifiedOak, saplingSurvives), 0.05f)
                         ),
                         placedFeature(petrifiedOak, saplingSurvives)
-                ))),
+                )
+                )
+        );
+
+        entries.add(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK, new PlacedFeature(
+                treesPetrifiedOak,
                 List.of(
                         CountPlacement.of(ConstantInt.of(6)),
                         spread(),
                         forMaxDepth(0),
                         onHeightmap(Heightmap.Types.OCEAN_FLOOR),
                         biome()
+                )
+        ));
+
+        entries.add(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK_SPARSE, new PlacedFeature(
+                treesPetrifiedOak,
+                List.of(
+                        CountPlacement.of(ConstantInt.of(4)),
+                        spread(),
+                        forMaxDepth(0),
+                        onHeightmap(Heightmap.Types.OCEAN_FLOOR),
+                        biome(),
+                        onAverageOnceEvery(2)
                 )
         ));
 
