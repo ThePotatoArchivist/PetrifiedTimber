@@ -4,6 +4,7 @@ import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.worldgen.*;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;
@@ -106,7 +107,7 @@ public class PetrifiedTimberWorldgen {
 
     public static void init() {
         BiomeModifications.addFeature(
-                context -> context.hasTag(HAS_SWAMP_BUSH),
+                BiomeSelectors.tag(HAS_SWAMP_BUSH),
                 GenerationStep.Decoration.VEGETAL_DECORATION,
                 PLACED_SWAMP_BUSH
         );
