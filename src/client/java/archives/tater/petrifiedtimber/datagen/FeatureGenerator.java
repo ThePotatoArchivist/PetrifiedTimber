@@ -210,6 +210,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         return new PlacedFeature(Holder.direct(new ConfiguredFeature<>(Feature.NO_OP, NoneFeatureConfiguration.INSTANCE)), List.of(biome()));
     }
 
+    // Features are bootstrapped as empty because I need access to vanilla features
     public static void bootstrapFeatures(BootstrapContext<PlacedFeature> context) {
         context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK, emptyFeature());
         context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK_SPARSE, emptyFeature());
