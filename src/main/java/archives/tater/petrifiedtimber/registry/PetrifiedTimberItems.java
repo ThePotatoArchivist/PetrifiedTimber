@@ -71,9 +71,11 @@ public class PetrifiedTimberItems {
     public static final Item CHERRY_PETRIFIED_OAK_LOG = register(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG);
     public static final Item CHERRY_PETRIFIED_OAK_WOOD = register(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
     public static final Item PETRIFIED_OAK_PLANKS = register(PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS);
+    public static final Item PETRIFIED_OAK_LEAVES = register(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES);
     public static final Item PETRIFIED_OAK_SAPLING = register(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
     public static final Item PETRIFIED_OAK_SEEDS = register("petrified_oak_seeds", properties -> new BlockItem(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP, properties));
-    public static final Item PETRIFIED_OAK_LEAVES = register(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES);
+    public static final Item PETRIFIED_ROSE = register(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER);
+    public static final Item PETRIFIED_DANDELION = register(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER);
     public static final Item PETRIFIED_OAK_PRESSURE_PLATE = register(PetrifiedTimberBlocks.PETRIFIED_OAK_PRESSURE_PLATE);
     public static final Item PETRIFIED_OAK_TRAPDOOR = register(PetrifiedTimberBlocks.PETRIFIED_OAK_TRAPDOOR);
     public static final Item PETRIFIED_OAK_BUTTON = register(PetrifiedTimberBlocks.PETRIFIED_OAK_BUTTON);
@@ -165,10 +167,12 @@ public class PetrifiedTimberItems {
                     output.accept(PETRIFIED_OAK_SHELF);
                     output.accept(PETRIFIED_OAK_BOAT);
                     output.accept(PETRIFIED_OAK_CHEST_BOAT);
-                    output.accept(PETRIFIED_OAK_SAPLING);
-                    output.accept(PETRIFIED_OAK_SEEDS);
                     output.accept(PETRIFIED_OAK_LEAVES);
                     output.accept(PETRIFIED_LEAF);
+                    output.accept(PETRIFIED_OAK_SAPLING);
+                    output.accept(PETRIFIED_OAK_SEEDS);
+                    output.accept(PETRIFIED_ROSE);
+                    output.accept(PETRIFIED_DANDELION);
                     output.accept(MELTED_RESIN_BOTTLE);
                     output.accept(RESIN_COVERED_OAK_LOG);
                     output.accept(RESIN_COVERED_OAK_WOOD);

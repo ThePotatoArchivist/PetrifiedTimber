@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "petrifiedtimber:block/petrified_red_flower"
+  }
+}

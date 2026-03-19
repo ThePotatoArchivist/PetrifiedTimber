@@ -81,6 +81,7 @@ public class ModelGenerator extends FabricModelProvider {
         blockModelGenerators.woodProvider(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG)
                 .logWithHorizontal(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG)
                 .wood(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
+        blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
         createCropSapling(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING, PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED, blockModelGenerators);
         createCrossCrop(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP, PetrifiedSaplingCropBlock.AGE, blockModelGenerators);
         createPotted(
@@ -89,7 +90,8 @@ public class ModelGenerator extends FabricModelProvider {
                 blockModelGenerators,
                 TextureMapping.plant(TextureMapping.getBlockTexture(PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING_CROP))
         );
-        blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
+        blockModelGenerators.createPlantWithDefaultItem(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER, PetrifiedTimberBlocks.POTTED_PETRIFIED_RED_FLOWER, BlockModelGenerators.PlantType.NOT_TINTED);
+        blockModelGenerators.createPlantWithDefaultItem(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER, PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER, BlockModelGenerators.PlantType.NOT_TINTED);
         blockModelGenerators.createShelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);
         blockModelGenerators.createHangingSign(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG, PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
 

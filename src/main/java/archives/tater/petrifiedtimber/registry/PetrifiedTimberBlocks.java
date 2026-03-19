@@ -113,6 +113,18 @@ public class PetrifiedTimberBlocks {
 
     public static final Block PETRIFIED_OAK_PLANKS = register("petrified_oak_planks", petrifiedWoodProperties());
 
+    public static final Block PETRIFIED_OAK_LEAVES = register(
+            "petrified_oak_leaves",
+            PetrifiedLeavesBlock::new,
+            petrifiedWoodProperties()
+                    .sound(SoundType.TUFF)
+                    .noOcclusion()
+                    .isSuffocating(Blocks::never)
+                    .isViewBlocking(Blocks::never)
+                    .pushReaction(PushReaction.DESTROY)
+                    .isRedstoneConductor(Blocks::never)
+    );
+
     public static final Block PETRIFIED_OAK_SAPLING = register(
             "petrified_oak_sapling",
             PetrifiedSaplingBlock::new,
@@ -148,16 +160,38 @@ public class PetrifiedTimberBlocks {
             Blocks.flowerPotProperties()
     );
 
-    public static final Block PETRIFIED_OAK_LEAVES = register(
-            "petrified_oak_leaves",
-            PetrifiedLeavesBlock::new,
+    public static final Block PETRIFIED_RED_FLOWER = register(
+            "petrified_red_flower",
+            PetrifiedFlowerBlock::new,
             petrifiedWoodProperties()
-                    .sound(SoundType.TUFF)
-                    .noOcclusion()
-                    .isSuffocating(Blocks::never)
-                    .isViewBlocking(Blocks::never)
+                    .noCollision()
+                    .strength(1f, 3f)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
                     .pushReaction(PushReaction.DESTROY)
-                    .isRedstoneConductor(Blocks::never)
+    );
+
+    public static final Block POTTED_PETRIFIED_RED_FLOWER = register(
+            "potted_petrified_red_flower",
+            FlowerPotBlock::new,
+            PETRIFIED_RED_FLOWER,
+            Blocks.flowerPotProperties()
+    );
+
+    public static final Block PETRIFIED_YELLOW_FLOWER = register(
+            "petrified_yellow_flower",
+            PetrifiedFlowerBlock::new,
+            petrifiedWoodProperties()
+                    .noCollision()
+                    .strength(1f, 3f)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.DESTROY)
+    );
+
+    public static final Block POTTED_PETRIFIED_YELLOW_FLOWER = register(
+            "potted_petrified_yellow_flower",
+            FlowerPotBlock::new,
+            PETRIFIED_YELLOW_FLOWER,
+            Blocks.flowerPotProperties()
     );
 
     public static final Block PETRIFIED_OAK_SHELF = register("petrified_oak_shelf", ShelfBlock::new, petrifiedWoodProperties());

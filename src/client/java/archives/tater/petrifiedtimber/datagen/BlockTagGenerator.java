@@ -132,7 +132,9 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         valueLookupBuilder(BlockTags.WOODEN_SHELVES).add(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF);
         valueLookupBuilder(BlockTags.FLOWER_POTS).add(
                 PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING,
-                PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING_CROP
+                PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING_CROP,
+                PetrifiedTimberBlocks.POTTED_PETRIFIED_RED_FLOWER,
+                PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER
         );
         valueLookupBuilder(BlockTags.DOORS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_DOOR);
         valueLookupBuilder(BlockTags.TRAPDOORS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_TRAPDOOR);
@@ -142,9 +144,11 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
                 .addTag(PetrifiedTimberBlockTags.ALL_PETRIFIED_OAK_LOGS).add(
                 PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS,
+                PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP,
-                PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES,
+                PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER,
+                PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN,
