@@ -2,9 +2,7 @@ package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberWorldgen;
-import archives.tater.petrifiedtimber.worldgen.BiomeDependentFeature;
-import archives.tater.petrifiedtimber.worldgen.CornerCutFoliagePlacer;
-import archives.tater.petrifiedtimber.worldgen.CuboidFoliagePlacer;
+import archives.tater.petrifiedtimber.worldgen.*;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
@@ -13,11 +11,9 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.TreeFeatures;
-import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -27,11 +23,12 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration.TreeConfigurationBuilder;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
-import net.minecraft.world.level.levelgen.feature.foliageplacers.BushFoliagePlacer;
-import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.Arrays;
@@ -134,21 +131,28 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                 entries.add(PetrifiedTimberWorldgen.SWAMP_BUSH, new ConfiguredFeature<>(Feature.TREE, new TreeConfigurationBuilder(
                         simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LOG),
                         new StraightTrunkPlacer(1, 0, 0),
-                        new WeightedStateProvider(new WeightedList.Builder<BlockState>()
-                                .add(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, true), 1)
-                                .add(Blocks.WATER.defaultBlockState(), 3)
-                        ),
-                        new BushFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 1),
+                        simple(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, true)),
+                        new SmallBushFoliagePlacer(ConstantInt.of(1), ConstantInt.of(0)),
                         new TwoLayersFeatureSize(1, 0, 1)
-                ).build())),
+                ).decorators(List.of(
+                        new SubmergedAttachedToLeavesDecorator(
+                                1f / 16,
+                                4,
+                                4,
+                                simple(PetrifiedTimberBlocks.RED_PETRIFIED_APPLE.defaultBlockState()),
+                                1,
+                                List.of(Direction.UP, Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST)
+                        )
+                )).build())),
                 List.of(
+                        CountPlacement.of(4),
                         spread(),
                         onHeightmap(Heightmap.Types.OCEAN_FLOOR_WG),
                         BlockPredicateFilter.forPredicate(allOf(
                                 matchesFluids(new Vec3i(0, 1, 0), Fluids.WATER),
                                 wouldSurvive(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING.defaultBlockState(), Vec3i.ZERO)
                         )),
-                        onAverageOnceEvery(4)
+                        onAverageOnceEvery(16)
                 )
         ));
 

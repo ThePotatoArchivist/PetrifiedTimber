@@ -1,10 +1,7 @@
 package archives.tater.petrifiedtimber.registry;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
-import archives.tater.petrifiedtimber.worldgen.BiomeDependentFeature;
-import archives.tater.petrifiedtimber.worldgen.CornerCutFoliagePlacer;
-import archives.tater.petrifiedtimber.worldgen.CuboidFoliagePlacer;
-import archives.tater.petrifiedtimber.worldgen.FailFeature;
+import archives.tater.petrifiedtimber.worldgen.*;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 
@@ -23,6 +20,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
+import net.minecraft.world.level.levelgen.feature.treedecorators.TreeDecoratorType;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.Optional;
@@ -98,6 +96,12 @@ public class PetrifiedTimberWorldgen {
 
     public static final FoliagePlacerType<CuboidFoliagePlacer> CUBOID_FOLIAGE_PLACER = foliagePlacer("cuboid", CuboidFoliagePlacer.CODEC);
     public static final FoliagePlacerType<CornerCutFoliagePlacer> CORNER_CUT_FOLIAGE_PLACER = foliagePlacer("corner_cut", CornerCutFoliagePlacer.CODEC);
+    public static final FoliagePlacerType<SmallBushFoliagePlacer> SMALL_BUSH_FOLIAGE_PLACER = foliagePlacer("small_bush", SmallBushFoliagePlacer.CODEC);
+    public static final TreeDecoratorType<SubmergedAttachedToLeavesDecorator> SUBMERGED_ATTACHED_TO_LEAVES_DECORATOR = Registry.register(
+            BuiltInRegistries.TREE_DECORATOR_TYPE,
+            PetrifiedTimber.id("submerged_attached_to_leaves"),
+            new TreeDecoratorType<>(SubmergedAttachedToLeavesDecorator.CODEC)
+    );
 
     public static void init() {
         BiomeModifications.addFeature(
