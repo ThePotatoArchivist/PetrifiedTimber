@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.TreeFeatures;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
@@ -155,16 +156,14 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
 
         var saplingSurvives = BlockPredicateFilter.forPredicate(wouldSurvive(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING.defaultBlockState(), Vec3i.ZERO));
 
-        var treesPetrifiedOak = entries.add(
-                PetrifiedTimberWorldgen.TREES_PETRIFIED_OAK, new ConfiguredFeature<>(
-                        Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(
+        var treesPetrifiedOak = entries.add(PetrifiedTimberWorldgen.TREES_PETRIFIED_OAK, new ConfiguredFeature<>(
+                Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(
                         List.of(
                                 new WeightedPlacedFeature(placedFeature(classicPetrifiedOak, saplingSurvives), 0.05f)
                         ),
                         placedFeature(petrifiedOak, saplingSurvives)
                 )
-                )
-        );
+        ));
 
         entries.add(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK, new PlacedFeature(
                 treesPetrifiedOak,
@@ -205,6 +204,16 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                     biome()
                 )
         ));
+    }
+
+    private static PlacedFeature emptyFeature() {
+        return new PlacedFeature(Holder.direct(new ConfiguredFeature<>(Feature.NO_OP, NoneFeatureConfiguration.INSTANCE)), List.of(biome()));
+    }
+
+    public static void bootstrapFeatures(BootstrapContext<PlacedFeature> context) {
+        context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK, emptyFeature());
+        context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK_SPARSE, emptyFeature());
+        context.register(PetrifiedTimberWorldgen.PLACED_ROCK, emptyFeature());
     }
 
     @Override

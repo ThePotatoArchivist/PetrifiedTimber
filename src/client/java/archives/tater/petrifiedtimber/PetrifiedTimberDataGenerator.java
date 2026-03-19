@@ -5,7 +5,16 @@ import archives.tater.petrifiedtimber.datagen.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
+
 public class PetrifiedTimberDataGenerator implements DataGeneratorEntrypoint {
+	@Override
+	public void buildRegistry(RegistrySetBuilder registryBuilder) {
+		registryBuilder.add(Registries.PLACED_FEATURE, FeatureGenerator::bootstrapFeatures);
+		registryBuilder.add(Registries.BIOME, BiomeGenerator::bootstrap);
+	}
+
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		var pack = fabricDataGenerator.createPack();
@@ -21,6 +30,7 @@ public class PetrifiedTimberDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider((output, registriesFuture) -> new ItemTagGenerator(output, registriesFuture, blockTags));
 		pack.addProvider(EntityTagGenerator::new);
 		pack.addProvider(FeatureGenerator::new);
+		pack.addProvider(BiomeGenerator::new);
 		pack.addProvider(BiomeTagGenerator::new);
 	}
 

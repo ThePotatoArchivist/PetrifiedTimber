@@ -7,7 +7,9 @@
         "sound": "petrifiedtimber:music.overworld.petrified_forest"
       }
     },
-    "minecraft:visual/sky_color": "#7FCCFF"
+    "minecraft:gameplay/can_pillager_patrol_spawn": false,
+    "minecraft:gameplay/increased_fire_burnout": true,
+    "minecraft:visual/sky_color": "#79a6ff"
   },
   "carvers": [
     "minecraft:cave",
@@ -16,9 +18,9 @@
   ],
   "downfall": 0.8,
   "effects": {
-    "water_color": "#295DFF",
+    "foliage_color": "#28ff08",
     "grass_color": "#a8ff69",
-    "foliage_color": "#28FF08"
+    "water_color": "#295dff"
   },
   "features": [
     [],
@@ -27,7 +29,8 @@
       "minecraft:lake_lava_surface"
     ],
     [
-      "minecraft:amethyst_geode"
+      "minecraft:amethyst_geode",
+      "petrifiedtimber:rock"
     ],
     [
       "minecraft:monster_room",
@@ -73,9 +76,7 @@
     ],
     [
       "minecraft:glow_lichen",
-      "petrifiedtimber:trees_petrified_oak",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal"
+      "petrifiedtimber:trees_petrified_oak_sparse"
     ],
     [
       "minecraft:freeze_top_layer"
