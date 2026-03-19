@@ -1,5 +1,7 @@
 package archives.tater.petrifiedtimber.registry;
 
+import archives.tater.petrifiedtimber.PetrifiedTimber;
+
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -16,7 +18,7 @@ public class PetrifiedTimberTerraBlender implements TerraBlenderApi {
 
     @Override
     public void onTerraBlenderInitialized() {
-        Regions.register(new Region(PetrifiedTimberWorldgen.PETRIFIED_FOREST.identifier(), RegionType.OVERWORLD, 2) {
+        Regions.register(new Region(PetrifiedTimber.id("overworld_with_petrified_forest"), RegionType.OVERWORLD, 2) {
             @Override
             public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
                 var builder = new VanillaParameterOverlayBuilder();
