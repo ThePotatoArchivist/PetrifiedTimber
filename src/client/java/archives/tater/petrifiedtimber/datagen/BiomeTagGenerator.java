@@ -27,6 +27,9 @@ public class BiomeTagGenerator extends FabricTagProvider<Biome> {
                 .forceAddTag(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_PALE_OAK);
         builder(PetrifiedTimberWorldgen.HAS_SWAMP_BUSH)
                 .forceAddTag(ConventionalBiomeTags.IS_SWAMP);
+        builder(PetrifiedTimberWorldgen.NO_GRASS_FROM_BONEMEAL)
+                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST)
+                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
         builder(BiomeTags.WITHOUT_ZOMBIE_SIEGES)
                 .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST)
                 .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);

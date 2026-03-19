@@ -98,6 +98,7 @@ public class PetrifiedTimberWorldgen {
 
     public static final TagKey<Biome> HAS_MEGA_PETRIFIED_OAK_TREE = TagKey.create(Registries.BIOME, PetrifiedTimber.id("has_mega_petrified_oak_tree"));
     public static final TagKey<Biome> HAS_SWAMP_BUSH = TagKey.create(Registries.BIOME, PetrifiedTimber.id("has_swamp_bush"));
+    public static final TagKey<Biome> NO_GRASS_FROM_BONEMEAL = TagKey.create(Registries.BIOME, PetrifiedTimber.id("no_grass_from_bonemeal"));
 
     public static final FoliagePlacerType<CuboidFoliagePlacer> CUBOID_FOLIAGE_PLACER = foliagePlacer("cuboid", CuboidFoliagePlacer.CODEC);
     public static final FoliagePlacerType<CornerCutFoliagePlacer> CORNER_CUT_FOLIAGE_PLACER = foliagePlacer("corner_cut", CornerCutFoliagePlacer.CODEC);

@@ -5,6 +5,7 @@
   "mixins": [
     "CauldronBlockMixin",
     "ExampleMixin",
+    "GrassBlockMixin",
     "PointedDripstoneBlockInvoker",
     "PointedDripstoneBlockMixin",
     "TreeGrowerMixin"
