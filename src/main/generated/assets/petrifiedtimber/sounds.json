@@ -1,0 +1,18 @@
+{
+  "music.overworld.petrified_forest": {
+    "sounds": [
+      {
+        "name": "minecraft:music/game/minecraft",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music/game/clark",
+        "stream": true
+      },
+      {
+        "name": "minecraft:music/game/sweden",
+        "stream": true
+      }
+    ]
+  }
+}

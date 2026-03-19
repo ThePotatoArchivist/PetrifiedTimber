@@ -13,6 +13,7 @@ public class PetrifiedTimberDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModelGenerator::new);
 		pack.addProvider(ParticleGenerator::new);
 		pack.addProvider(LangGenerator::new);
+		pack.addProvider(SoundsGenerator::new);
 
 		pack.addProvider(BlockLootTableGenerator::new);
 		pack.addProvider(RecipeGenerator::new);
