@@ -77,7 +77,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "petrifiedtimber:trees_petrified_oak_sparse"
+      "petrifiedtimber:trees_petrified_oak_sparse",
+      "petrifiedtimber:petrified_flower_sparse"
     ],
     [
       "minecraft:freeze_top_layer"

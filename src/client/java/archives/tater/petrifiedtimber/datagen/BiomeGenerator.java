@@ -78,6 +78,7 @@ public class BiomeGenerator extends FabricDynamicRegistryProvider {
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER)));
         context.register(PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE, petrifiedForestLike(petrifiedForestGenSettings(placedFeatures, worldCarvers)
                 .addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PetrifiedTimberWorldgen.PLACED_ROCK)
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK_SPARSE)));
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK_SPARSE)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER_SPARSE)));
     }
 }

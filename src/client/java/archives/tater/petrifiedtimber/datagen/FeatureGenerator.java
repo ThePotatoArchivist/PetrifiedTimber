@@ -211,21 +211,37 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                 )
         ));
 
-        entries.add(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER, new PlacedFeature(
-                entries.add(PetrifiedTimberWorldgen.PETRIFIED_FLOWER, new ConfiguredFeature<>(Feature.FLOWER, new RandomPatchConfiguration(
+        var petrifiedFlower = entries.add(PetrifiedTimberWorldgen.PETRIFIED_FLOWER, new ConfiguredFeature<>(
+                Feature.FLOWER, new RandomPatchConfiguration(
                         64, 7, 3,
                         placedFeature(
-                                new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
+                                new ConfiguredFeature<>(
+                                        Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
                                         new WeightedStateProvider(new WeightedList.Builder<BlockState>()
                                                 .add(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER.defaultBlockState(), 2)
                                                 .add(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER.defaultBlockState())
                                         )
-                                )),
+                                )
+                                ),
                                 BlockPredicateFilter.forPredicate(ONLY_IN_AIR_PREDICATE)
                         )
-                ))),
+                )
+        ));
+
+        entries.add(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER, new PlacedFeature(
+                petrifiedFlower,
                 List.of(
                         onAverageOnceEvery(16),
+                        spread(),
+                        onHeightmap(Heightmap.Types.MOTION_BLOCKING),
+                        biome()
+                )
+        ));
+
+        entries.add(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER_SPARSE, new PlacedFeature(
+                petrifiedFlower,
+                List.of(
+                        onAverageOnceEvery(32),
                         spread(),
                         onHeightmap(Heightmap.Types.MOTION_BLOCKING),
                         biome()
@@ -243,6 +259,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK_SPARSE, emptyFeature());
         context.register(PetrifiedTimberWorldgen.PLACED_ROCK, emptyFeature());
         context.register(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER, emptyFeature());
+        context.register(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER_SPARSE, emptyFeature());
     }
 
     @Override
