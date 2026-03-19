@@ -16,6 +16,7 @@
     "minecraft:cave_extra_underground",
     "minecraft:canyon"
   ],
+  "creature_spawn_probability": 0.4,
   "downfall": 0.8,
   "effects": {
     "foliage_color": "#28ff08",
@@ -75,7 +76,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "petrifiedtimber:trees_petrified_oak"
+      "petrifiedtimber:trees_petrified_oak",
+      "petrifiedtimber:petrified_flower"
     ],
     [
       "minecraft:freeze_top_layer"
@@ -90,7 +92,7 @@
       {
         "type": "minecraft:pig",
         "maxCount": 4,
-        "minCount": 4,
+        "minCount": 1,
         "weight": 10
       }
     ],

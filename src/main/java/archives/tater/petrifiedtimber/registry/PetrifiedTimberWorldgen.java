@@ -69,6 +69,9 @@ public class PetrifiedTimberWorldgen {
     public static final ResourceKey<ConfiguredFeature<?, ?>> ROCK = configuredFeature("rock");
     public static final ResourceKey<PlacedFeature> PLACED_ROCK = placedFeature(ROCK);
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_FLOWER = configuredFeature("petrified_flower");
+    public static final ResourceKey<PlacedFeature> PLACED_PETRIFIED_FLOWER = placedFeature(PETRIFIED_FLOWER);
+
     public static final ResourceKey<Biome> PETRIFIED_FOREST = ResourceKey.create(Registries.BIOME, PetrifiedTimber.id("petrified_forest"));
     public static final ResourceKey<Biome> PETRIFIED_FOREST_EDGE = ResourceKey.create(Registries.BIOME, PetrifiedTimber.id("petrified_forest_edge"));
 

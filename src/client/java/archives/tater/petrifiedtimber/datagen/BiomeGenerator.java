@@ -62,7 +62,8 @@ public class BiomeGenerator extends FabricDynamicRegistryProvider {
                         .foliageColorOverride(0x28FF08)
                         .build())
                 .mobSpawnSettings(new MobSpawnSettings.Builder()
-                        .addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityType.PIG, 4, 4))
+                        .addSpawn(MobCategory.CREATURE, 10, new MobSpawnSettings.SpawnerData(EntityType.PIG, 1, 4))
+                        .creatureGenerationProbability(0.4f)
                         .build())
                 .generationSettings(genSettings.build())
                 .build();
@@ -73,7 +74,8 @@ public class BiomeGenerator extends FabricDynamicRegistryProvider {
         var worldCarvers = context.lookup(Registries.CONFIGURED_CARVER);
 
         context.register(PetrifiedTimberWorldgen.PETRIFIED_FOREST, petrifiedForestLike(petrifiedForestGenSettings(placedFeatures, worldCarvers)
-                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK)));
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER)));
         context.register(PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE, petrifiedForestLike(petrifiedForestGenSettings(placedFeatures, worldCarvers)
                 .addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PetrifiedTimberWorldgen.PLACED_ROCK)
                 .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK_SPARSE)));

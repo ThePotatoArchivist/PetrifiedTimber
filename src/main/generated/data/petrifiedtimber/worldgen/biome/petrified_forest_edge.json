@@ -16,6 +16,7 @@
     "minecraft:cave_extra_underground",
     "minecraft:canyon"
   ],
+  "creature_spawn_probability": 0.4,
   "downfall": 0.8,
   "effects": {
     "foliage_color": "#28ff08",
@@ -91,7 +92,7 @@
       {
         "type": "minecraft:pig",
         "maxCount": 4,
-        "minCount": 4,
+        "minCount": 1,
         "weight": 10
       }
     ],

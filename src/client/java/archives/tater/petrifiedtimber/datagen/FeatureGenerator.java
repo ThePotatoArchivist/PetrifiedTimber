@@ -12,9 +12,11 @@ import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.TreeFeatures;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -24,9 +26,13 @@ import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration.TreeConfigurationBuilder;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.treedecorators.AttachedToLeavesDecorator;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
-import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
+import net.minecraft.world.level.levelgen.placement.CountPlacement;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.Arrays;
@@ -204,6 +210,27 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                     biome()
                 )
         ));
+
+        entries.add(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER, new PlacedFeature(
+                entries.add(PetrifiedTimberWorldgen.PETRIFIED_FLOWER, new ConfiguredFeature<>(Feature.FLOWER, new RandomPatchConfiguration(
+                        64, 7, 3,
+                        placedFeature(
+                                new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
+                                        new WeightedStateProvider(new WeightedList.Builder<BlockState>()
+                                                .add(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER.defaultBlockState(), 2)
+                                                .add(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER.defaultBlockState())
+                                        )
+                                )),
+                                BlockPredicateFilter.forPredicate(ONLY_IN_AIR_PREDICATE)
+                        )
+                ))),
+                List.of(
+                        onAverageOnceEvery(16),
+                        spread(),
+                        onHeightmap(Heightmap.Types.MOTION_BLOCKING),
+                        biome()
+                )
+        ));
     }
 
     private static PlacedFeature emptyFeature() {
@@ -215,6 +242,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK, emptyFeature());
         context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK_SPARSE, emptyFeature());
         context.register(PetrifiedTimberWorldgen.PLACED_ROCK, emptyFeature());
+        context.register(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER, emptyFeature());
     }
 
     @Override
