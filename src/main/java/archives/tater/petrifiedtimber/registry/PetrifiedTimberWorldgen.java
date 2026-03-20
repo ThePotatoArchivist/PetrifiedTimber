@@ -75,7 +75,8 @@ public class PetrifiedTimberWorldgen {
     public static final ResourceKey<PlacedFeature> PLACED_PETRIFIED_FLOWER_SPARSE = ResourceKey.create(Registries.PLACED_FEATURE, PetrifiedTimber.id("petrified_flower_sparse"));
 
     public static final ResourceKey<Biome> PETRIFIED_FOREST = ResourceKey.create(Registries.BIOME, PetrifiedTimber.id("petrified_forest"));
-    public static final ResourceKey<Biome> PETRIFIED_FOREST_EDGE = ResourceKey.create(Registries.BIOME, PetrifiedTimber.id("petrified_forest_edge"));
+    public static final ResourceKey<Biome> PETRIFIED_PLAINS = ResourceKey.create(Registries.BIOME, PetrifiedTimber.id("petrified_plains"));
+    public static final ResourceKey<Biome> PETRIFIED_RIDGE = ResourceKey.create(Registries.BIOME, PetrifiedTimber.id("petrified_ridge"));
 
     public static final Feature<BiomeDependentFeature.Configuration> BIOME_DEPENDENT = featureType(
             "biome_dependent",
@@ -98,6 +99,7 @@ public class PetrifiedTimberWorldgen {
             Optional.empty()
     );
 
+    public static final TagKey<Biome> IS_PETRIFIED = TagKey.create(Registries.BIOME, PetrifiedTimber.id("is_petrified"));
     public static final TagKey<Biome> HAS_MEGA_PETRIFIED_OAK_TREE = TagKey.create(Registries.BIOME, PetrifiedTimber.id("has_mega_petrified_oak_tree"));
     public static final TagKey<Biome> HAS_SWAMP_BUSH = TagKey.create(Registries.BIOME, PetrifiedTimber.id("has_swamp_bush"));
     public static final TagKey<Biome> NO_GRASS_FROM_BONEMEAL = TagKey.create(Registries.BIOME, PetrifiedTimber.id("no_grass_from_bonemeal"));

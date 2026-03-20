@@ -169,7 +169,8 @@ public class LangGenerator extends FabricLanguageProvider {
         add(translationBuilder, AdvancementGenerator.FIND_PETRIFIED_FOREST, "Just as I remember it!", "Discover a forest lost to time");
 
         addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST);
-        addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
+        addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_PLAINS);
+        addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_RIDGE);
 
         translationBuilder.add(PetrificationClientRecipeType.DISPLAY_NAME, "Petrification");
         translationBuilder.add(PetrificationClientRecipe.COVER_DESCRIPTION_TRANSLATION, "Must be on all sides");

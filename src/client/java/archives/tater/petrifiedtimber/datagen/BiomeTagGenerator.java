@@ -20,6 +20,10 @@ public class BiomeTagGenerator extends FabricTagProvider<Biome> {
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
+        builder(PetrifiedTimberWorldgen.IS_PETRIFIED)
+                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST)
+                .add(PetrifiedTimberWorldgen.PETRIFIED_PLAINS)
+                .add(PetrifiedTimberWorldgen.PETRIFIED_RIDGE);
         builder(PetrifiedTimberWorldgen.HAS_MEGA_PETRIFIED_OAK_TREE)
                 .forceAddTag(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_SPRUCE)
                 .forceAddTag(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_JUNGLE)
@@ -27,23 +31,11 @@ public class BiomeTagGenerator extends FabricTagProvider<Biome> {
                 .forceAddTag(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_PALE_OAK);
         builder(PetrifiedTimberWorldgen.HAS_SWAMP_BUSH)
                 .forceAddTag(ConventionalBiomeTags.IS_SWAMP);
-        builder(PetrifiedTimberWorldgen.NO_GRASS_FROM_BONEMEAL)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
-        builder(BiomeTags.WITHOUT_ZOMBIE_SIEGES)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
-        builder(BiomeTags.IS_OVERWORLD)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
-        builder(BiomeTags.HAS_MINESHAFT)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
-        builder(BiomeTags.HAS_RUINED_PORTAL_STANDARD)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
-        builder(BiomeTags.STRONGHOLD_BIASED_TO)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST)
-                .add(PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
+        builder(PetrifiedTimberWorldgen.NO_GRASS_FROM_BONEMEAL).addTag(PetrifiedTimberWorldgen.IS_PETRIFIED);
+        builder(BiomeTags.WITHOUT_ZOMBIE_SIEGES).addTag(PetrifiedTimberWorldgen.IS_PETRIFIED);
+        builder(BiomeTags.IS_OVERWORLD).addTag(PetrifiedTimberWorldgen.IS_PETRIFIED);
+        builder(BiomeTags.HAS_MINESHAFT).addTag(PetrifiedTimberWorldgen.IS_PETRIFIED);
+        builder(BiomeTags.HAS_RUINED_PORTAL_STANDARD).addTag(PetrifiedTimberWorldgen.IS_PETRIFIED);
+        builder(BiomeTags.STRONGHOLD_BIASED_TO).addTag(PetrifiedTimberWorldgen.IS_PETRIFIED);
     }
 }
