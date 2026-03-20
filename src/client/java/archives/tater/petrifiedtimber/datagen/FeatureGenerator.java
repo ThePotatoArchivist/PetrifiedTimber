@@ -304,7 +304,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         entries.add(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER, new PlacedFeature(
                 petrifiedFlower,
                 List.of(
-                        onAverageOnceEvery(16),
+                        onAverageOnceEvery(8),
                         spread(),
                         onHeightmap(Heightmap.Types.MOTION_BLOCKING),
                         biome()

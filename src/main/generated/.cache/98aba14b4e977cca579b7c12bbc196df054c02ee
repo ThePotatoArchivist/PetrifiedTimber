@@ -1,4 +1,4 @@
-// 1.21.11	-999999999-01-01T00:00:00	PetrifiedTimber/Features
+// 1.21.11	-999999999-01-01T00:00:00	Petrified Timber/Features
 f925a4dfcc53337876cbe82f4b9316605bc587fa data/petrifiedtimber/worldgen/configured_feature/classic_petrified_oak.json
 ee8619fe9115beb1bf95e8c86f6914428d6ee7c7 data/petrifiedtimber/worldgen/configured_feature/mega_petrified_biome_tree.json
 24f006b228b465e7a1d03b605f9ad62187baa449 data/petrifiedtimber/worldgen/configured_feature/mega_petrified_jungle.json
@@ -17,7 +17,7 @@ d616ee41352fecda4fcefb9c0be47ce77783b796 data/petrifiedtimber/worldgen/configure
 ca4f5add3f9b56be10a81af70f3f8121ca4a4040 data/petrifiedtimber/worldgen/configured_feature/rock.json
 57b598899101bed8c10919a3f1ae6c7a9bf315a2 data/petrifiedtimber/worldgen/configured_feature/swamp_bush.json
 c02898fc63366200937f5aa85d56d49a38b0e444 data/petrifiedtimber/worldgen/configured_feature/trees_petrified_oak.json
-84393c1aa1503fffcf6dfbacc61e4a1a5802da10 data/petrifiedtimber/worldgen/placed_feature/petrified_flower.json
+8f7e461a8b6b6f11ee1e225acef4fbe63996e35a data/petrifiedtimber/worldgen/placed_feature/petrified_flower.json
 bcbb5a6e9811f5217796d984bae6d98591797670 data/petrifiedtimber/worldgen/placed_feature/petrified_flower_sparse.json
 ddf9985ba6abe04ceb150d740a3939c63dca36a6 data/petrifiedtimber/worldgen/placed_feature/rock.json
 8571e9c8e93e4a758a1569fc4c855e62c82cdeb2 data/petrifiedtimber/worldgen/placed_feature/swamp_bush.json
