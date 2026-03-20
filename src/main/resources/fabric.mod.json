@@ -2,17 +2,20 @@
 	"schemaVersion": 1,
 	"id": "petrifiedtimber",
 	"version": "${version}",
-	"name": "PetrifiedTimber",
+	"name": "Petrified Timber",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"ThePotatoArchivist",
 		"MiffenKop"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/petrified-timber",
+		"sources": "https://github.com/ThePotatoArchivist/PetrifiedTimber"
 	},
-	"license": "CC0-1.0",
+	"license": [
+		"CC BY-NC-SA 4.0",
+		"MIT"
+	],
 	"icon": "assets/petrifiedtimber/icon.png",
 	"environment": "*",
 	"entrypoints": {
