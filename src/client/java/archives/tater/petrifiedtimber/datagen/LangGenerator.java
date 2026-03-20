@@ -157,6 +157,7 @@ public class LangGenerator extends FabricLanguageProvider {
         add(translationBuilder, PetrifiedTimberItemTags.RESIN_COVERED_OAK_LOGS);
         add(translationBuilder, PetrifiedTimberItemTags.PETRIFIED_OAK_LEAVES);
         add(translationBuilder, PetrifiedTimberItemTags.PETRIFIED_APPLES);
+        add(translationBuilder, PetrifiedTimberItemTags.CAN_ACQUIRE_FROM_PETRIFYING);
 
         add(translationBuilder, AdvancementGenerator.ROOT, "Petrified Timber", "TODO");
         add(translationBuilder, AdvancementGenerator.MELT_RESIN, "Dripping Steaming Sap", "Melt resin into a cauldron");

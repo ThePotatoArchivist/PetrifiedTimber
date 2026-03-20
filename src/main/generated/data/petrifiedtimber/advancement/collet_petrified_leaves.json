@@ -1,6 +1,16 @@
 {
   "parent": "petrifiedtimber:root",
   "criteria": {
+    "has_petrified_leaf": {
+      "conditions": {
+        "items": [
+          {
+            "items": "petrifiedtimber:petrified_leaf"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_petrified_oak_leaves": {
       "conditions": {
         "items": [
@@ -26,7 +36,8 @@
   },
   "requirements": [
     [
-      "has_petrified_oak_leaves"
+      "has_petrified_oak_leaves",
+      "has_petrified_leaf"
     ]
   ]
 }

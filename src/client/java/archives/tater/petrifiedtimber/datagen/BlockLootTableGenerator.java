@@ -21,6 +21,7 @@ import static net.minecraft.advancements.criterion.StatePropertiesPredicate.Buil
 import static net.minecraft.world.level.storage.loot.LootPool.lootPool;
 import static net.minecraft.world.level.storage.loot.LootTable.lootTable;
 import static net.minecraft.world.level.storage.loot.entries.LootItem.lootTableItem;
+import static net.minecraft.world.level.storage.loot.functions.ApplyBonusCount.addUniformBonusCount;
 import static net.minecraft.world.level.storage.loot.functions.SetItemCountFunction.setCount;
 import static net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition.bonusLevelFlatChance;
 import static net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition.hasBlockStateProperties;
@@ -119,16 +120,16 @@ public class BlockLootTableGenerator extends FabricBlockLootTableProvider {
 
         return createSilkTouchDispatchTable(
                 block,
-                applyExplosionCondition(block, lootTableItem(Items.APPLE)) // TODO
-                        .when(bonusLevelFlatChance(fortune, 1f / 50, 1f / 45, 1f / 40, 1f / 30, 1f / 10))
+                applyExplosionCondition(block, lootTableItem(Items.STICK))
+                        .when(bonusLevelFlatChance(fortune, 1f / 20, 1f / 16, 1f / 12, 1f / 10))
         )
                 .withPool(lootPool()
                         .setRolls(exactly(1))
                         .when(doesNotHaveSilkTouch())
                         .add(applyExplosionDecay(block,
                                 lootTableItem(PetrifiedTimberItems.PETRIFIED_LEAF)
-                                    .apply(setCount(between(1, 2))))
-                                .when(bonusLevelFlatChance(fortune, 1f / 20, 1f / 16, 1f / 12, 1f / 10))
+                                    .apply(setCount(between(1, 3)))
+                                    .apply(addUniformBonusCount(fortune, 2)))
                         )
                 );
     }

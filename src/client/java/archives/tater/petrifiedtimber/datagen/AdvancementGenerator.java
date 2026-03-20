@@ -106,6 +106,8 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         AdvancementType.TASK
                 ))
                 .addCriterion(getHasName(PetrifiedTimberItems.PETRIFIED_OAK_LEAVES), hasItems(PetrifiedTimberItems.PETRIFIED_OAK_LEAVES))
+                .addCriterion(getHasName(PetrifiedTimberItems.PETRIFIED_LEAF), hasItems(PetrifiedTimberItems.PETRIFIED_LEAF))
+                .requirements(AdvancementRequirements.Strategy.OR)
         );
 
         var petrifiedApple = register(consumer, COLLECT_PETRIFIED_APPLE, recipeAdvancement()

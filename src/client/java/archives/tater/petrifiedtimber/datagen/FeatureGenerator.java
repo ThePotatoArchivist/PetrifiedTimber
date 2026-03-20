@@ -18,6 +18,7 @@ import net.minecraft.util.random.WeightedList;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -269,7 +270,10 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                                 PetrifiedTimberBlocks.STACKED_ROCKS.defaultBlockState()
                         ))),
                         placedFeature(new ConfiguredFeature<>(Feature.BLOCK_PILE, new BlockPileConfiguration(
-                                simple(PetrifiedTimberBlocks.STACKED_ROCKS)
+                                new WeightedStateProvider(new WeightedList.Builder<BlockState>()
+                                        .add(PetrifiedTimberBlocks.STACKED_ROCKS.defaultBlockState())
+                                        .add(Blocks.COBBLESTONE.defaultBlockState())
+                                )
                         )))
                 )))),
                 List.of(
