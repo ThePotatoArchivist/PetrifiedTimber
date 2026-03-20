@@ -37,7 +37,7 @@
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "petrifiedtimber:watching_petrified_oak_leaves",
+        "Name": "petrifiedtimber:petrified_oak_leaves",
         "Properties": {
           "distance": "7",
           "persistent": "false",
