@@ -2,8 +2,10 @@ package archives.tater.petrifiedtimber.client.rrv;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlockTags;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -23,9 +25,15 @@ public record PetrificationClientRecipe(
         SlotContent accelerator
 ) implements ReliableClientRecipe {
 
-    public static final String COVER_DESCRIPTION = "rrv.petrifiedtimber.petrification.cover";
-    public static final String CATALYST_DESCRIPTION = "rrv.petrifiedtimber.petrification.catalyst";
-    public static final String ACCELERATOR_DESCRIPTion = "rrv.petrifiedtimber.petrification.accelerator";
+    public static final String COVER_DESCRIPTION_TRANSLATION = "rrv.petrifiedtimber.petrification.cover";
+    public static final String CATALYST_DESCRIPTION_TRANSLATION = "rrv.petrifiedtimber.petrification.catalyst";
+    public static final String ACCELERATOR_DESCRIPTION_TRANSLATION = "rrv.petrifiedtimber.petrification.accelerator";
+
+    private static final Style DESCRIPTION_STYLE = Style.EMPTY.applyFormats(ChatFormatting.DARK_PURPLE, ChatFormatting.ITALIC);
+
+    private static final Component COVER_DESCRIPTION = Component.translatable(COVER_DESCRIPTION_TRANSLATION).withStyle(DESCRIPTION_STYLE);
+    private static final Component CATALYST_DESCRIPTION = Component.translatable(CATALYST_DESCRIPTION_TRANSLATION).withStyle(DESCRIPTION_STYLE);
+    private static final Component ACCELERATOR_DESCRIPTION = Component.translatable(ACCELERATOR_DESCRIPTION_TRANSLATION).withStyle(DESCRIPTION_STYLE);
 
     public static SlotContent blockTagContent(TagKey<Block> blockTag) {
         return BuiltInRegistries.BLOCK.get(blockTag)
@@ -68,17 +76,17 @@ public record PetrificationClientRecipe(
 
         slotFillContext.bindSlot(1, cover);
         slotFillContext.addAdditionalStackModifier(1, (stack, tooltip) -> {
-            tooltip.add(Component.translatable(COVER_DESCRIPTION));
+            tooltip.add(COVER_DESCRIPTION);
         });
 
         slotFillContext.bindSlot(2, catalyst);
         slotFillContext.addAdditionalStackModifier(2, (stack, tooltip) -> {
-            tooltip.add(Component.translatable(CATALYST_DESCRIPTION));
+            tooltip.add(CATALYST_DESCRIPTION);
         });
 
         slotFillContext.bindSlot(3, accelerator);
         slotFillContext.addAdditionalStackModifier(3, (stack, tooltip) -> {
-            tooltip.add(Component.translatable(ACCELERATOR_DESCRIPTion));
+            tooltip.add(ACCELERATOR_DESCRIPTION);
         });
 
         slotFillContext.bindSlot(4, result);

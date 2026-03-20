@@ -142,8 +142,8 @@ public class LangGenerator extends FabricLanguageProvider {
         addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
 
         translationBuilder.add(PetrificationClientRecipeType.DISPLAY_NAME, "Petrification");
-        translationBuilder.add(PetrificationClientRecipe.COVER_DESCRIPTION, "Must be on all sides");
-        translationBuilder.add(PetrificationClientRecipe.CATALYST_DESCRIPTION, "Must be on at least one side");
-        translationBuilder.add(PetrificationClientRecipe.ACCELERATOR_DESCRIPTion, "Speeds up petrification if on at least one side");
+        translationBuilder.add(PetrificationClientRecipe.COVER_DESCRIPTION_TRANSLATION, "Must be on all sides");
+        translationBuilder.add(PetrificationClientRecipe.CATALYST_DESCRIPTION_TRANSLATION, "Must be on at least one side");
+        translationBuilder.add(PetrificationClientRecipe.ACCELERATOR_DESCRIPTION_TRANSLATION, "Speeds up petrification if on at least one side");
     }
 }
