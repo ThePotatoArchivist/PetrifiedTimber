@@ -3,6 +3,6 @@
     "#minecraft:leaves",
     "#minecraft:logs",
     "#petrifiedtimber:all_petrified_oak_logs",
-    "petrifiedtimber:petrified_oak_leaves"
+    "#petrifiedtimber:petrified_oak_leaves"
   ]
 }

@@ -19,6 +19,7 @@ import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.BlockModelWrapper;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 import com.google.gson.JsonElement;
@@ -80,10 +81,17 @@ public class ModelGenerator extends FabricModelProvider {
         blockModelGenerators.woodProvider(PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG)
                 .logWithHorizontal(PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG)
                 .wood(PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_WOOD);
+        blockModelGenerators.woodProvider(PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LOG)
+                .logWithHorizontal(PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LOG)
+                .wood(PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_WOOD);
         blockModelGenerators.woodProvider(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG)
                 .logWithHorizontal(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG)
                 .wood(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD);
         blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
+        blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
+        blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
+        blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
+        blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LEAVES, TexturedModel.LEAVES);
         createCropSapling(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING, PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING, BlockModelGenerators.PlantType.NOT_TINTED, blockModelGenerators);
         createCrossCrop(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP, PetrifiedSaplingCropBlock.AGE, blockModelGenerators);
         createPotted(
@@ -94,6 +102,11 @@ public class ModelGenerator extends FabricModelProvider {
         );
         blockModelGenerators.createPlantWithDefaultItem(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER, PetrifiedTimberBlocks.POTTED_PETRIFIED_RED_FLOWER, BlockModelGenerators.PlantType.NOT_TINTED);
         blockModelGenerators.createPlantWithDefaultItem(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER, PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER, BlockModelGenerators.PlantType.NOT_TINTED);
+        blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.SHADOW_PETRIFIED_ROOTS, TexturedModel.createDefault(
+                TextureMapping::cubeTop,
+                new ModelTemplate(Optional.of(ModelLocationUtils.getModelLocation(Blocks.MANGROVE_ROOTS)), Optional.empty())
+        ));
+        blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.STACKED_ROCKS, TexturedModel.CUBE);
         blockModelGenerators.createShelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);
         blockModelGenerators.createHangingSign(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG, PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);
 

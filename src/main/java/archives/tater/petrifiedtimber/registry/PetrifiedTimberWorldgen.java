@@ -53,6 +53,7 @@ public class PetrifiedTimberWorldgen {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_ACACIA = configuredFeature("petrified_acacia");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_JUNGLE = configuredFeature("petrified_jungle");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_CHERRY = configuredFeature("petrified_cherry");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PETRIFIED_MANGROVE = configuredFeature("petrified_mangrove");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_PETRIFIED_SPRUCE = configuredFeature("mega_petrified_spruce");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_PETRIFIED_JUNGLE = configuredFeature("mega_petrified_jungle");

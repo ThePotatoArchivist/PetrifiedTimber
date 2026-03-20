@@ -34,6 +34,10 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG,
                 PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_WOOD
         );
+        valueLookupBuilder(PetrifiedTimberBlockTags.WATCHING_PETRIFIED_OAK_LOGS).add(
+                PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LOG,
+                PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_WOOD
+        );
         valueLookupBuilder(PetrifiedTimberBlockTags.CHERRY_PETRIFIED_OAK_LOGS).add(
                 PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG,
                 PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_WOOD
@@ -43,6 +47,13 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .addTag(PetrifiedTimberBlockTags.SHADOW_PETRIFIED_OAK_LOGS)
                 .addTag(PetrifiedTimberBlockTags.WARM_PETRIFIED_OAK_LOGS)
                 .addTag(PetrifiedTimberBlockTags.CHERRY_PETRIFIED_OAK_LOGS);
+        valueLookupBuilder(PetrifiedTimberBlockTags.PETRIFIED_OAK_LEAVES).add(
+                PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES,
+                PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LEAVES,
+                PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LEAVES,
+                PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LEAVES,
+                PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LEAVES
+        );
         valueLookupBuilder(PetrifiedTimberBlockTags.RESIN_COVERED_OAK_LOGS).add(
                 PetrifiedTimberBlocks.RESIN_COVERED_OAK_LOG,
                 PetrifiedTimberBlocks.RESIN_COVERED_OAK_WOOD,
@@ -77,7 +88,7 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 .forceAddTag(BlockTags.LEAVES)
                 .forceAddTag(BlockTags.LOGS)
                 .addTag(PetrifiedTimberBlockTags.ALL_PETRIFIED_OAK_LOGS)
-                .add(PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES);
+                .addTag(PetrifiedTimberBlockTags.PETRIFIED_OAK_LEAVES);
         valueLookupBuilder(PetrifiedTimberBlockTags.PETRIFIED_SAPLING_GROWS_ON).add(
                 Blocks.FARMLAND
         );
@@ -142,13 +153,15 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         valueLookupBuilder(BlockTags.SLABS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_SLAB);
         valueLookupBuilder(BlockTags.SAPLINGS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
         valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
-                .addTag(PetrifiedTimberBlockTags.ALL_PETRIFIED_OAK_LOGS).add(
+                .addTag(PetrifiedTimberBlockTags.ALL_PETRIFIED_OAK_LOGS)
+                .addTag(PetrifiedTimberBlockTags.PETRIFIED_OAK_LEAVES).add(
                 PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS,
-                PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP,
                 PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER,
                 PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER,
+                PetrifiedTimberBlocks.SHADOW_PETRIFIED_ROOTS,
+                PetrifiedTimberBlocks.STACKED_ROCKS,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN,

@@ -1,4 +1,5 @@
 // 1.21.11	-999999999-01-01T00:00:00	PetrifiedTimber/Tags for minecraft:item
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/c/tags/item/cobblestones/normal.json
 4c860eba84fa21a0db6dbacc843dc9636f9f4ac6 data/c/tags/item/hidden_from_recipe_viewers.json
 e899ee5dcf71e0793cb7ae04b0bf33413d4aadcb data/c/tags/item/seeds.json
 99a6bf6a1aa2bb9293e5a7e27a66aeb1ace26db1 data/minecraft/tags/item/boats.json
@@ -14,12 +15,16 @@ edea82ac6d5144a177bb841bacc2c650bd069b97 data/minecraft/tags/item/signs.json
 9a305f367638966f5d1c1f3f3b1ac092838d7a39 data/minecraft/tags/item/slabs.json
 1e7d3d15eadc583645c2592d4ae00348f57da5c3 data/minecraft/tags/item/stairs.json
 5d97d7f536337e15d2d0d670f7294c8a1d3356b3 data/minecraft/tags/item/stone_buttons.json
+09c0dd8cee29d6fd727d5b8947f4252b372f518c data/minecraft/tags/item/stone_crafting_materials.json
+09c0dd8cee29d6fd727d5b8947f4252b372f518c data/minecraft/tags/item/stone_tool_materials.json
 b89ad12e119e96a123c31cef11191749c9c7e7d3 data/minecraft/tags/item/trapdoors.json
 e50268cb1c837ced04f0fd33dc3afbc288e9a549 data/minecraft/tags/item/wooden_shelves.json
 41118f4aace02bea14639e8343f4fc58e7e2adb9 data/petrifiedtimber/tags/item/all_petrified_oak_logs.json
 d30ca8d7c839fea57ea1b5d98e7818be8ea73ed9 data/petrifiedtimber/tags/item/cherry_petrified_oak_logs.json
 3a78ddb16ccbee6438586c400abddb4fd25f89d6 data/petrifiedtimber/tags/item/petrified_apples.json
+180d0f8a00ec4b3e1c878710eea78759ba0116d3 data/petrifiedtimber/tags/item/petrified_oak_leaves.json
 8f50cbef1f427a01ec57efc100b3da9a34bf5295 data/petrifiedtimber/tags/item/petrified_oak_logs.json
 1b12dd70c4e236c775f721c552ed0c5613d4b078 data/petrifiedtimber/tags/item/resin_covered_oak_logs.json
 ec4b76e2ed012a45256681140a4f31d9779adff6 data/petrifiedtimber/tags/item/shadow_petrified_oak_logs.json
 28a9b505067561878a67bf98b40aa8a6622ddc0d data/petrifiedtimber/tags/item/warm_petrified_oak_logs.json
+a5f9eb985b7556686161812a158ff729137098b8 data/petrifiedtimber/tags/item/watching_petrified_oak_logs.json

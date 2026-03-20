@@ -2,6 +2,7 @@ package archives.tater.petrifiedtimber.registry;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.block.*;
+import archives.tater.petrifiedtimber.block.RootsBlock;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
@@ -50,6 +51,16 @@ public class PetrifiedTimberBlocks {
                 .strength(2f, 6f)
                 .sound(SoundType.STONE)
                 .requiresCorrectToolForDrops();
+    }
+
+    private static BlockBehaviour.Properties petrifiedLeavesProperties() {
+        return petrifiedWoodProperties()
+                .sound(SoundType.TUFF)
+                .noOcclusion()
+                .isSuffocating(Blocks::never)
+                .isViewBlocking(Blocks::never)
+                .pushReaction(PushReaction.DESTROY)
+                .isRedstoneConductor(Blocks::never);
     }
 
     private static BlockBehaviour.Properties appleProperties() {
@@ -107,23 +118,27 @@ public class PetrifiedTimberBlocks {
 
     public static final Block WARM_PETRIFIED_OAK_WOOD = register("warm_petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
 
+    public static final Block WATCHING_PETRIFIED_OAK_LOG = register("watching_petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
+
+    public static final Block WATCHING_PETRIFIED_OAK_WOOD = register("watching_petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
+
     public static final Block CHERRY_PETRIFIED_OAK_LOG = register("cherry_petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());
 
     public static final Block CHERRY_PETRIFIED_OAK_WOOD = register("cherry_petrified_oak_wood", RotatedPillarBlock::new, petrifiedWoodProperties());
 
     public static final Block PETRIFIED_OAK_PLANKS = register("petrified_oak_planks", petrifiedWoodProperties());
 
-    public static final Block PETRIFIED_OAK_LEAVES = register(
-            "petrified_oak_leaves",
-            PetrifiedLeavesBlock::new,
-            petrifiedWoodProperties()
-                    .sound(SoundType.TUFF)
-                    .noOcclusion()
-                    .isSuffocating(Blocks::never)
-                    .isViewBlocking(Blocks::never)
-                    .pushReaction(PushReaction.DESTROY)
-                    .isRedstoneConductor(Blocks::never)
-    );
+    public static final Block PETRIFIED_OAK_LEAVES = register("petrified_oak_leaves", PetrifiedLeavesBlock::new, petrifiedLeavesProperties());
+
+    public static final Block SHADOW_PETRIFIED_OAK_LEAVES = register("shadow_petrified_oak_leaves", PetrifiedLeavesBlock::new, petrifiedLeavesProperties());
+
+    public static final Block WARM_PETRIFIED_OAK_LEAVES = register("warm_petrified_oak_leaves", PetrifiedLeavesBlock::new, petrifiedLeavesProperties());
+
+    public static final Block WATCHING_PETRIFIED_OAK_LEAVES = register("watching_petrified_oak_leaves", PetrifiedLeavesBlock::new, petrifiedLeavesProperties());
+
+    public static final Block CHERRY_PETRIFIED_OAK_LEAVES = register("cherry_petrified_oak_leaves", PetrifiedLeavesBlock::new, petrifiedLeavesProperties());
+
+    public static final Block SHADOW_PETRIFIED_ROOTS = register("shadow_petrified_roots", RootsBlock::new, petrifiedLeavesProperties());
 
     public static final Block PETRIFIED_OAK_SAPLING = register(
             "petrified_oak_sapling",
@@ -193,6 +208,8 @@ public class PetrifiedTimberBlocks {
             PETRIFIED_YELLOW_FLOWER,
             Blocks.flowerPotProperties()
     );
+
+    public static final Block STACKED_ROCKS = register("stacked_rocks", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE));
 
     public static final Block PETRIFIED_OAK_SHELF = register("petrified_oak_shelf", ShelfBlock::new, petrifiedWoodProperties());
 

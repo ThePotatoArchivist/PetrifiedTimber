@@ -7,7 +7,7 @@
           "type": "minecraft:forest_rock",
           "config": {
             "state": {
-              "Name": "minecraft:cobblestone"
+              "Name": "petrifiedtimber:stacked_rocks"
             }
           }
         },
@@ -20,7 +20,7 @@
             "state_provider": {
               "type": "minecraft:simple_state_provider",
               "state": {
-                "Name": "minecraft:cobblestone"
+                "Name": "petrifiedtimber:stacked_rocks"
               }
             }
           }

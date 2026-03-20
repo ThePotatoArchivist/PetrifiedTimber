@@ -6,6 +6,7 @@ import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 
 import net.minecraft.core.HolderLookup;
@@ -26,9 +27,11 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         copy(PetrifiedTimberBlockTags.PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.PETRIFIED_OAK_LOGS);
         copy(PetrifiedTimberBlockTags.SHADOW_PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.SHADOW_PETRIFIED_OAK_LOGS);
         copy(PetrifiedTimberBlockTags.WARM_PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.WARM_PETRIFIED_OAK_LOGS);
+        copy(PetrifiedTimberBlockTags.WATCHING_PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.WATCHING_PETRIFIED_OAK_LOGS);
         copy(PetrifiedTimberBlockTags.CHERRY_PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.CHERRY_PETRIFIED_OAK_LOGS);
         copy(PetrifiedTimberBlockTags.ALL_PETRIFIED_OAK_LOGS, PetrifiedTimberItemTags.ALL_PETRIFIED_OAK_LOGS);
         copy(PetrifiedTimberBlockTags.RESIN_COVERED_OAK_LOGS, PetrifiedTimberItemTags.RESIN_COVERED_OAK_LOGS);
+        copy(PetrifiedTimberBlockTags.PETRIFIED_OAK_LEAVES, PetrifiedTimberItemTags.PETRIFIED_OAK_LEAVES);
         copy(PetrifiedTimberBlockTags.PETRIFIED_APPLES, PetrifiedTimberItemTags.PETRIFIED_APPLES);
         copy(BlockTags.SIGNS, ItemTags.SIGNS);
         copy(BlockTags.CEILING_HANGING_SIGNS, ItemTags.HANGING_SIGNS);
@@ -43,8 +46,11 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);
         copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
+        copy(ConventionalBlockTags.NORMAL_COBBLESTONES, ConventionalItemTags.NORMAL_COBBLESTONES);
         valueLookupBuilder(ItemTags.BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_BOAT);
         valueLookupBuilder(ItemTags.CHEST_BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT);
+        valueLookupBuilder(ItemTags.STONE_TOOL_MATERIALS).add(PetrifiedTimberItems.STACKED_ROCKS);
+        valueLookupBuilder(ItemTags.STONE_CRAFTING_MATERIALS).add(PetrifiedTimberItems.STACKED_ROCKS);
         valueLookupBuilder(ConventionalItemTags.SEEDS).add(PetrifiedTimberItems.PETRIFIED_OAK_SEEDS);
         valueLookupBuilder(ConventionalItemTags.HIDDEN_FROM_RECIPE_VIEWERS).add(PetrifiedTimberItems.MELTED_RESIN_CAULDRON);
     }
