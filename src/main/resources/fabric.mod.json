@@ -27,6 +27,12 @@
 		],
 		"terrablender": [
 			"archives.tater.petrifiedtimber.registry.PetrifiedTimberTerraBlender"
+		],
+		"rrv": [
+			"archives.tater.petrifiedtimber.rrv.PetrifiedTimberRRV"
+		],
+		"rrv_client": [
+			"archives.tater.petrifiedtimber.rrv.PetrifiedTimberRRVClient"
 		]
 	},
 	"mixins": [
