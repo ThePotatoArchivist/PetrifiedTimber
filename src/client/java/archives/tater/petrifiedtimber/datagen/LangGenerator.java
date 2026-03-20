@@ -1,8 +1,8 @@
 package archives.tater.petrifiedtimber.datagen;
 
-import archives.tater.petrifiedtimber.registry.*;
 import archives.tater.petrifiedtimber.client.rrv.PetrificationClientRecipe;
 import archives.tater.petrifiedtimber.client.rrv.PetrificationClientRecipeType;
+import archives.tater.petrifiedtimber.registry.*;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -11,6 +11,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
@@ -41,8 +42,12 @@ public class LangGenerator extends FabricLanguageProvider {
         translationBuilder.add(item, snakeToTitle(BuiltInRegistries.ITEM.getKey(item).getPath()));
     }
 
-    private static void add(TranslationBuilder translationBuilder, EntityType<?> item) {
-        translationBuilder.add(item, snakeToTitle(BuiltInRegistries.ENTITY_TYPE.getKey(item).getPath()));
+    private static void add(TranslationBuilder translationBuilder, EntityType<?> entity) {
+        translationBuilder.add(entity, snakeToTitle(BuiltInRegistries.ENTITY_TYPE.getKey(entity).getPath()));
+    }
+
+    private static void add(TranslationBuilder translationBuilder, TagKey<?> tag) {
+        translationBuilder.add(tag, snakeToTitle(tag.location().getPath()));
     }
 
     private static void addBiome(TranslationBuilder translationBuilder, ResourceKey<Biome> biome, String value) {
@@ -137,6 +142,16 @@ public class LangGenerator extends FabricLanguageProvider {
         translationBuilder.add(PetrifiedTimberItems.PETRIFIED_LEAF, "Petrified Leaf");
 
         translationBuilder.add(makeDescriptionId("block", BuiltInRegistries.FLUID.getKey(PetrifiedTimberFluids.MELTED_RESIN)), "Melted Resin");
+
+        add(translationBuilder, PetrifiedTimberItemTags.PETRIFIED_OAK_LOGS);
+        add(translationBuilder, PetrifiedTimberItemTags.SHADOW_PETRIFIED_OAK_LOGS);
+        add(translationBuilder, PetrifiedTimberItemTags.WARM_PETRIFIED_OAK_LOGS);
+        add(translationBuilder, PetrifiedTimberItemTags.WATCHING_PETRIFIED_OAK_LOGS);
+        add(translationBuilder, PetrifiedTimberItemTags.CHERRY_PETRIFIED_OAK_LOGS);
+        add(translationBuilder, PetrifiedTimberItemTags.ALL_PETRIFIED_OAK_LOGS);
+        add(translationBuilder, PetrifiedTimberItemTags.RESIN_COVERED_OAK_LOGS);
+        add(translationBuilder, PetrifiedTimberItemTags.PETRIFIED_OAK_LEAVES);
+        add(translationBuilder, PetrifiedTimberItemTags.PETRIFIED_APPLES);
 
         addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST);
         addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);

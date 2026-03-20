@@ -90,5 +90,14 @@
   "rrv.client_recipe_type.petrifiedtimer.petrification": "Petrification",
   "rrv.petrifiedtimber.petrification.accelerator": "Speeds up petrification if on at least one side",
   "rrv.petrifiedtimber.petrification.catalyst": "Must be on at least one side",
-  "rrv.petrifiedtimber.petrification.cover": "Must be on all sides"
+  "rrv.petrifiedtimber.petrification.cover": "Must be on all sides",
+  "tag.item.petrifiedtimber.all_petrified_oak_logs": "All Petrified Oak Logs",
+  "tag.item.petrifiedtimber.cherry_petrified_oak_logs": "Cherry Petrified Oak Logs",
+  "tag.item.petrifiedtimber.petrified_apples": "Petrified Apples",
+  "tag.item.petrifiedtimber.petrified_oak_leaves": "Petrified Oak Leaves",
+  "tag.item.petrifiedtimber.petrified_oak_logs": "Petrified Oak Logs",
+  "tag.item.petrifiedtimber.resin_covered_oak_logs": "Resin Covered Oak Logs",
+  "tag.item.petrifiedtimber.shadow_petrified_oak_logs": "Shadow Petrified Oak Logs",
+  "tag.item.petrifiedtimber.warm_petrified_oak_logs": "Warm Petrified Oak Logs",
+  "tag.item.petrifiedtimber.watching_petrified_oak_logs": "Watching Petrified Oak Logs"
 }
