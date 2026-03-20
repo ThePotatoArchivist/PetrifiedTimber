@@ -32,7 +32,7 @@
 			"archives.tater.petrifiedtimber.rrv.PetrifiedTimberRRV"
 		],
 		"rrv_client": [
-			"archives.tater.petrifiedtimber.rrv.PetrifiedTimberRRVClient"
+			"archives.tater.petrifiedtimber.client.rrv.PetrifiedTimberRRVClient"
 		]
 	},
 	"mixins": [

@@ -1,8 +1,8 @@
 package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.registry.*;
-import archives.tater.petrifiedtimber.rrv.PetrificationClientRecipe;
-import archives.tater.petrifiedtimber.rrv.PetrificationClientRecipeType;
+import archives.tater.petrifiedtimber.client.rrv.PetrificationClientRecipe;
+import archives.tater.petrifiedtimber.client.rrv.PetrificationClientRecipeType;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;

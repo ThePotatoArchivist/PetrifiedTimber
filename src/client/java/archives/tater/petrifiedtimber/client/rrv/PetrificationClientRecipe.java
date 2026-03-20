@@ -1,4 +1,4 @@
-package archives.tater.petrifiedtimber.rrv;
+package archives.tater.petrifiedtimber.client.rrv;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlockTags;
 
