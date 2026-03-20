@@ -92,7 +92,6 @@ public class LangGenerator extends FabricLanguageProvider {
         add(translationBuilder, PetrifiedTimberBlocks.POTTED_PETRIFIED_RED_FLOWER);
         add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER);
         add(translationBuilder, PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER);
-        add(translationBuilder, PetrifiedTimberBlocks.SHADOW_PETRIFIED_ROOTS);
         add(translationBuilder, PetrifiedTimberBlocks.STACKED_ROCKS);
         add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF);
         add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN);

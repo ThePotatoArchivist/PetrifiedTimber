@@ -160,7 +160,6 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP,
                 PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER,
                 PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER,
-                PetrifiedTimberBlocks.SHADOW_PETRIFIED_ROOTS,
                 PetrifiedTimberBlocks.STACKED_ROCKS,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN,

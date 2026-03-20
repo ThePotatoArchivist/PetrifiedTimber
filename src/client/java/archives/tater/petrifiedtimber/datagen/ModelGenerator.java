@@ -19,7 +19,6 @@ import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.item.BlockModelWrapper;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 import com.google.gson.JsonElement;
@@ -102,10 +101,6 @@ public class ModelGenerator extends FabricModelProvider {
         );
         blockModelGenerators.createPlantWithDefaultItem(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER, PetrifiedTimberBlocks.POTTED_PETRIFIED_RED_FLOWER, BlockModelGenerators.PlantType.NOT_TINTED);
         blockModelGenerators.createPlantWithDefaultItem(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER, PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER, BlockModelGenerators.PlantType.NOT_TINTED);
-        blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.SHADOW_PETRIFIED_ROOTS, TexturedModel.createDefault(
-                TextureMapping::cubeTop,
-                new ModelTemplate(Optional.of(ModelLocationUtils.getModelLocation(Blocks.MANGROVE_ROOTS)), Optional.empty())
-        ));
         blockModelGenerators.createTrivialBlock(PetrifiedTimberBlocks.STACKED_ROCKS, TexturedModel.CUBE);
         blockModelGenerators.createShelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF, PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG);
         blockModelGenerators.createHangingSign(PetrifiedTimberBlocks.PETRIFIED_STRIPPED_OAK_LOG, PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN, PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_HANGING_SIGN);

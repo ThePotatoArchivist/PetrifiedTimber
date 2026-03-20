@@ -40,13 +40,6 @@
           "feature": "petrifiedtimber:petrified_cherry",
           "placement": []
         }
-      },
-      {
-        "biomes": "#c:primary_wood_type/mangrove",
-        "feature": {
-          "feature": "petrifiedtimber:petrified_mangrove",
-          "placement": []
-        }
       }
     ]
   }

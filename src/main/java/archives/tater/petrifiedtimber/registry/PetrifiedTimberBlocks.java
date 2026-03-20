@@ -2,7 +2,6 @@ package archives.tater.petrifiedtimber.registry;
 
 import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.block.*;
-import archives.tater.petrifiedtimber.block.RootsBlock;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
@@ -137,8 +136,6 @@ public class PetrifiedTimberBlocks {
     public static final Block WATCHING_PETRIFIED_OAK_LEAVES = register("watching_petrified_oak_leaves", PetrifiedLeavesBlock::new, petrifiedLeavesProperties());
 
     public static final Block CHERRY_PETRIFIED_OAK_LEAVES = register("cherry_petrified_oak_leaves", PetrifiedLeavesBlock::new, petrifiedLeavesProperties());
-
-    public static final Block SHADOW_PETRIFIED_ROOTS = register("shadow_petrified_roots", RootsBlock::new, petrifiedLeavesProperties());
 
     public static final Block PETRIFIED_OAK_SAPLING = register(
             "petrified_oak_sapling",
