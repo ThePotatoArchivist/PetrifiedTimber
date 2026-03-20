@@ -17,6 +17,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.item.BlockModelWrapper;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
@@ -28,6 +29,7 @@ import com.google.gson.stream.JsonReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Optional;
 
 import static net.minecraft.client.data.models.BlockModelGenerators.createSimpleBlock;
@@ -129,6 +131,10 @@ public class ModelGenerator extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_LEAF, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.itemModelOutput.accept(PetrifiedTimberItems.MELTED_RESIN_CAULDRON, new BlockModelWrapper.Unbaked(
+                ModelLocationUtils.getModelLocation(PetrifiedTimberBlocks.RESIN_CAULDRON, "_level" + ResinCauldronBlock.MAX_LEVEL),
+                List.of()
+        ));
     }
 
     public static final ModelTemplate CROSS_CROP = new ModelTemplate(Optional.of(PetrifiedTimber.id("block/cross_crop")), Optional.empty(), TextureSlot.CROP);

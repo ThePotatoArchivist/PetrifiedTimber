@@ -133,6 +133,14 @@ public class PetrifiedTimberItems {
                     .stacksTo(16)
     );
 
+    // Only used for recipe viewer
+    public static final Item MELTED_RESIN_CAULDRON = register(
+            "melted_resin_cauldron",
+            Item::new,
+            new Item.Properties()
+                    .overrideDescription(PetrifiedTimberBlocks.RESIN_CAULDRON.getDescriptionId())
+    );
+
     public static final Item PETRIFIED_LEAF = register("petrified_leaf", new Item.Properties());
 
     public static final String PETRIFIED_TIMBER_TAB_TITLE = "itemGroup.petrifiedtimber.petrified_timber";

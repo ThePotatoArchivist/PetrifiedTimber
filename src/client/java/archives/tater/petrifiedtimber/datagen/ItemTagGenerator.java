@@ -46,5 +46,6 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         valueLookupBuilder(ItemTags.BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_BOAT);
         valueLookupBuilder(ItemTags.CHEST_BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT);
         valueLookupBuilder(ConventionalItemTags.SEEDS).add(PetrifiedTimberItems.PETRIFIED_OAK_SEEDS);
+        valueLookupBuilder(ConventionalItemTags.HIDDEN_FROM_RECIPE_VIEWERS).add(PetrifiedTimberItems.MELTED_RESIN_CAULDRON);
     }
 }
