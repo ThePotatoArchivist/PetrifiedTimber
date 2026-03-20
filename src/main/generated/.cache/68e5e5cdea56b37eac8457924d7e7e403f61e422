@@ -1,4 +1,5 @@
 // 1.21.11	-999999999-01-01T00:00:00	PetrifiedTimber/Tags for minecraft:item
+4c860eba84fa21a0db6dbacc843dc9636f9f4ac6 data/c/tags/item/hidden_from_recipe_viewers.json
 e899ee5dcf71e0793cb7ae04b0bf33413d4aadcb data/c/tags/item/seeds.json
 99a6bf6a1aa2bb9293e5a7e27a66aeb1ace26db1 data/minecraft/tags/item/boats.json
 77392d723c869e7424a3a21f12a50bcd223334e3 data/minecraft/tags/item/chest_boats.json

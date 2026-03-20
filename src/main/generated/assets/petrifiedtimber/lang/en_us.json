@@ -78,5 +78,9 @@
   "item.petrifiedtimber.petrified_oak_boat": "Petrified Oak Boat",
   "item.petrifiedtimber.petrified_oak_chest_boat": "Petrified Oak Boat with Chest",
   "item.petrifiedtimber.petrified_oak_seeds": "Petrified Oak Seeds",
-  "itemGroup.petrifiedtimber.petrified_timber": "Petrified Timber"
+  "itemGroup.petrifiedtimber.petrified_timber": "Petrified Timber",
+  "rrv.client_recipe_type.petrifiedtimer.petrification": "Petrification",
+  "rrv.petrifiedtimber.petrification.accelerator": "Speeds up petrification if on at least one side",
+  "rrv.petrifiedtimber.petrification.catalyst": "Must be on at least one side",
+  "rrv.petrifiedtimber.petrification.cover": "Must be on all sides"
 }

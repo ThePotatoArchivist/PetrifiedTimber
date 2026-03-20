@@ -1,6 +1,8 @@
 package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.registry.*;
+import archives.tater.petrifiedtimber.client.rrv.PetrificationClientRecipe;
+import archives.tater.petrifiedtimber.client.rrv.PetrificationClientRecipeType;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -130,5 +132,10 @@ public class LangGenerator extends FabricLanguageProvider {
 
         addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST);
         addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);
+
+        translationBuilder.add(PetrificationClientRecipeType.DISPLAY_NAME, "Petrification");
+        translationBuilder.add(PetrificationClientRecipe.COVER_DESCRIPTION, "Must be on all sides");
+        translationBuilder.add(PetrificationClientRecipe.CATALYST_DESCRIPTION, "Must be on at least one side");
+        translationBuilder.add(PetrificationClientRecipe.ACCELERATOR_DESCRIPTion, "Speeds up petrification if on at least one side");
     }
 }
