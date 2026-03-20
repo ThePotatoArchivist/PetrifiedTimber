@@ -1,0 +1,32 @@
+{
+  "parent": "petrifiedtimber:collet_petrified_leaves",
+  "criteria": {
+    "has_petrified_apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#petrifiedtimber:petrified_apples"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.petrifiedtimber.collet_petrified_apple.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "petrifiedtimber:red_petrified_apple"
+    },
+    "title": {
+      "translate": "advancements.petrifiedtimber.collet_petrified_apple.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_petrified_apple"
+    ]
+  ]
+}

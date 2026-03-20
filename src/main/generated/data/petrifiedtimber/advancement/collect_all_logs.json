@@ -1,0 +1,72 @@
+{
+  "parent": "petrifiedtimber:plant_petrified_seeds",
+  "criteria": {
+    "has_cherry_petrified_oak_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "petrifiedtimber:cherry_petrified_oak_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_shadow_petrified_oak_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "petrifiedtimber:shadow_petrified_oak_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_warm_petrified_oak_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "petrifiedtimber:warm_petrified_oak_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_watching_petrified_oak_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "petrifiedtimber:watching_petrified_oak_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.petrifiedtimber.collect_all_logs.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "petrifiedtimber:watching_petrified_oak_log"
+    },
+    "title": {
+      "translate": "advancements.petrifiedtimber.collect_all_logs.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_shadow_petrified_oak_log"
+    ],
+    [
+      "has_warm_petrified_oak_log"
+    ],
+    [
+      "has_watching_petrified_oak_log"
+    ],
+    [
+      "has_cherry_petrified_oak_log"
+    ]
+  ]
+}

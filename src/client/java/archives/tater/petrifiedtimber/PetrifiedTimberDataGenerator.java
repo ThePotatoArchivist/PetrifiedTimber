@@ -33,6 +33,7 @@ public class PetrifiedTimberDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(FeatureGenerator::new);
 		pack.addProvider(BiomeGenerator::new);
 		pack.addProvider(BiomeTagGenerator::new);
+		pack.addProvider(AdvancementGenerator::new);
 	}
 
 }

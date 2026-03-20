@@ -24,5 +24,6 @@ public class PetrifiedTimberItemTags {
     public static final TagKey<Item> ALL_PETRIFIED_OAK_LOGS = of(PetrifiedTimberBlockTags.ALL_PETRIFIED_OAK_LOGS);
     public static final TagKey<Item> RESIN_COVERED_OAK_LOGS = of(PetrifiedTimberBlockTags.RESIN_COVERED_OAK_LOGS);
     public static final TagKey<Item> PETRIFIED_OAK_LEAVES = of(PetrifiedTimberBlockTags.PETRIFIED_OAK_LEAVES);
+    public static final TagKey<Item> CAN_ACQUIRE_FROM_PETRIFYING = of("petrified_wood_blocks");
     public static final TagKey<Item> PETRIFIED_APPLES = of("petrified_apples");
 }

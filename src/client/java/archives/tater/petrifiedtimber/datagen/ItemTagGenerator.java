@@ -47,6 +47,9 @@ public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
         copy(ConventionalBlockTags.NORMAL_COBBLESTONES, ConventionalItemTags.NORMAL_COBBLESTONES);
+        valueLookupBuilder(PetrifiedTimberItemTags.CAN_ACQUIRE_FROM_PETRIFYING)
+                .addTag(PetrifiedTimberItemTags.PETRIFIED_OAK_LOGS)
+                .add(PetrifiedTimberItems.PETRIFIED_OAK_PLANKS);
         valueLookupBuilder(ItemTags.BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_BOAT);
         valueLookupBuilder(ItemTags.CHEST_BOATS).add(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT);
         valueLookupBuilder(ItemTags.STONE_TOOL_MATERIALS).add(PetrifiedTimberItems.STACKED_ROCKS);

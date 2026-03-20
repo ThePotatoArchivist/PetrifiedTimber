@@ -50,6 +50,11 @@ public class LangGenerator extends FabricLanguageProvider {
         translationBuilder.add(tag, snakeToTitle(tag.location().getPath()));
     }
 
+    private static void add(TranslationBuilder translationBuilder, AdvancementGenerator.AdvancementTranslations advancementTranslations, String title, String description) {
+        translationBuilder.add(advancementTranslations.title(), title);
+        translationBuilder.add(advancementTranslations.description(), description);
+    }
+
     private static void addBiome(TranslationBuilder translationBuilder, ResourceKey<Biome> biome, String value) {
         translationBuilder.add(biome.identifier().toLanguageKey("biome"), value);
     }
@@ -152,6 +157,15 @@ public class LangGenerator extends FabricLanguageProvider {
         add(translationBuilder, PetrifiedTimberItemTags.RESIN_COVERED_OAK_LOGS);
         add(translationBuilder, PetrifiedTimberItemTags.PETRIFIED_OAK_LEAVES);
         add(translationBuilder, PetrifiedTimberItemTags.PETRIFIED_APPLES);
+
+        add(translationBuilder, AdvancementGenerator.ROOT, "Petrified Timber", "TODO");
+        add(translationBuilder, AdvancementGenerator.MELT_RESIN, "Dripping Steaming Sap", "Melt resin into a cauldron");
+        add(translationBuilder, AdvancementGenerator.COLLECT_PETRIFIED_WOOD, "I might as well be stone too", "Bury resin covered wood underground for several days");
+        add(translationBuilder, AdvancementGenerator.COLLECT_PETRIFIED_LEAVES, "Is it fall already?", "Discover a petrified bush in a swamp");
+        add(translationBuilder, AdvancementGenerator.COLLECT_PETRIFIED_APPLE, "OW! My teeth", "Find a petrified apple");
+        add(translationBuilder, AdvancementGenerator.PLANT_PETRIFIED_SEEDS, "TODO", "Plant petrified oak seeds");
+        add(translationBuilder, AdvancementGenerator.COLLECT_ALL_LOGS, "Petrifying Camouflage", "Collect every variant of petrified log");
+        add(translationBuilder, AdvancementGenerator.FIND_PETRIFIED_FOREST, "Just as I remember it!", "Discover a forest lost to time");
 
         addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST);
         addBiome(translationBuilder, PetrifiedTimberWorldgen.PETRIFIED_FOREST_EDGE);

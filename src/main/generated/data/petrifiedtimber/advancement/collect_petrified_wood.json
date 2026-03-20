@@ -1,0 +1,32 @@
+{
+  "parent": "petrifiedtimber:melt_resin",
+  "criteria": {
+    "has_petrified_wood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#petrifiedtimber:petrified_wood_blocks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.petrifiedtimber.collect_petrified_wood.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "petrifiedtimber:petrified_oak_log"
+    },
+    "title": {
+      "translate": "advancements.petrifiedtimber.collect_petrified_wood.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_petrified_wood"
+    ]
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "petrifiedtimber:root",
+  "criteria": {
+    "has_petrified_oak_leaves": {
+      "conditions": {
+        "items": [
+          {
+            "items": "petrifiedtimber:petrified_oak_leaves"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.petrifiedtimber.collet_petrified_leaves.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "petrifiedtimber:petrified_oak_leaves"
+    },
+    "title": {
+      "translate": "advancements.petrifiedtimber.collet_petrified_leaves.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_petrified_oak_leaves"
+    ]
+  ]
+}

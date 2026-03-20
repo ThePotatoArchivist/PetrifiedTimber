@@ -1,0 +1,33 @@
+{
+  "parent": "petrifiedtimber:collet_petrified_apple",
+  "criteria": {
+    "plant_seeds": {
+      "conditions": {
+        "location": [
+          {
+            "block": "petrifiedtimber:petrified_oak_sapling_crop",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.petrifiedtimber.plant_petrified_seeds.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "petrifiedtimber:petrified_oak_seeds"
+    },
+    "title": {
+      "translate": "advancements.petrifiedtimber.plant_petrified_seeds.title"
+    }
+  },
+  "requirements": [
+    [
+      "plant_seeds"
+    ]
+  ]
+}

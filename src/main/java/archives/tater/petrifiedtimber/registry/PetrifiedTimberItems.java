@@ -80,8 +80,8 @@ public class PetrifiedTimberItems {
     public static final Item CHERRY_PETRIFIED_OAK_LEAVES = register(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LEAVES);
     public static final Item PETRIFIED_OAK_SAPLING = register(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
     public static final Item PETRIFIED_OAK_SEEDS = register("petrified_oak_seeds", properties -> new BlockItem(PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP, properties));
-    public static final Item PETRIFIED_ROSE = register(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER);
-    public static final Item PETRIFIED_DANDELION = register(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER);
+    public static final Item PETRIFIED_RED_FLOWER = register(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER);
+    public static final Item PETRIFIED_YELLOW_FLOWER = register(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER);
     public static final Item SHADOW_PETRIFIED_ROOTS = register(PetrifiedTimberBlocks.SHADOW_PETRIFIED_ROOTS);
     public static final Item STACKED_ROCKS = register(PetrifiedTimberBlocks.STACKED_ROCKS);
     public static final Item PETRIFIED_OAK_PRESSURE_PLATE = register(PetrifiedTimberBlocks.PETRIFIED_OAK_PRESSURE_PLATE);
@@ -194,8 +194,8 @@ public class PetrifiedTimberItems {
                     output.accept(PETRIFIED_LEAF);
                     output.accept(PETRIFIED_OAK_SAPLING);
                     output.accept(PETRIFIED_OAK_SEEDS);
-                    output.accept(PETRIFIED_ROSE);
-                    output.accept(PETRIFIED_DANDELION);
+                    output.accept(PETRIFIED_RED_FLOWER);
+                    output.accept(PETRIFIED_YELLOW_FLOWER);
                     output.accept(STACKED_ROCKS);
                     output.accept(MELTED_RESIN_BOTTLE);
                     output.accept(RESIN_COVERED_OAK_LOG);

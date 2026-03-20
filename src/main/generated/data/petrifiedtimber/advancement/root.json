@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "inventory_changed": {
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "petrifiedtimber:block/petrified_oak_planks",
+    "description": {
+      "translate": "advancements.petrifiedtimber.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "petrifiedtimber:petrified_oak_sapling"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.petrifiedtimber.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "inventory_changed"
+    ]
+  ]
+}

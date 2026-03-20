@@ -3,6 +3,7 @@
   "package": "archives.tater.petrifiedtimber.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AbstractCauldronBlockMixin",
     "CauldronBlockMixin",
     "ExampleMixin",
     "GrassBlockMixin",
