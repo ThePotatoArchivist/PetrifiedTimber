@@ -27,5 +27,16 @@ public class PetrifiedTimberSounds {
 
     public static final Holder.Reference<SoundEvent> MUSIC_BIOME_PETRIFIED_FOREST = holderOf("music.overworld.petrified_forest");
 
+    public static final SoundEvent STONE_DOOR_OPEN = of("block.stone_door.open");
+    public static final SoundEvent STONE_DOOR_CLOSE = of("block.stone_door.close");
+    public static final SoundEvent STONE_TRAPDOOR_OPEN = of("block.stone_trapdoor.open");
+    public static final SoundEvent STONE_TRAPDOOR_CLOSE = of("block.stone_trapdoor.close");
+    public static final SoundEvent STONE_FENCE_GATE_OPEN = of("block.stone_fence_gate.open");
+    public static final SoundEvent STONE_FENCE_GATE_CLOSE = of("block.stone_fence_gate.close");
+
+    public static final SoundEvent WOOD_PETRIFIES = of("block.wood_petrifies");
+    public static final SoundEvent DIP_RESIN = of("block.resin_cauldron.dip_resin");
+    public static final SoundEvent RESIN_DRIP = of("block.resin_cauldron.resin_drip");
+
     public static void init() {}
 }

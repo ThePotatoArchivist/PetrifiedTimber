@@ -1,4 +1,200 @@
 {
+  "block.resin_cauldron.dip_resin": {
+    "sounds": [
+      {
+        "name": "minecraft:item/honeycomb/wax_on1",
+        "pitch": 0.9,
+        "volume": 1.0
+      },
+      "minecraft:item/honeycomb/wax_on1",
+      {
+        "name": "minecraft:item/honeycomb/wax_on1",
+        "pitch": 1.1,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:item/honeycomb/wax_on2",
+        "pitch": 0.9,
+        "volume": 1.0
+      },
+      "minecraft:item/honeycomb/wax_on2",
+      {
+        "name": "minecraft:item/honeycomb/wax_on2",
+        "pitch": 1.1,
+        "volume": 1.0
+      },
+      {
+        "name": "minecraft:item/honeycomb/wax_on3",
+        "pitch": 0.9,
+        "volume": 1.0
+      },
+      "minecraft:item/honeycomb/wax_on3",
+      {
+        "name": "minecraft:item/honeycomb/wax_on3",
+        "pitch": 1.1,
+        "volume": 1.0
+      }
+    ],
+    "subtitle": "subtitles.block.petrifiedtimber.resin_cauldron.dip_resin"
+  },
+  "block.resin_cauldron.resin_drip": {
+    "sounds": [
+      {
+        "name": "minecraft:block/beehive/drip1",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip1",
+        "pitch": 0.9,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip2",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip2",
+        "pitch": 0.9,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip3",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip3",
+        "pitch": 0.9,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip4",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip4",
+        "pitch": 0.9,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip5",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip5",
+        "pitch": 0.9,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip6",
+        "pitch": 0.7,
+        "volume": 0.3
+      },
+      {
+        "name": "minecraft:block/beehive/drip6",
+        "pitch": 0.9,
+        "volume": 0.3
+      }
+    ],
+    "subtitle": "subtitles.block.petrifiedtimber.resin_cauldron.resin_drip"
+  },
+  "block.stone_door.close": {
+    "sounds": [
+      {
+        "name": "petrifiedtimber:stone_door_close",
+        "pitch": 0.9,
+        "volume": 1.0
+      }
+    ],
+    "subtitle": "subtitles.block.door.toggle"
+  },
+  "block.stone_door.open": {
+    "sounds": [
+      {
+        "name": "petrifiedtimber:stone_door_open",
+        "pitch": 0.9,
+        "volume": 1.0
+      }
+    ],
+    "subtitle": "subtitles.block.door.toggle"
+  },
+  "block.stone_fence_gate.close": {
+    "sounds": [
+      {
+        "name": "petrifiedtimber:stone_door_close",
+        "pitch": 0.9,
+        "volume": 1.0
+      },
+      "petrifiedtimber:stone_door_close",
+      {
+        "name": "petrifiedtimber:stone_door_close",
+        "pitch": 1.1,
+        "volume": 1.0
+      }
+    ],
+    "subtitle": "subtitles.block.fence_gate.toggle"
+  },
+  "block.stone_fence_gate.open": {
+    "sounds": [
+      {
+        "name": "petrifiedtimber:stone_door_open",
+        "pitch": 0.9,
+        "volume": 1.0
+      },
+      "petrifiedtimber:stone_door_open",
+      {
+        "name": "petrifiedtimber:stone_door_open",
+        "pitch": 1.1,
+        "volume": 1.0
+      }
+    ],
+    "subtitle": "subtitles.block.fence_gate.toggle"
+  },
+  "block.stone_trapdoor.close": {
+    "sounds": [
+      {
+        "name": "petrifiedtimber:stone_trapdoor_close",
+        "pitch": 0.9,
+        "volume": 1.0
+      },
+      "petrifiedtimber:stone_trapdoor_close",
+      {
+        "name": "petrifiedtimber:stone_trapdoor_close",
+        "pitch": 1.1,
+        "volume": 1.0
+      }
+    ],
+    "subtitle": "subtitles.block.trapdoor.close"
+  },
+  "block.stone_trapdoor.open": {
+    "sounds": [
+      {
+        "name": "petrifiedtimber:stone_trapdoor_open",
+        "pitch": 0.9,
+        "volume": 1.0
+      },
+      "petrifiedtimber:stone_trapdoor_open",
+      {
+        "name": "petrifiedtimber:stone_trapdoor_open",
+        "pitch": 1.1,
+        "volume": 1.0
+      }
+    ],
+    "subtitle": "subtitles.block.trapdoor.open"
+  },
+  "block.wood_petrifies": {
+    "sounds": [
+      "minecraft:block/composter/ready1",
+      "minecraft:block/composter/ready2",
+      "minecraft:block/composter/ready3",
+      "minecraft:block/composter/ready4"
+    ],
+    "subtitle": "subtitles.block.petrifiedtimber.wood_petrifies"
+  },
   "music.overworld.petrified_forest": {
     "sounds": [
       {

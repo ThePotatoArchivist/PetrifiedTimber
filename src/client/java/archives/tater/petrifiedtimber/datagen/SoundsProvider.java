@@ -17,6 +17,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.util.valueproviders.FloatProvider;
+import net.minecraft.util.valueproviders.SampledFloat;
 
 import org.jspecify.annotations.Nullable;
 
@@ -34,6 +35,8 @@ public abstract class SoundsProvider extends FabricCodecDataProvider<Map<String,
     @SuppressWarnings("DataFlowIssue")
     public static final Codec<Sound.Type> SOUND_TYPE_CODEC = Codec.stringResolver(Sound.Type::name, Sound.Type::getByName);
 
+    public static final int DEFAULT_ATTENUATION = 16;
+
     public static final Codec<Sound> SOUND_CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Identifier.CODEC.fieldOf("name").forGetter(Sound::getLocation),
             FloatProvider.codec(0, Float.MAX_VALUE).optionalFieldOf("volume", ONE).forGetter(sound -> (FloatProvider) sound.getVolume()),
@@ -42,22 +45,26 @@ public abstract class SoundsProvider extends FabricCodecDataProvider<Map<String,
             SOUND_TYPE_CODEC.optionalFieldOf("type", Sound.Type.FILE).forGetter(Sound::getType),
             Codec.BOOL.optionalFieldOf("stream", false).forGetter(Sound::shouldStream),
             Codec.BOOL.optionalFieldOf("preload", false).forGetter(Sound::shouldPreload),
-            ExtraCodecs.NON_NEGATIVE_INT.optionalFieldOf("attenuation_distance", 16).forGetter(Sound::getAttenuationDistance)
+            ExtraCodecs.NON_NEGATIVE_INT.optionalFieldOf("attenuation_distance", DEFAULT_ATTENUATION).forGetter(Sound::getAttenuationDistance)
     ).apply(instance, Sound::new));
 
     public static final Codec<Sound> SHORT_SOUND_CODEC = Codec.either(SOUND_CODEC, Identifier.CODEC).xmap(
-            either -> either.map(Function.identity(), id -> new Sound(id, ONE, ONE, 1, Sound.Type.FILE, false, false, 16)),
+            either -> either.map(Function.identity(), id -> new Sound(id, ONE, ONE, 1, Sound.Type.FILE, false, false, DEFAULT_ATTENUATION)),
             sound -> isDefault(sound) ? Either.right(sound.getLocation()) : Either.left(sound)
     );
 
+    private static boolean isOne(SampledFloat provider) {
+        return provider == ONE || provider instanceof ConstantFloat constantFloat && constantFloat.getValue() == 1f;
+    }
+
     private static boolean isDefault(Sound sound) {
-        return sound.getVolume().equals(ONE) &&
-                sound.getPitch().equals(ONE) &&
+        return isOne(sound.getVolume()) &&
+                isOne(sound.getPitch()) &&
                 sound.getWeight() == 1 &&
                 sound.getType() == Sound.Type.FILE &&
                 !sound.shouldStream() &&
                 !sound.shouldPreload() &&
-                sound.getAttenuationDistance() == 16;
+                sound.getAttenuationDistance() == DEFAULT_ATTENUATION;
     }
 
     public static final Codec<SoundEventRegistration> SOUND_EVENT_REGISTRATION_CODEC = RecordCodecBuilder.create(instance -> instance.group(

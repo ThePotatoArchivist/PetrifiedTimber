@@ -84,10 +84,10 @@ public class PetrifiedTimberBlocks {
                 .buttonActivatedByArrows(false)
                 .pressurePlateActivationRule(BlockSetType.PressurePlateSensitivity.MOBS)
                 .soundGroup(SoundType.STONE)
-                .doorCloseSound(SoundEvents.NETHER_WOOD_DOOR_CLOSE)
-                .doorOpenSound(SoundEvents.NETHER_WOOD_DOOR_OPEN)
-                .trapdoorCloseSound(SoundEvents.NETHER_WOOD_TRAPDOOR_CLOSE)
-                .trapdoorOpenSound(SoundEvents.NETHER_WOOD_TRAPDOOR_OPEN)
+                .doorCloseSound(PetrifiedTimberSounds.STONE_DOOR_CLOSE)
+                .doorOpenSound(PetrifiedTimberSounds.STONE_DOOR_OPEN)
+                .trapdoorCloseSound(PetrifiedTimberSounds.STONE_TRAPDOOR_CLOSE)
+                .trapdoorOpenSound(PetrifiedTimberSounds.STONE_TRAPDOOR_OPEN)
                 .pressurePlateClickOffSound(SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF)
                 .pressurePlateClickOnSound(SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON)
                 .buttonClickOffSound(SoundEvents.STONE_BUTTON_CLICK_OFF)
@@ -97,8 +97,8 @@ public class PetrifiedTimberBlocks {
     public static final WoodType PETRIFIED_OAK_WOOD_TYPE = new WoodTypeBuilder()
                 .soundGroup(SoundType.STONE)
                 .hangingSignSoundGroup(SoundType.NETHER_WOOD_HANGING_SIGN)
-                .fenceGateCloseSound(SoundEvents.NETHER_WOOD_FENCE_GATE_CLOSE)
-                .fenceGateOpenSound(SoundEvents.NETHER_WOOD_FENCE_GATE_OPEN)
+                .fenceGateCloseSound(PetrifiedTimberSounds.STONE_FENCE_GATE_CLOSE)
+                .fenceGateOpenSound(PetrifiedTimberSounds.STONE_FENCE_GATE_OPEN)
                 .register(PetrifiedTimber.id("petrified_oak"), PETRIFIED_OAK_BLOCK_SET);
 
     public static final Block PETRIFIED_OAK_LOG = register("petrified_oak_log", RotatedPillarBlock::new, petrifiedWoodProperties());

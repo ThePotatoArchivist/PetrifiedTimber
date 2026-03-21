@@ -5,6 +5,7 @@ import archives.tater.petrifiedtimber.mixin.PointedDripstoneBlockInvoker;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
+import archives.tater.petrifiedtimber.registry.PetrifiedTimberSounds;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 
@@ -84,7 +85,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
 
         var resin = INTERACTION.map();
         RESIN_COATING.forEach((input, result) ->
-                resin.put(input, fillItemInteraction(result, -1, SoundEvents.HONEYCOMB_WAX_ON, GameEvent.FLUID_PICKUP)) // TODO sound event
+                resin.put(input, fillItemInteraction(result, -1, PetrifiedTimberSounds.DIP_RESIN, GameEvent.FLUID_PICKUP))
         );
         resin.put(Items.GLASS_BOTTLE, fillItemInteraction(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, -LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_FILL, GameEvent.FLUID_PICKUP));
         resin.put(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, fillItemInteraction(Items.GLASS_BOTTLE, LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_EMPTY, GameEvent.FLUID_PLACE));
@@ -147,7 +148,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
         level.destroyBlock(fluidInfo.pos(), false);
         var newState = setFillLevel(state, level, pos, MAX_LEVEL);
         level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(newState));
-        level.playSound(null, pos, SoundEvents.BEEHIVE_DRIP, SoundSource.BLOCKS, 2f, 0.1f * level.random.nextFloat() + 0.9f); // TODO sound
+        level.playSound(null, pos, PetrifiedTimberSounds.RESIN_DRIP, SoundSource.BLOCKS, 2f, 0.1f * level.random.nextFloat() + 0.9f);
     }
 
     @Override
@@ -194,7 +195,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
             itemEntity.setItem(stack.transmuteCopy(resultItem));
             setFillLevel(state, level, pos, fillLevel - count);
         }
-        level.playSound(null, pos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1.0F, 1.0F); // TODO sound event
+        level.playSound(null, pos, PetrifiedTimberSounds.DIP_RESIN, SoundSource.BLOCKS, 1.0F, 1.0F);
     }
 
     @Override
