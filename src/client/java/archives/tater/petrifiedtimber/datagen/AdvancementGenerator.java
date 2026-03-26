@@ -31,7 +31,7 @@ import static net.minecraft.advancements.criterion.BlockPredicate.Builder.block;
 import static net.minecraft.advancements.criterion.InventoryChangeTrigger.TriggerInstance.hasItems;
 import static net.minecraft.advancements.criterion.ItemPredicate.Builder.item;
 import static net.minecraft.advancements.criterion.ItemUsedOnLocationTrigger.TriggerInstance.placedBlock;
-import static net.minecraft.advancements.criterion.LocationPredicate.Builder.inBiome;
+import static net.minecraft.advancements.criterion.LocationPredicate.Builder.location;
 import static net.minecraft.advancements.criterion.PlayerTrigger.TriggerInstance.located;
 import static net.minecraft.data.recipes.RecipeProvider.getHasName;
 
@@ -146,7 +146,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         AdvancementType.CHALLENGE,
                         true
                 ))
-                .addCriterion("in_biome", located(inBiome(registryLookup.getOrThrow(PetrifiedTimberWorldgen.PETRIFIED_FOREST))))
+                .addCriterion("in_biome", located(location().setBiomes(registryLookup.getOrThrow(PetrifiedTimberWorldgen.IS_PETRIFIED))))
         );
     }
 
