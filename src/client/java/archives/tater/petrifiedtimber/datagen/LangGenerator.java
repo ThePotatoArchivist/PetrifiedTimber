@@ -83,6 +83,7 @@ public class LangGenerator extends FabricLanguageProvider {
         add(translationBuilder, PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LEAVES);
         add(translationBuilder, PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LEAVES);
         add(translationBuilder, PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LEAVES);
+        add(translationBuilder, PetrifiedTimberBlocks.PALE_WATCHING_PETRIFIED_OAK_LEAVES);
         add(translationBuilder, PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LEAVES);
         add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING);
         add(translationBuilder, PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING);
@@ -92,7 +93,10 @@ public class LangGenerator extends FabricLanguageProvider {
         add(translationBuilder, PetrifiedTimberBlocks.POTTED_PETRIFIED_RED_FLOWER);
         add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER);
         add(translationBuilder, PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER);
+        add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_CYAN_FLOWER);
+        add(translationBuilder, PetrifiedTimberBlocks.POTTED_PETRIFIED_CYAN_FLOWER);
         add(translationBuilder, PetrifiedTimberBlocks.STACKED_ROCKS);
+        add(translationBuilder, PetrifiedTimberBlocks.MOSSY_STACKED_ROCKS);
         add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF);
         add(translationBuilder, PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN);
         add(translationBuilder, PetrifiedTimberBlocks.RESIN_COVERED_OAK_LOG);

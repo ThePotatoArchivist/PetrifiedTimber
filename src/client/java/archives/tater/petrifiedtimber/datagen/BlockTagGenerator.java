@@ -52,6 +52,7 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LEAVES,
                 PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LEAVES,
                 PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LEAVES,
+                PetrifiedTimberBlocks.PALE_WATCHING_PETRIFIED_OAK_LEAVES,
                 PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LEAVES
         );
         valueLookupBuilder(PetrifiedTimberBlockTags.RESIN_COVERED_OAK_LOGS).add(
@@ -145,7 +146,8 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING,
                 PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING_CROP,
                 PetrifiedTimberBlocks.POTTED_PETRIFIED_RED_FLOWER,
-                PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER
+                PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER,
+                PetrifiedTimberBlocks.POTTED_PETRIFIED_CYAN_FLOWER
         );
         valueLookupBuilder(BlockTags.DOORS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_DOOR);
         valueLookupBuilder(BlockTags.TRAPDOORS).add(PetrifiedTimberBlocks.PETRIFIED_OAK_TRAPDOOR);
@@ -160,7 +162,9 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP,
                 PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER,
                 PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER,
+                PetrifiedTimberBlocks.PETRIFIED_CYAN_FLOWER,
                 PetrifiedTimberBlocks.STACKED_ROCKS,
+                PetrifiedTimberBlocks.MOSSY_STACKED_ROCKS,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN,
@@ -183,5 +187,7 @@ public class BlockTagGenerator extends FabricTagProvider.BlockTagProvider {
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING,
                 PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP
         );
+        valueLookupBuilder(ConventionalBlockTags.NORMAL_COBBLESTONES).add(PetrifiedTimberBlocks.STACKED_ROCKS);
+        valueLookupBuilder(ConventionalBlockTags.MOSSY_COBBLESTONES).add(PetrifiedTimberBlocks.MOSSY_STACKED_ROCKS);
     }
 }

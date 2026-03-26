@@ -135,6 +135,8 @@ public class PetrifiedTimberBlocks {
 
     public static final Block WATCHING_PETRIFIED_OAK_LEAVES = register("watching_petrified_oak_leaves", PetrifiedLeavesBlock::new, petrifiedLeavesProperties());
 
+    public static final Block PALE_WATCHING_PETRIFIED_OAK_LEAVES = register("pale_watching_petrified_oak_leaves", PetrifiedLeavesBlock::new, petrifiedLeavesProperties());
+
     public static final Block CHERRY_PETRIFIED_OAK_LEAVES = register("cherry_petrified_oak_leaves", PetrifiedLeavesBlock::new, petrifiedLeavesProperties());
 
     public static final Block PETRIFIED_OAK_SAPLING = register(
@@ -206,7 +208,26 @@ public class PetrifiedTimberBlocks {
             Blocks.flowerPotProperties()
     );
 
+    public static final Block PETRIFIED_CYAN_FLOWER = register(
+            "petrified_cyan_flower",
+            PetrifiedFlowerBlock::new,
+            petrifiedWoodProperties()
+                    .noCollision()
+                    .strength(1f, 3f)
+                    .offsetType(BlockBehaviour.OffsetType.XZ)
+                    .pushReaction(PushReaction.DESTROY)
+    );
+
+    public static final Block POTTED_PETRIFIED_CYAN_FLOWER = register(
+            "potted_petrified_cyan_flower",
+            FlowerPotBlock::new,
+            PETRIFIED_CYAN_FLOWER,
+            Blocks.flowerPotProperties()
+    );
+
     public static final Block STACKED_ROCKS = register("stacked_rocks", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE));
+
+    public static final Block MOSSY_STACKED_ROCKS = register("mossy_stacked_rocks", Block::new, BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLESTONE));
 
     public static final Block PETRIFIED_OAK_SHELF = register("petrified_oak_shelf", ShelfBlock::new, petrifiedWoodProperties());
 

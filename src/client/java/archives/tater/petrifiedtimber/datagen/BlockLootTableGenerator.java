@@ -56,7 +56,10 @@ public class BlockLootTableGenerator extends FabricBlockLootTableProvider {
         dropPottedContents(PetrifiedTimberBlocks.POTTED_PETRIFIED_RED_FLOWER);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER);
         dropPottedContents(PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER);
+        dropSelf(PetrifiedTimberBlocks.PETRIFIED_CYAN_FLOWER);
+        dropPottedContents(PetrifiedTimberBlocks.POTTED_PETRIFIED_CYAN_FLOWER);
         dropSelf(PetrifiedTimberBlocks.STACKED_ROCKS);
+        dropSelf(PetrifiedTimberBlocks.MOSSY_STACKED_ROCKS);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SHELF);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN);
         dropSelf(PetrifiedTimberBlocks.PETRIFIED_OAK_HANGING_SIGN);
@@ -96,6 +99,7 @@ public class BlockLootTableGenerator extends FabricBlockLootTableProvider {
         add(PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LEAVES, this::createPetrifiedLeavesTable);
         add(PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LEAVES, this::createPetrifiedLeavesTable);
         add(PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LEAVES, this::createPetrifiedLeavesTable);
+        add(PetrifiedTimberBlocks.PALE_WATCHING_PETRIFIED_OAK_LEAVES, this::createPetrifiedLeavesTable);
         add(PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LEAVES, this::createPetrifiedLeavesTable);
     }
 

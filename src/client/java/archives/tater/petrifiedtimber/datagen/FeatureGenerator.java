@@ -146,7 +146,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_PALE_OAK, modifyTree(
                                 registries.getOrThrow(TreeFeatures.PALE_OAK),
                                 PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG,
-                                PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LEAVES
+                                PetrifiedTimberBlocks.PALE_WATCHING_PETRIFIED_OAK_LEAVES
                         ))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_PALE_OAK))
                         .build()
         ));
@@ -242,6 +242,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                         placedFeature(new ConfiguredFeature<>(Feature.BLOCK_PILE, new BlockPileConfiguration(
                                 new WeightedStateProvider(new WeightedList.Builder<BlockState>()
                                         .add(PetrifiedTimberBlocks.STACKED_ROCKS.defaultBlockState())
+                                        .add(PetrifiedTimberBlocks.MOSSY_STACKED_ROCKS.defaultBlockState())
                                         .add(Blocks.COBBLESTONE.defaultBlockState())
                                 )
                         )))

@@ -41,6 +41,8 @@ public class PetrifiedTimberClient implements ClientModInitializer {
 				PetrifiedTimberBlocks.POTTED_PETRIFIED_RED_FLOWER,
 				PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER,
 				PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER,
+				PetrifiedTimberBlocks.PETRIFIED_CYAN_FLOWER,
+				PetrifiedTimberBlocks.POTTED_PETRIFIED_CYAN_FLOWER,
 				PetrifiedTimberBlocks.WHITE_PETRIFIED_APPLE,
 				PetrifiedTimberBlocks.WHITE_HANGING_PETRIFIED_APPLE,
 				PetrifiedTimberBlocks.ORANGE_PETRIFIED_APPLE,
