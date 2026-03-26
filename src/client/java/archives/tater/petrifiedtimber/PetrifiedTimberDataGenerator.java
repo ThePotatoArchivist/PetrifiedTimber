@@ -11,7 +11,8 @@ import net.minecraft.core.registries.Registries;
 public class PetrifiedTimberDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void buildRegistry(RegistrySetBuilder registryBuilder) {
-		registryBuilder.add(Registries.PLACED_FEATURE, FeatureGenerator::bootstrapFeatures);
+		registryBuilder.add(Registries.PLACED_FEATURE, FeatureGenerator::bootstrapPlaced);
+		registryBuilder.add(Registries.CONFIGURED_FEATURE, FeatureGenerator::bootstrapConfigured);
 		registryBuilder.add(Registries.BIOME, BiomeGenerator::bootstrap);
 	}
 
@@ -31,6 +32,7 @@ public class PetrifiedTimberDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider((output, registriesFuture) -> new ItemTagGenerator(output, registriesFuture, blockTags));
 		pack.addProvider(EntityTagGenerator::new);
 		pack.addProvider(FeatureGenerator::new);
+		pack.addProvider(FeatureTagGenerator::new);
 		pack.addProvider(BiomeGenerator::new);
 		pack.addProvider(BiomeTagGenerator::new);
 		pack.addProvider(AdvancementGenerator::new);

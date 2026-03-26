@@ -291,7 +291,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         entries.add(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER, new PlacedFeature(
                 petrifiedFlower,
                 List.of(
-                        onAverageOnceEvery(8),
+                        CountPlacement.of(4),
                         spread(),
                         onHeightmap(Heightmap.Types.MOTION_BLOCKING),
                         biome()
@@ -301,7 +301,6 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         entries.add(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER_SPARSE, new PlacedFeature(
                 petrifiedFlower,
                 List.of(
-                        onAverageOnceEvery(32),
                         spread(),
                         onHeightmap(Heightmap.Types.MOTION_BLOCKING),
                         biome()
@@ -309,17 +308,25 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         ));
     }
 
-    private static PlacedFeature emptyFeature() {
+    private static PlacedFeature emptyPlaced() {
         return new PlacedFeature(Holder.direct(new ConfiguredFeature<>(Feature.NO_OP, NoneFeatureConfiguration.INSTANCE)), List.of(biome()));
     }
 
+    private static ConfiguredFeature<NoneFeatureConfiguration, Feature<NoneFeatureConfiguration>> emptyConfigured() {
+        return new ConfiguredFeature<>(Feature.NO_OP, new NoneFeatureConfiguration());
+    }
+
     // Features are bootstrapped as empty because I need access to vanilla features
-    public static void bootstrapFeatures(BootstrapContext<PlacedFeature> context) {
-        context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK, emptyFeature());
-        context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK_SPARSE, emptyFeature());
-        context.register(PetrifiedTimberWorldgen.PLACED_ROCK, emptyFeature());
-        context.register(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER, emptyFeature());
-        context.register(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER_SPARSE, emptyFeature());
+    public static void bootstrapPlaced(BootstrapContext<PlacedFeature> context) {
+        context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK, emptyPlaced());
+        context.register(PetrifiedTimberWorldgen.PLACED_TREES_PETRIFIED_OAK_SPARSE, emptyPlaced());
+        context.register(PetrifiedTimberWorldgen.PLACED_ROCK, emptyPlaced());
+        context.register(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER, emptyPlaced());
+        context.register(PetrifiedTimberWorldgen.PLACED_PETRIFIED_FLOWER_SPARSE, emptyPlaced());
+    }
+
+    public static void bootstrapConfigured(BootstrapContext<ConfiguredFeature<?, ?>> context) {
+        context.register(PetrifiedTimberWorldgen.PETRIFIED_FLOWER, emptyConfigured());
     }
 
     @Override
