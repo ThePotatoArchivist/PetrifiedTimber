@@ -146,8 +146,8 @@ public class LangGenerator extends FabricLanguageProvider {
         translationBuilder.add(PetrifiedTimberItems.PETRIFIED_TIMBER_TAB_TITLE, "Petrified Timber");
 
         translationBuilder.add(PetrifiedTimberBlocks.RESIN_CAULDRON, "Melted Resin Cauldron");
-        translationBuilder.add(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, "Bottle of Melted Resin");
-        translationBuilder.add(PetrifiedTimberItems.PETRIFIED_LEAF, "Petrified Leaf");
+        add(translationBuilder, PetrifiedTimberItems.MELTED_RESIN_BOTTLE);
+        add(translationBuilder, PetrifiedTimberItems.PETRIFIED_LEAF);
 
         translationBuilder.add(makeDescriptionId("block", BuiltInRegistries.FLUID.getKey(PetrifiedTimberFluids.MELTED_RESIN)), "Melted Resin");
 
@@ -162,7 +162,7 @@ public class LangGenerator extends FabricLanguageProvider {
         add(translationBuilder, PetrifiedTimberItemTags.PETRIFIED_APPLES);
         add(translationBuilder, PetrifiedTimberItemTags.CAN_ACQUIRE_FROM_PETRIFYING);
 
-        translationBuilder.add(SoundsGenerator.WOOD_PETRIFIES_SUBTITLE, "Wood Petrifies");
+        translationBuilder.add(SoundsGenerator.WOOD_PETRIFIES_SUBTITLE, "Wood petrifies");
         translationBuilder.add(SoundsGenerator.DIP_RESIN_SUBTITLE, "Resin swirls");
         translationBuilder.add(SoundsGenerator.RESIN_DRIP_SUBTITLE, "Resin drips");
 
