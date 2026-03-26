@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "petrifiedtimber:petrified_stripped_oak_log",
   "result": {
-    "count": 1,
     "id": "petrifiedtimber:petrified_oak_hanging_sign"
   }
 }

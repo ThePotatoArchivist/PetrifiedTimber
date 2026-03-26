@@ -4,8 +4,8 @@ import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlockTags;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItemTags;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 
@@ -17,9 +17,9 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ItemTagGenerator extends FabricTagProvider.ItemTagProvider {
-    public ItemTagGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture, @Nullable BlockTagProvider blockTagProvider) {
-        super(output, registriesFuture, blockTagProvider);
+public class ItemTagGenerator extends FabricTagsProvider.ItemTagsProvider {
+    public ItemTagGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture, @Nullable BlockTagsProvider blockTagsProvider) {
+        super(output, registriesFuture, blockTagsProvider);
     }
 
     @Override

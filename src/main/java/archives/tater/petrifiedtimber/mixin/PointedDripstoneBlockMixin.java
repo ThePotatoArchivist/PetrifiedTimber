@@ -27,10 +27,10 @@ import net.minecraft.world.level.material.Fluid;
 @Mixin(PointedDripstoneBlock.class)
 public class PointedDripstoneBlockMixin {
     @ModifyExpressionValue(
-            method = "method_33279",
+            method = "lambda$getFluidAboveStalactite$0",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/material/FluidState;getType()Lnet/minecraft/world/level/material/Fluid;")
     )
-    private static Fluid resinFluid(Fluid original, Level level, @Local(ordinal = 1) BlockPos pos) {
+    private static Fluid resinFluid(Fluid original, Level level, @Local(name = "abovePos") BlockPos pos) {
         if (!level.getBlockState(pos).is(Blocks.RESIN_BLOCK)) return original;
         for (var direction : Direction.values()) {
             if (level.getBlockState(pos.relative(direction)).is(PetrifiedTimberBlockTags.MELTS_RESIN))

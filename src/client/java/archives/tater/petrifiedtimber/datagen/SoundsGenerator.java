@@ -3,7 +3,7 @@ package archives.tater.petrifiedtimber.datagen;
 import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberSounds;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 
 import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.HolderLookup;
@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 import static net.minecraft.util.Util.makeDescriptionId;
 
 public class SoundsGenerator extends SoundsProvider {
-    public SoundsGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public SoundsGenerator(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(dataOutput, registriesFuture);
     }
 

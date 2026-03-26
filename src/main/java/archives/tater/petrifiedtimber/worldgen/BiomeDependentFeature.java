@@ -47,7 +47,7 @@ public class BiomeDependentFeature extends Feature<BiomeDependentFeature.Configu
         ).apply(instance, Configuration::new));
 
         @Override
-        public Stream<ConfiguredFeature<?, ?>> getFeatures() {
+        public Stream<Holder<ConfiguredFeature<?, ?>>> getSubFeatures() {
             return entries.stream().flatMap(entry -> entry.feature.value().getFeatures());
         }
 

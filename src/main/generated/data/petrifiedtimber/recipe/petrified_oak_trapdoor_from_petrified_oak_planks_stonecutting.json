@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "petrifiedtimber:petrified_oak_planks",
   "result": {
-    "count": 1,
     "id": "petrifiedtimber:petrified_oak_trapdoor"
   }
 }

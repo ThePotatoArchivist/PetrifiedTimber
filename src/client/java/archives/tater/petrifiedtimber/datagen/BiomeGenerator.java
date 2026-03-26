@@ -3,7 +3,7 @@ package archives.tater.petrifiedtimber.datagen;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberSounds;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberWorldgen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 
 import net.minecraft.core.HolderGetter;
@@ -27,7 +27,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import java.util.concurrent.CompletableFuture;
 
 public class BiomeGenerator extends FabricDynamicRegistryProvider {
-    public BiomeGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public BiomeGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 

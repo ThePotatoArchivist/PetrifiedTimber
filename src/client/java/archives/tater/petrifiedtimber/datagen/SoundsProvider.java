@@ -1,6 +1,6 @@
 package archives.tater.petrifiedtimber.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricCodecDataProvider;
 
 import com.mojang.datafixers.util.Either;
@@ -16,6 +16,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.valueproviders.ConstantFloat;
 import net.minecraft.util.valueproviders.FloatProvider;
+import net.minecraft.util.valueproviders.FloatProviders;
 import net.minecraft.util.valueproviders.SampledFloat;
 
 import org.jspecify.annotations.Nullable;
@@ -38,8 +39,8 @@ public abstract class SoundsProvider extends FabricCodecDataProvider<Map<String,
 
     public static final Codec<Sound> SOUND_CODEC = RecordCodecBuilder.create(instance -> instance.group(
             Identifier.CODEC.fieldOf("name").forGetter(Sound::getLocation),
-            FloatProvider.codec(0, Float.MAX_VALUE).optionalFieldOf("volume", ONE).forGetter(sound -> (FloatProvider) sound.getVolume()),
-            FloatProvider.codec(0, Float.MAX_VALUE).optionalFieldOf("pitch", ONE).forGetter(sound -> (FloatProvider) sound.getPitch()),
+            FloatProviders.codec(0, Float.MAX_VALUE).optionalFieldOf("volume", ONE).forGetter(sound -> (FloatProvider) sound.getVolume()),
+            FloatProviders.codec(0, Float.MAX_VALUE).optionalFieldOf("pitch", ONE).forGetter(sound -> (FloatProvider) sound.getPitch()),
             ExtraCodecs.NON_NEGATIVE_INT.optionalFieldOf("weight", 1).forGetter(Sound::getWeight),
             SOUND_TYPE_CODEC.optionalFieldOf("type", Sound.Type.FILE).forGetter(Sound::getType),
             Codec.BOOL.optionalFieldOf("stream", false).forGetter(Sound::shouldStream),
@@ -53,7 +54,7 @@ public abstract class SoundsProvider extends FabricCodecDataProvider<Map<String,
     );
 
     private static boolean isOne(SampledFloat provider) {
-        return provider == ONE || provider instanceof ConstantFloat constantFloat && constantFloat.getValue() == 1f;
+        return provider == ONE || provider instanceof ConstantFloat(float value) && value == 1f;
     }
 
     private static boolean isDefault(Sound sound) {
@@ -77,15 +78,15 @@ public abstract class SoundsProvider extends FabricCodecDataProvider<Map<String,
             SOUND_EVENT_REGISTRATION_CODEC
     );
 
-    public SoundsProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
-        super(dataOutput, registriesFuture, PackOutput.Target.RESOURCE_PACK, "", CODEC);
+    public SoundsProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(dataOutput, registriesFuture, PackOutput.Target.RESOURCE_PACK, ".", CODEC);
     }
 
     @Override
     protected void configure(BiConsumer<Identifier, Map<String, SoundEventRegistration>> provider, HolderLookup.Provider lookup) {
         var namespaces = new HashMap<String, Map<String, SoundEventRegistration>>();
         addSounds((event, soundEventRegistration) ->
-                namespaces.computeIfAbsent(event.getNamespace(), _key -> new HashMap<>())
+                namespaces.computeIfAbsent(event.getNamespace(), _ -> new HashMap<>())
                         .put(event.getPath(), soundEventRegistration));
 
         namespaces.forEach((namespace, events) ->

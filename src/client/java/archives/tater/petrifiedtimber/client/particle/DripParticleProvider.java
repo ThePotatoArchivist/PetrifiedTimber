@@ -1,7 +1,7 @@
 package archives.tater.petrifiedtimber.client.particle;
 
-import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry.PendingParticleFactory;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry.PendingParticleProvider;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.DripParticle;
@@ -11,41 +11,37 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.world.level.material.Fluid;
 
-public class DripParticleProvider {
-    private DripParticleProvider() {}
+@FunctionalInterface
+public interface DripParticleProvider {
+    SingleQuadParticle createParticle(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite);
 
-    @FunctionalInterface
-    private interface DripParticleFactory {
-        SingleQuadParticle createParticle(ClientLevel level, double x, double y, double z, TextureAtlasSprite sprite);
-    }
-
-    private static PendingParticleFactory<SimpleParticleType> provider(float red, float green, float blue, DripParticleFactory factory) {
-        return sprite -> (particleType, level, x, y, z, xSpeed, ySpeed, zSpeed, random) -> {
+    private static PendingParticleProvider<SimpleParticleType> provider(float red, float green, float blue, DripParticleProvider factory) {
+        return sprite -> (_, level, x, y, z, _, _, _, random) -> {
             var particle = factory.createParticle(level, x, y, z, sprite.get(random));
             particle.setColor(red, green, blue);
             return particle;
         };
     }
 
-    public static PendingParticleFactory<SimpleParticleType> dripHang(float red, float green, float blue, Fluid fluid, ParticleOptions next) {
+    static PendingParticleProvider<SimpleParticleType> dripHang(float red, float green, float blue, Fluid fluid, ParticleOptions next) {
         return provider(red, green, blue, (level, x, y, z, sprite) ->
                 new DripParticle.DripHangParticle(level, x, y, z, fluid, next, sprite)
         );
     }
 
-    public static PendingParticleFactory<SimpleParticleType> dripFalling(float red, float green, float blue, Fluid fluid, ParticleOptions next) {
+    static PendingParticleProvider<SimpleParticleType> dripFalling(float red, float green, float blue, Fluid fluid, ParticleOptions next) {
         return provider(red, green, blue, (level, x, y, z, sprite) ->
                 new DripParticle.DripstoneFallAndLandParticle(level, x, y, z, fluid, next, sprite)
         );
     }
 
-    public static PendingParticleFactory<SimpleParticleType> landing(float red, float green, float blue, Fluid fluid) {
+    static PendingParticleProvider<SimpleParticleType> landing(float red, float green, float blue, Fluid fluid) {
         return provider(red, green, blue, (level, x, y, z, sprite) ->
                 new DripParticle.DripLandParticle(level, x, y, z, fluid, sprite)
         );
     }
 
-    public static void registerDrippingParticles(
+    static void registerDrippingParticles(
             float red,
             float green,
             float blue,
@@ -54,8 +50,8 @@ public class DripParticleProvider {
             SimpleParticleType fall,
             SimpleParticleType land
     ) {
-        ParticleFactoryRegistry.getInstance().register(hang, dripHang(red, green, blue, fluid, fall));
-        ParticleFactoryRegistry.getInstance().register(fall, dripFalling(red, green, blue, fluid, land));
-        ParticleFactoryRegistry.getInstance().register(land, landing(red, green, blue, fluid));
+        ParticleProviderRegistry.getInstance().register(hang, dripHang(red, green, blue, fluid, fall));
+        ParticleProviderRegistry.getInstance().register(fall, dripFalling(red, green, blue, fluid, land));
+        ParticleProviderRegistry.getInstance().register(land, landing(red, green, blue, fluid));
     }
 }

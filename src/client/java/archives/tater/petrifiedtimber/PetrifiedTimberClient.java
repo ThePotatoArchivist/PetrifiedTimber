@@ -1,90 +1,80 @@
 package archives.tater.petrifiedtimber;
 
 import archives.tater.petrifiedtimber.client.particle.DripParticleProvider;
-import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberEntities;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberParticles;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
-import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderingRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.object.boat.BoatModel;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.client.renderer.block.FluidModel;
+import net.minecraft.client.renderer.blockentity.StandingSignRenderer;
+import net.minecraft.client.renderer.blockentity.WallAndGroundTransformations;
+import net.minecraft.client.renderer.blockentity.state.SignRenderState;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.resources.model.sprite.Material;
 
 public class PetrifiedTimberClient implements ClientModInitializer {
+
+	private static ModelLayerLocation registerModelLayer(String path) {
+		return new ModelLayerLocation(PetrifiedTimber.id(path), "main");
+	}
 
 	public static final ModelLayerLocation PETRIFIED_OAK_BOAT = registerModelLayer("boat/petrified_oak");
 	public static final ModelLayerLocation PETRIFIED_OAK_CHEST_BOAT = registerModelLayer("chest_boat/petrified_oak");
 
-    private static ModelLayerLocation registerModelLayer(String path) {
-		return new ModelLayerLocation(PetrifiedTimber.id(path), "main");
+	/*
+	*
+	@ModifyExpressionValue(
+			method = "baseTransformation",
+			at = @At(value = "NEW", target = "()Lorg/joml/Matrix4f;")
+	)
+	private Matrix4f bigStandingSign(Matrix4f original) {
+        if (!state.is(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN)) return original;
+        poseStack.translate(0.5f, 0, 0.5f);
+		poseStack.scale(1.51f, 1.498f, 1.51f);
+		poseStack.translate(-0.5f, 0, -0.5f);
+		return original;
 	}
+
+	@Inject(
+			method = "translateSign",
+			at = @At("TAIL")
+	)
+	private void bigWallSign(PoseStack poseStack, float yRot, BlockState state, CallbackInfo ci) {
+		if (!state.is(PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN)) return;
+		poseStack.translate(0, 0.3125f, 0);
+		poseStack.scale(1.5f, 1.5f, 1.5f);
+		poseStack.translate(0, -0.3125f, 0);
+	}
+	*
+	* */
+
+	public static final WallAndGroundTransformations<SignRenderState.SignTransformations> PETRIFIED_SIGN_TRANSFORMATIONS = StandingSignRenderer.TRANSFORMATIONS;
+//			new WallAndGroundTransformations<>(StandingSignRenderer::createWallTransformation, StandingSignRenderer::createGroundTransformation, 16);
 
 	@Override
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
-		BlockRenderLayerMap.putBlocks(ChunkSectionLayer.CUTOUT,
-				PetrifiedTimberBlocks.PETRIFIED_OAK_DOOR,
-				PetrifiedTimberBlocks.PETRIFIED_OAK_TRAPDOOR,
-				PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING,
-				PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING,
-				PetrifiedTimberBlocks.PETRIFIED_OAK_SAPLING_CROP,
-				PetrifiedTimberBlocks.POTTED_PETRIFIED_OAK_SAPLING_CROP,
-				PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER,
-				PetrifiedTimberBlocks.POTTED_PETRIFIED_RED_FLOWER,
-				PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER,
-				PetrifiedTimberBlocks.POTTED_PETRIFIED_YELLOW_FLOWER,
-				PetrifiedTimberBlocks.PETRIFIED_CYAN_FLOWER,
-				PetrifiedTimberBlocks.POTTED_PETRIFIED_CYAN_FLOWER,
-				PetrifiedTimberBlocks.WHITE_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.WHITE_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.ORANGE_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.ORANGE_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.MAGENTA_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.MAGENTA_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.LIGHT_BLUE_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.LIGHT_BLUE_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.YELLOW_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.LIME_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.LIME_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.PINK_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.PINK_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.GRAY_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.GRAY_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.LIGHT_GRAY_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.LIGHT_GRAY_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.CYAN_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.CYAN_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.PURPLE_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.PURPLE_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.BLUE_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.BLUE_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.BROWN_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.BROWN_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.GREEN_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.GREEN_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.RED_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.BLACK_PETRIFIED_APPLE,
-				PetrifiedTimberBlocks.BLACK_HANGING_PETRIFIED_APPLE
-		);
 
-		EntityModelLayerRegistry.registerModelLayer(PETRIFIED_OAK_BOAT, BoatModel::createBoatModel);
-		EntityModelLayerRegistry.registerModelLayer(PETRIFIED_OAK_CHEST_BOAT, BoatModel::createChestBoatModel);
+		ModelLayerRegistry.registerModelLayer(PETRIFIED_OAK_BOAT, BoatModel::createBoatModel);
+		ModelLayerRegistry.registerModelLayer(PETRIFIED_OAK_CHEST_BOAT, BoatModel::createChestBoatModel);
 
 		EntityRenderers.register(PetrifiedTimberEntities.PETRIFIED_OAK_BOAT, context -> new BoatRenderer(context, PETRIFIED_OAK_BOAT));
 		EntityRenderers.register(PetrifiedTimberEntities.PETRIFIED_OAK_CHEST_BOAT, context -> new BoatRenderer(context, PETRIFIED_OAK_CHEST_BOAT));
 
-		var meltedResinTexture = PetrifiedTimber.id("block/melted_resin");
-		FluidRenderHandlerRegistry.INSTANCE.register(PetrifiedTimberFluids.MELTED_RESIN, new SimpleFluidRenderHandler(meltedResinTexture, meltedResinTexture));
+		var meltedResinTexture = new Material(PetrifiedTimber.id("block/melted_resin"));
+		FluidRenderingRegistry.register(PetrifiedTimberFluids.MELTED_RESIN, new FluidModel.Unbaked(
+				meltedResinTexture,
+				meltedResinTexture,
+				null,
+				null
+		));
 
 		DripParticleProvider.registerDrippingParticles(
 				0.87f,

@@ -1,9 +1,9 @@
 {
   "required": true,
   "package": "archives.tater.petrifiedtimber.mixin.client",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "client": [
-    "SignRendererMixin"
+    "StandingSignRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

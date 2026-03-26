@@ -3,7 +3,7 @@ package archives.tater.petrifiedtimber.datagen;
 import archives.tater.petrifiedtimber.block.ResinCauldronBlock;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricCodecDataProvider;
 
 import com.mojang.serialization.Codec;
@@ -19,7 +19,7 @@ import java.util.function.BiConsumer;
 
 public class WorldInteractionGenerator extends FabricCodecDataProvider<WorldInteractionGenerator.WorldInteractionRecipe> {
 
-    public WorldInteractionGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public WorldInteractionGenerator(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(dataOutput, registriesFuture, PackOutput.Target.RESOURCE_PACK, "rrv/recipe", WorldInteractionRecipe.CODEC);
     }
 

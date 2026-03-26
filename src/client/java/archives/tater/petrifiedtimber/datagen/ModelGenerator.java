@@ -9,7 +9,7 @@ import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.loader.api.FabricLoader;
 
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -17,7 +17,6 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
 import net.minecraft.client.data.models.model.*;
-import net.minecraft.client.renderer.item.BlockModelWrapper;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
@@ -29,7 +28,6 @@ import com.google.gson.stream.JsonReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
 import java.util.Optional;
 
 import static net.minecraft.client.data.models.BlockModelGenerators.createSimpleBlock;
@@ -45,7 +43,7 @@ public class ModelGenerator extends FabricModelProvider {
     public static final ModelTemplate APPLE_HANGING = new ModelTemplate(Optional.of(PetrifiedTimber.id("block/template_petrified_apple_hanging")), Optional.empty(), APPLE);
 
     private static TextureMapping apple(Block block) {
-        return new TextureMapping().put(APPLE, ModelLocationUtils.getModelLocation(block));
+        return new TextureMapping().put(APPLE, TextureMapping.getBlockTexture(block));
     }
 
     private void createApple(Block main, Block hanging, BlockModelGenerators blockModelGenerators) {
@@ -60,7 +58,7 @@ public class ModelGenerator extends FabricModelProvider {
         blockModelGenerators.registerSimpleFlatItemModel(main.asItem());
     }
 
-    public ModelGenerator(FabricDataOutput output) {
+    public ModelGenerator(FabricPackOutput output) {
         super(output);
     }
 
@@ -142,9 +140,8 @@ public class ModelGenerator extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_OAK_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(PetrifiedTimberItems.PETRIFIED_LEAF, ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.itemModelOutput.accept(PetrifiedTimberItems.MELTED_RESIN_CAULDRON, new BlockModelWrapper.Unbaked(
-                ModelLocationUtils.getModelLocation(PetrifiedTimberBlocks.RESIN_CAULDRON, "_level" + ResinCauldronBlock.MAX_LEVEL),
-                List.of()
+        itemModelGenerators.itemModelOutput.accept(PetrifiedTimberItems.MELTED_RESIN_CAULDRON, ItemModelUtils.plainModel(
+                ModelLocationUtils.getModelLocation(PetrifiedTimberBlocks.RESIN_CAULDRON, "_level" + ResinCauldronBlock.MAX_LEVEL)
         ));
     }
 

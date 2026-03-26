@@ -6,7 +6,7 @@ import archives.tater.petrifiedtimber.registry.PetrifiedTimberItemTags;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberItems;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberWorldgen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 
 import net.minecraft.advancements.*;
@@ -18,7 +18,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -53,7 +53,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
             PetrifiedTimberItems.CHERRY_PETRIFIED_OAK_LOG
     );
 
-    public AdvancementGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    public AdvancementGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(output, registryLookup);
     }
 
@@ -69,8 +69,8 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
 
         var root = register(consumer, ROOT, recipeAdvancement()
                 .display(ROOT.getDisplayInfo(
-                        PetrifiedTimberItems.PETRIFIED_OAK_SAPLING.getDefaultInstance(),
-                        Optional.of(new ClientAsset.ResourceTexture(TextureMapping.getBlockTexture(PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS))),
+                        new ItemStackTemplate(PetrifiedTimberItems.PETRIFIED_OAK_SAPLING),
+                        Optional.of(new ClientAsset.ResourceTexture(TextureMapping.getBlockTexture(PetrifiedTimberBlocks.PETRIFIED_OAK_PLANKS).sprite())),
                         AdvancementType.TASK,
                         false,
                         false,
@@ -163,7 +163,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
             );
         }
 
-        public DisplayInfo getDisplayInfo(ItemStack icon, Optional<ClientAsset.ResourceTexture> background, AdvancementType type, boolean showToast, boolean announceChat, boolean hidden) {
+        public DisplayInfo getDisplayInfo(ItemStackTemplate icon, Optional<ClientAsset.ResourceTexture> background, AdvancementType type, boolean showToast, boolean announceChat, boolean hidden) {
             return new DisplayInfo(
                     icon,
                     Component.translatable(title),
@@ -177,7 +177,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
         }
 
         public DisplayInfo getDisplayInfo(Item icon, AdvancementType type, boolean showToast, boolean announceChat, boolean hidden) {
-            return getDisplayInfo(icon.getDefaultInstance(), Optional.empty(), type, showToast, announceChat, hidden);
+            return getDisplayInfo(new ItemStackTemplate(icon), Optional.empty(), type, showToast, announceChat, hidden);
         }
 
         public DisplayInfo getDisplayInfo(Item icon, AdvancementType type, boolean hidden) {

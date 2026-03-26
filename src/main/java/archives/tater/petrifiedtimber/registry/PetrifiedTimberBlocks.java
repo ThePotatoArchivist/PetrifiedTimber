@@ -83,7 +83,7 @@ public class PetrifiedTimberBlocks {
     public static final BlockSetType PETRIFIED_OAK_BLOCK_SET = new BlockSetTypeBuilder()
                 .buttonActivatedByArrows(false)
                 .pressurePlateActivationRule(BlockSetType.PressurePlateSensitivity.MOBS)
-                .soundGroup(SoundType.STONE)
+                .soundType(SoundType.STONE)
                 .doorCloseSound(PetrifiedTimberSounds.STONE_DOOR_CLOSE)
                 .doorOpenSound(PetrifiedTimberSounds.STONE_DOOR_OPEN)
                 .trapdoorCloseSound(PetrifiedTimberSounds.STONE_TRAPDOOR_CLOSE)
@@ -95,8 +95,8 @@ public class PetrifiedTimberBlocks {
                 .register(PetrifiedTimber.id("petrified_oak"));
 
     public static final WoodType PETRIFIED_OAK_WOOD_TYPE = new WoodTypeBuilder()
-                .soundGroup(SoundType.STONE)
-                .hangingSignSoundGroup(SoundType.NETHER_WOOD_HANGING_SIGN)
+                .soundType(SoundType.STONE)
+                .hangingSignSoundType(SoundType.NETHER_WOOD_HANGING_SIGN)
                 .fenceGateCloseSound(PetrifiedTimberSounds.STONE_FENCE_GATE_CLOSE)
                 .fenceGateOpenSound(PetrifiedTimberSounds.STONE_FENCE_GATE_OPEN)
                 .register(PetrifiedTimber.id("petrified_oak"), PETRIFIED_OAK_BLOCK_SET);
@@ -420,11 +420,11 @@ public class PetrifiedTimberBlocks {
     public static final Block BLACK_HANGING_PETRIFIED_APPLE = register("black_hanging_petrified_apple", HangingAppleBlock::new, hangingAppleProperties());
 
     static {
-        BlockEntityType.SIGN.addSupportedBlock(PETRIFIED_OAK_SIGN);
-        BlockEntityType.SIGN.addSupportedBlock(PETRIFIED_OAK_WALL_SIGN);
-        BlockEntityType.HANGING_SIGN.addSupportedBlock(PETRIFIED_OAK_HANGING_SIGN);
-        BlockEntityType.HANGING_SIGN.addSupportedBlock(PETRIFIED_OAK_WALL_HANGING_SIGN);
-        BlockEntityType.SHELF.addSupportedBlock(PETRIFIED_OAK_SHELF);
+        BlockEntityType.SIGN.addValidBlock(PETRIFIED_OAK_SIGN);
+        BlockEntityType.SIGN.addValidBlock(PETRIFIED_OAK_WALL_SIGN);
+        BlockEntityType.HANGING_SIGN.addValidBlock(PETRIFIED_OAK_HANGING_SIGN);
+        BlockEntityType.HANGING_SIGN.addValidBlock(PETRIFIED_OAK_WALL_HANGING_SIGN);
+        BlockEntityType.SHELF.addValidBlock(PETRIFIED_OAK_SHELF);
 
         FlammableBlockRegistry.getDefaultInstance().add(RESIN_COVERED_OAK_PLANKS, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(RESIN_COVERED_OAK_LOG, 5, 5);

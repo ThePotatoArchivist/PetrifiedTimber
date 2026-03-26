@@ -4,7 +4,7 @@ import archives.tater.petrifiedtimber.client.rrv.PetrificationClientRecipe;
 import archives.tater.petrifiedtimber.client.rrv.PetrificationClientRecipeType;
 import archives.tater.petrifiedtimber.registry.*;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
 import net.minecraft.core.HolderLookup;
@@ -23,7 +23,7 @@ import static archives.tater.petrifiedtimber.PetrifiedTimberUtil.snakeToTitle;
 import static net.minecraft.util.Util.makeDescriptionId;
 
 public class LangGenerator extends FabricLanguageProvider {
-    public LangGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    public LangGenerator(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, registryLookup);
     }
 

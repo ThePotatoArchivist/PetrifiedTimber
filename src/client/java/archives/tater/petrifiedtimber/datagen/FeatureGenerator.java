@@ -4,7 +4,7 @@ import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberWorldgen;
 import archives.tater.petrifiedtimber.worldgen.*;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBiomeTags;
 
@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.TreeFeature;
@@ -49,7 +50,7 @@ import static net.minecraft.world.level.levelgen.placement.SurfaceWaterDepthFilt
 
 public class FeatureGenerator extends FabricDynamicRegistryProvider {
 
-    public FeatureGenerator(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public FeatureGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
@@ -68,7 +69,6 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                 config.trunkPlacer,
                 simple(leaves),
                 config.foliagePlacer,
-                config.rootPlacer,
                 config.minimumSize
         )
                 .decorators(List.of(
@@ -257,8 +257,9 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
 
         entries.add(PetrifiedTimberWorldgen.PLACED_ROCK, new PlacedFeature(
                 entries.add(PetrifiedTimberWorldgen.ROCK, new ConfiguredFeature<>(Feature.SIMPLE_RANDOM_SELECTOR, new SimpleRandomFeatureConfiguration(HolderSet.direct(
-                        placedFeature(new ConfiguredFeature<>(Feature.FOREST_ROCK, new BlockStateConfiguration(
-                                PetrifiedTimberBlocks.STACKED_ROCKS.defaultBlockState()
+                        placedFeature(new ConfiguredFeature<>(Feature.BLOCK_BLOB, new BlockBlobConfiguration(
+                                PetrifiedTimberBlocks.STACKED_ROCKS.defaultBlockState(),
+                                BlockPredicate.alwaysTrue()
                         ))),
                         placedFeature(new ConfiguredFeature<>(Feature.BLOCK_PILE, new BlockPileConfiguration(
                                 new WeightedStateProvider(new WeightedList.Builder<BlockState>()
@@ -277,19 +278,12 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         ));
 
         var petrifiedFlower = entries.add(PetrifiedTimberWorldgen.PETRIFIED_FLOWER, new ConfiguredFeature<>(
-                Feature.FLOWER, new RandomPatchConfiguration(
-                        64, 7, 3,
-                        placedFeature(
-                                new ConfiguredFeature<>(
-                                        Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
-                                        new WeightedStateProvider(new WeightedList.Builder<BlockState>()
-                                                .add(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER.defaultBlockState(), 8)
-                                                .add(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER.defaultBlockState(), 4)
-                                                .add(PetrifiedTimberBlocks.PETRIFIED_CYAN_FLOWER.defaultBlockState(), 1)
-                                        )
-                                )
-                                ),
-                                BlockPredicateFilter.forPredicate(ONLY_IN_AIR_PREDICATE)
+                Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(
+                        new WeightedStateProvider(new WeightedList.Builder<BlockState>()
+                                .add(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER.defaultBlockState(), 8)
+                                .add(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER.defaultBlockState(), 4)
+                                .add(PetrifiedTimberBlocks.PETRIFIED_CYAN_FLOWER.defaultBlockState(), 1)
                         )
                 )
         ));

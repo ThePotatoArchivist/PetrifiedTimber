@@ -6,7 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.FarmlandBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -23,6 +23,6 @@ public class PetrifiedSaplingBlock extends CropSaplingBlock {
 
     public static boolean canGrowNaturally(Level level, BlockPos pos) {
         var below = level.getBlockState(pos.below());
-        return below.is(PetrifiedTimberBlockTags.PETRIFIED_SAPLING_GROWS_ON) && below.getValueOrElse(FarmBlock.MOISTURE, 1) > 0;
+        return below.is(PetrifiedTimberBlockTags.PETRIFIED_SAPLING_GROWS_ON) && below.getValueOrElse(FarmlandBlock.MOISTURE, 1) > 0;
     }
 }

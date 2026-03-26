@@ -50,7 +50,7 @@ public class SubmergedAttachedToLeavesDecorator extends AttachedToLeavesDecorato
                         attachmentPos.offset(exclusionRadiusXZ, exclusionRadiusY, exclusionRadiusXZ)
                 )) excluded.add(excludePos.immutable());
 
-                context.setBlock(attachmentPos, blockProvider.getState(random, attachmentPos));
+                context.setBlock(attachmentPos, blockProvider.getState(context.level(), random, attachmentPos));
             }
         }
     }

@@ -3,7 +3,7 @@ package archives.tater.petrifiedtimber.registry;
 import archives.tater.petrifiedtimber.PetrifiedTimber;
 import archives.tater.petrifiedtimber.item.StandingAndHangingBlockItem;
 
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
@@ -157,10 +157,10 @@ public class PetrifiedTimberItems {
     public static final CreativeModeTab PETRIFIED_TIMBER_TAB = Registry.register(
             BuiltInRegistries.CREATIVE_MODE_TAB,
             PetrifiedTimber.id("petrified_timber"),
-            FabricItemGroup.builder()
+            FabricCreativeModeTab.builder()
                 .title(Component.translatable(PETRIFIED_TIMBER_TAB_TITLE))
                 .icon(PETRIFIED_OAK_LOG::getDefaultInstance)
-                .displayItems((itemDisplayParameters, output) -> {
+                .displayItems((_, output) -> {
                     output.accept(PETRIFIED_OAK_LOG);
                     output.accept(PETRIFIED_OAK_WOOD);
                     output.accept(PETRIFIED_STRIPPED_OAK_LOG);

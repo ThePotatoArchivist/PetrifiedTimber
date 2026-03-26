@@ -1,6 +1,6 @@
 package archives.tater.petrifiedtimber.block;
 
-import archives.tater.petrifiedtimber.PetrifiedTimber;
+import archives.tater.petrifiedtimber.mixin.CauldronInteractionDispatcherAccessor;
 import archives.tater.petrifiedtimber.mixin.PointedDripstoneBlockInvoker;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberFluids;
@@ -14,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.cauldron.CauldronInteraction;
+import net.minecraft.core.cauldron.CauldronInteractions;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -53,7 +54,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
             Shapes.or(AbstractCauldronBlock.SHAPE, Block.column(12.0, 4.0, getPixelContentHeight(level + 1)))
     );
     public static final IntegerProperty LEVEL = IntegerProperty.create("level", 1, MAX_LEVEL);
-    public static final CauldronInteraction.InteractionMap INTERACTION = CauldronInteraction.newInteractionMap(PetrifiedTimber.sId("resin"));
+    public static final CauldronInteraction.Dispatcher INTERACTION = new CauldronInteraction.Dispatcher();
 
     public static final Map<Item, Item> RESIN_COATING = new HashMap<>();
 
@@ -83,14 +84,14 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
         RESIN_COATING.put(Items.STRIPPED_OAK_WOOD, PetrifiedTimberItems.RESIN_COVERED_STRIPPED_OAK_WOOD);
         RESIN_COATING.put(Items.OAK_PLANKS, PetrifiedTimberItems.RESIN_COVERED_OAK_PLANKS);
 
-        var resin = INTERACTION.map();
+        var resin = (CauldronInteractionDispatcherAccessor) INTERACTION;
         RESIN_COATING.forEach((input, result) ->
-                resin.put(input, fillItemInteraction(result, -1, PetrifiedTimberSounds.DIP_RESIN, GameEvent.FLUID_PICKUP))
+                resin.invokePut(input, fillItemInteraction(result, -1, PetrifiedTimberSounds.DIP_RESIN, GameEvent.FLUID_PICKUP))
         );
-        resin.put(Items.GLASS_BOTTLE, fillItemInteraction(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, -LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_FILL, GameEvent.FLUID_PICKUP));
-        resin.put(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, fillItemInteraction(Items.GLASS_BOTTLE, LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_EMPTY, GameEvent.FLUID_PLACE));
-        var empty = CauldronInteraction.EMPTY.map();
-        empty.put(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, fillItemInteraction(Items.GLASS_BOTTLE, LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_EMPTY, GameEvent.FLUID_PLACE));
+        resin.invokePut(Items.GLASS_BOTTLE, fillItemInteraction(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, -LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_FILL, GameEvent.FLUID_PICKUP));
+        resin.invokePut(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, fillItemInteraction(Items.GLASS_BOTTLE, LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_EMPTY, GameEvent.FLUID_PLACE));
+        var empty = (CauldronInteractionDispatcherAccessor) CauldronInteractions.EMPTY;
+        empty.invokePut(PetrifiedTimberItems.MELTED_RESIN_BOTTLE, fillItemInteraction(Items.GLASS_BOTTLE, LEVELS_PER_BOTTLE, SoundEvents.BOTTLE_EMPTY, GameEvent.FLUID_PLACE));
     }
 
     private static int getFillLevel(BlockState state) {
@@ -112,7 +113,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
         return blockState;
     }
 
-    public ResinCauldronBlock(CauldronInteraction.InteractionMap interactions, Properties properties) {
+    public ResinCauldronBlock(CauldronInteraction.Dispatcher interactions, Properties properties) {
         super(properties, interactions);
     }
 
@@ -148,7 +149,7 @@ public class ResinCauldronBlock extends AbstractCauldronBlock {
         level.destroyBlock(fluidInfo.pos(), false);
         var newState = setFillLevel(state, level, pos, MAX_LEVEL);
         level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(newState));
-        level.playSound(null, pos, PetrifiedTimberSounds.RESIN_DRIP, SoundSource.BLOCKS, 2f, 0.1f * level.random.nextFloat() + 0.9f);
+        level.playSound(null, pos, PetrifiedTimberSounds.RESIN_DRIP, SoundSource.BLOCKS, 2f, 0.1f * level.getRandom().nextFloat() + 0.9f);
     }
 
     @Override

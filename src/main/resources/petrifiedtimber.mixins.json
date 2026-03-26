@@ -1,10 +1,11 @@
 {
   "required": true,
   "package": "archives.tater.petrifiedtimber.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "mixins": [
     "AbstractCauldronBlockMixin",
     "CauldronBlockMixin",
+    "CauldronInteractionDispatcherAccessor",
     "ExampleMixin",
     "GrassBlockMixin",
     "PointedDripstoneBlockInvoker",

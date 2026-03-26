@@ -7,7 +7,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.FarmlandBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
@@ -32,7 +32,7 @@ public class CropSaplingBlock extends SaplingBlock {
     }
 
     private static boolean isCropPlantable(BlockState state) {
-        return state.getBlock() instanceof FarmBlock;
+        return state.getBlock() instanceof FarmlandBlock;
     }
 
     @Override

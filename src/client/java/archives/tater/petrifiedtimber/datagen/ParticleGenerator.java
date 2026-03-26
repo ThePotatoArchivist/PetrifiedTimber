@@ -2,7 +2,7 @@ package archives.tater.petrifiedtimber.datagen;
 
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberParticles;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricCodecDataProvider;
 
 import com.mojang.serialization.Codec;
@@ -22,7 +22,7 @@ public class ParticleGenerator extends FabricCodecDataProvider<List<Identifier>>
 
     public static final Codec<List<Identifier>> CODEC = Identifier.CODEC.listOf(1, Integer.MAX_VALUE).fieldOf("textures").codec();
 
-    public ParticleGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public ParticleGenerator(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(dataOutput, registriesFuture, PackOutput.Target.RESOURCE_PACK, "particles", CODEC);
     }
 

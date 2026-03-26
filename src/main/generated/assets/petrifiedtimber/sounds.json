@@ -3,36 +3,30 @@
     "sounds": [
       {
         "name": "minecraft:item/honeycomb/wax_on1",
-        "pitch": 0.9,
-        "volume": 1.0
+        "pitch": 0.9
       },
       "minecraft:item/honeycomb/wax_on1",
       {
         "name": "minecraft:item/honeycomb/wax_on1",
-        "pitch": 1.1,
-        "volume": 1.0
+        "pitch": 1.1
       },
       {
         "name": "minecraft:item/honeycomb/wax_on2",
-        "pitch": 0.9,
-        "volume": 1.0
+        "pitch": 0.9
       },
       "minecraft:item/honeycomb/wax_on2",
       {
         "name": "minecraft:item/honeycomb/wax_on2",
-        "pitch": 1.1,
-        "volume": 1.0
+        "pitch": 1.1
       },
       {
         "name": "minecraft:item/honeycomb/wax_on3",
-        "pitch": 0.9,
-        "volume": 1.0
+        "pitch": 0.9
       },
       "minecraft:item/honeycomb/wax_on3",
       {
         "name": "minecraft:item/honeycomb/wax_on3",
-        "pitch": 1.1,
-        "volume": 1.0
+        "pitch": 1.1
       }
     ],
     "subtitle": "subtitles.block.petrifiedtimber.resin_cauldron.dip_resin"
@@ -118,8 +112,7 @@
     "sounds": [
       {
         "name": "petrifiedtimber:stone_door_close",
-        "pitch": 1.2,
-        "volume": 1.0
+        "pitch": 1.1
       }
     ],
     "subtitle": "subtitles.block.fence_gate.toggle"
@@ -128,8 +121,7 @@
     "sounds": [
       {
         "name": "petrifiedtimber:stone_door_open",
-        "pitch": 1.2,
-        "volume": 1.0
+        "pitch": 1.1
       }
     ],
     "subtitle": "subtitles.block.fence_gate.toggle"
@@ -138,8 +130,7 @@
     "sounds": [
       {
         "name": "petrifiedtimber:stone_door_close",
-        "pitch": 1.2,
-        "volume": 1.0
+        "pitch": 1.2
       }
     ],
     "subtitle": "subtitles.block.trapdoor.close"
@@ -148,8 +139,7 @@
     "sounds": [
       {
         "name": "petrifiedtimber:stone_door_open",
-        "pitch": 1.2,
-        "volume": 1.0
+        "pitch": 1.2
       }
     ],
     "subtitle": "subtitles.block.trapdoor.open"

@@ -11,7 +11,6 @@
       "translate": "advancements.petrifiedtimber.root.description"
     },
     "icon": {
-      "count": 1,
       "id": "petrifiedtimber:petrified_oak_sapling"
     },
     "show_toast": false,
