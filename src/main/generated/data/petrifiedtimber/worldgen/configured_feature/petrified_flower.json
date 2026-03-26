@@ -12,11 +12,17 @@
                 "data": {
                   "Name": "petrifiedtimber:petrified_red_flower"
                 },
-                "weight": 2
+                "weight": 8
               },
               {
                 "data": {
                   "Name": "petrifiedtimber:petrified_yellow_flower"
+                },
+                "weight": 4
+              },
+              {
+                "data": {
+                  "Name": "petrifiedtimber:petrified_cyan_flower"
                 },
                 "weight": 1
               }

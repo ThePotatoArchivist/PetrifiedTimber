@@ -283,8 +283,9 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                                 new ConfiguredFeature<>(
                                         Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
                                         new WeightedStateProvider(new WeightedList.Builder<BlockState>()
-                                                .add(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER.defaultBlockState(), 2)
-                                                .add(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER.defaultBlockState())
+                                                .add(PetrifiedTimberBlocks.PETRIFIED_RED_FLOWER.defaultBlockState(), 8)
+                                                .add(PetrifiedTimberBlocks.PETRIFIED_YELLOW_FLOWER.defaultBlockState(), 4)
+                                                .add(PetrifiedTimberBlocks.PETRIFIED_CYAN_FLOWER.defaultBlockState(), 1)
                                         )
                                 )
                                 ),
