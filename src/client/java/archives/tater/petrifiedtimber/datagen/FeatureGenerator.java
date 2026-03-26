@@ -61,7 +61,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         return placedFeature(Holder.direct(feature), modifiers);
     }
 
-    private static ConfiguredFeature<TreeConfiguration, TreeFeature> modifyTree(Holder<ConfiguredFeature<?, ?>> original, Block log, Block leaves) {
+    private static ConfiguredFeature<TreeConfiguration, TreeFeature> modifyTree(Holder<ConfiguredFeature<?, ?>> original, Block log, Block leaves, Block commonApple, Block rareApple) {
         var config = (TreeConfiguration) original.value().config();
         return new ConfiguredFeature<>((TreeFeature) original.value().feature(), new TreeConfigurationBuilder(
                 simple(log),
@@ -76,7 +76,10 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                                 0.05f,
                                 2,
                                 1,
-                                simple(PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE),
+                                new WeightedStateProvider(new WeightedList.Builder<BlockState>()
+                                        .add(commonApple.defaultBlockState(), 9)
+                                        .add(rareApple.defaultBlockState(), 1)
+                                ),
                                 1,
                                 List.of(Direction.DOWN)
                         )
@@ -91,7 +94,7 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
         var petrifiedOak = entries.add(PetrifiedTimberWorldgen.PETRIFIED_OAK, modifyTree(
                 registries.getOrThrow(TreeFeatures.OAK),
                 PetrifiedTimberBlocks.PETRIFIED_OAK_LOG,
-                PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES
+                PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES, PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE, PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE
         ));
 
         entries.add(PetrifiedTimberWorldgen.PETRIFIED_BIOME_TREE_FEATURE, new ConfiguredFeature<>(
@@ -100,27 +103,37 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_SPRUCE, modifyTree(
                                 registries.getOrThrow(TreeFeatures.SPRUCE),
                                 PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LOG,
-                                PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LEAVES
+                                PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LEAVES,
+                                PetrifiedTimberBlocks.GREEN_HANGING_PETRIFIED_APPLE,
+                                PetrifiedTimberBlocks.PINK_HANGING_PETRIFIED_APPLE
                         ))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_SPRUCE))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_BIRCH, modifyTree(
                                 registries.getOrThrow(TreeFeatures.BIRCH),
                                 PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LOG,
-                                PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES
+                                PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES,
+                                PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE,
+                                PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE
                         ))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_BIRCH))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_ACACIA, modifyTree(
                                 registries.getOrThrow(TreeFeatures.ACACIA),
                                 PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG,
-                                PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LEAVES
+                                PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LEAVES,
+                                PetrifiedTimberBlocks.BROWN_HANGING_PETRIFIED_APPLE,
+                                PetrifiedTimberBlocks.WHITE_HANGING_PETRIFIED_APPLE
                         ))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_ACACIA))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_JUNGLE, modifyTree(
                                 registries.getOrThrow(TreeFeatures.JUNGLE_TREE),
                                 PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG,
-                                PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LEAVES
+                                PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LEAVES,
+                                PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE,
+                                PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE
                         ))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_JUNGLE))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_CHERRY, modifyTree(
                                 registries.getOrThrow(TreeFeatures.CHERRY),
                                 PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LOG,
-                                PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LEAVES
+                                PetrifiedTimberBlocks.CHERRY_PETRIFIED_OAK_LEAVES,
+                                PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE,
+                                PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE
                         ))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_CHERRY))
                         .build()
         ));
@@ -131,22 +144,30 @@ public class FeatureGenerator extends FabricDynamicRegistryProvider {
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.MEGA_PETRIFIED_SPRUCE, modifyTree(
                                 registries.getOrThrow(TreeFeatures.MEGA_SPRUCE),
                                 PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LOG,
-                                PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LEAVES
+                                PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LEAVES,
+                                PetrifiedTimberBlocks.GREEN_HANGING_PETRIFIED_APPLE,
+                                PetrifiedTimberBlocks.PINK_HANGING_PETRIFIED_APPLE
                         ))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_SPRUCE))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.MEGA_PETRIFIED_JUNGLE, modifyTree(
                                 registries.getOrThrow(TreeFeatures.MEGA_JUNGLE_TREE),
                                 PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG,
-                                PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LEAVES
+                                PetrifiedTimberBlocks.WATCHING_PETRIFIED_OAK_LEAVES,
+                                PetrifiedTimberBlocks.RED_HANGING_PETRIFIED_APPLE,
+                                PetrifiedTimberBlocks.YELLOW_HANGING_PETRIFIED_APPLE
                         ))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_JUNGLE))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_DARK_OAK, modifyTree(
                                 registries.getOrThrow(TreeFeatures.DARK_OAK),
                                 PetrifiedTimberBlocks.SHADOW_PETRIFIED_OAK_LOG,
-                                PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES
+                                PetrifiedTimberBlocks.PETRIFIED_OAK_LEAVES,
+                                PetrifiedTimberBlocks.LIME_HANGING_PETRIFIED_APPLE,
+                                PetrifiedTimberBlocks.PURPLE_HANGING_PETRIFIED_APPLE
                         ))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_DARK_OAK))
                         .entry(placedFeature(entries.add(PetrifiedTimberWorldgen.PETRIFIED_PALE_OAK, modifyTree(
                                 registries.getOrThrow(TreeFeatures.PALE_OAK),
                                 PetrifiedTimberBlocks.WARM_PETRIFIED_OAK_LOG,
-                                PetrifiedTimberBlocks.PALE_WATCHING_PETRIFIED_OAK_LEAVES
+                                PetrifiedTimberBlocks.PALE_WATCHING_PETRIFIED_OAK_LEAVES,
+                                PetrifiedTimberBlocks.LIME_HANGING_PETRIFIED_APPLE,
+                                PetrifiedTimberBlocks.PURPLE_HANGING_PETRIFIED_APPLE
                         ))), biomes.getOrThrow(ConventionalBiomeTags.PRIMARY_WOOD_TYPE_PALE_OAK))
                         .build()
         ));
