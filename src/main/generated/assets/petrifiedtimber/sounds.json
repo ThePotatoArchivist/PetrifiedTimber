@@ -104,21 +104,13 @@
   },
   "block.stone_door.close": {
     "sounds": [
-      {
-        "name": "petrifiedtimber:stone_door_close",
-        "pitch": 0.9,
-        "volume": 1.0
-      }
+      "petrifiedtimber:stone_door_close"
     ],
     "subtitle": "subtitles.block.door.toggle"
   },
   "block.stone_door.open": {
     "sounds": [
-      {
-        "name": "petrifiedtimber:stone_door_open",
-        "pitch": 0.9,
-        "volume": 1.0
-      }
+      "petrifiedtimber:stone_door_open"
     ],
     "subtitle": "subtitles.block.door.toggle"
   },
@@ -126,13 +118,7 @@
     "sounds": [
       {
         "name": "petrifiedtimber:stone_door_close",
-        "pitch": 0.9,
-        "volume": 1.0
-      },
-      "petrifiedtimber:stone_door_close",
-      {
-        "name": "petrifiedtimber:stone_door_close",
-        "pitch": 1.1,
+        "pitch": 1.2,
         "volume": 1.0
       }
     ],
@@ -142,13 +128,7 @@
     "sounds": [
       {
         "name": "petrifiedtimber:stone_door_open",
-        "pitch": 0.9,
-        "volume": 1.0
-      },
-      "petrifiedtimber:stone_door_open",
-      {
-        "name": "petrifiedtimber:stone_door_open",
-        "pitch": 1.1,
+        "pitch": 1.2,
         "volume": 1.0
       }
     ],
@@ -157,14 +137,8 @@
   "block.stone_trapdoor.close": {
     "sounds": [
       {
-        "name": "petrifiedtimber:stone_trapdoor_close",
-        "pitch": 0.9,
-        "volume": 1.0
-      },
-      "petrifiedtimber:stone_trapdoor_close",
-      {
-        "name": "petrifiedtimber:stone_trapdoor_close",
-        "pitch": 1.1,
+        "name": "petrifiedtimber:stone_door_close",
+        "pitch": 1.2,
         "volume": 1.0
       }
     ],
@@ -173,14 +147,8 @@
   "block.stone_trapdoor.open": {
     "sounds": [
       {
-        "name": "petrifiedtimber:stone_trapdoor_open",
-        "pitch": 0.9,
-        "volume": 1.0
-      },
-      "petrifiedtimber:stone_trapdoor_open",
-      {
-        "name": "petrifiedtimber:stone_trapdoor_open",
-        "pitch": 1.1,
+        "name": "petrifiedtimber:stone_door_open",
+        "pitch": 1.2,
         "volume": 1.0
       }
     ],

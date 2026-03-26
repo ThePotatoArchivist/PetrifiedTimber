@@ -10,7 +10,6 @@ import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.client.resources.sounds.SoundEventRegistration;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
@@ -102,23 +101,23 @@ public abstract class SoundsProvider extends FabricCodecDataProvider<Map<String,
             add(event, new SoundEventRegistration(sounds, false, subtitle));
         }
 
-        default void add(Holder<SoundEvent> event, List<Sound> sounds, @Nullable String subtitle) {
-            add(event.unwrapKey().orElseThrow().identifier(), sounds, subtitle);
+        default void add(SoundEvent event, List<Sound> sounds, @Nullable String subtitle) {
+            add(event.location(), sounds, subtitle);
         }
 
-        default void add(SoundEvent event, List<Sound> sounds, @Nullable String subtitle) {
-            add(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(event), sounds, subtitle);
+        default void add(Holder<SoundEvent> event, List<Sound> sounds, @Nullable String subtitle) {
+            add(event.value(), sounds, subtitle);
         }
 
         default void add(Identifier event, List<Sound> sounds) {
             add(event, sounds, null);
         }
 
-        default void add(Holder<SoundEvent> event, List<Sound> sounds) {
+        default void add(SoundEvent event, List<Sound> sounds) {
             add(event, sounds, null);
         }
 
-        default void add(SoundEvent event, List<Sound> sounds) {
+        default void add(Holder<SoundEvent> event, List<Sound> sounds) {
             add(event, sounds, null);
         }
     }

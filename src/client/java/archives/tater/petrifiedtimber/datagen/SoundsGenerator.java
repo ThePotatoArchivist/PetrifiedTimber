@@ -62,12 +62,12 @@ public class SoundsGenerator extends SoundsProvider {
                 soundStreamed("music/game/sweden")
         ));
 
-        soundsBuilder.add(PetrifiedTimberSounds.STONE_DOOR_OPEN,        sounds(STONE_DOOR_OPEN,      0.9f).toList(), "subtitles.block.door.toggle");
-        soundsBuilder.add(PetrifiedTimberSounds.STONE_DOOR_CLOSE,       sounds(STONE_DOOR_CLOSE,     0.9f).toList(), "subtitles.block.door.toggle");
-        soundsBuilder.add(PetrifiedTimberSounds.STONE_TRAPDOOR_OPEN,    sounds(STONE_TRAPDOOR_OPEN,  0.9f, 1.0f, 1.1f).toList(), "subtitles.block.trapdoor.open");
-        soundsBuilder.add(PetrifiedTimberSounds.STONE_TRAPDOOR_CLOSE,   sounds(STONE_TRAPDOOR_CLOSE, 0.9f, 1.0f, 1.1f).toList(), "subtitles.block.trapdoor.close");
-        soundsBuilder.add(PetrifiedTimberSounds.STONE_FENCE_GATE_OPEN,  sounds(STONE_DOOR_OPEN,  0.9f, 1.0f, 1.1f).toList(), "subtitles.block.fence_gate.toggle");
-        soundsBuilder.add(PetrifiedTimberSounds.STONE_FENCE_GATE_CLOSE, sounds(STONE_DOOR_CLOSE, 0.9f, 1.0f, 1.1f).toList(), "subtitles.block.fence_gate.toggle");
+        soundsBuilder.add(PetrifiedTimberSounds.STONE_DOOR_OPEN,        sounds(STONE_DOOR_OPEN,  1f).toList(), "subtitles.block.door.toggle");
+        soundsBuilder.add(PetrifiedTimberSounds.STONE_DOOR_CLOSE,       sounds(STONE_DOOR_CLOSE, 1f).toList(), "subtitles.block.door.toggle");
+        soundsBuilder.add(PetrifiedTimberSounds.STONE_TRAPDOOR_OPEN,    sounds(STONE_DOOR_OPEN,  1.2f).toList(), "subtitles.block.trapdoor.open");
+        soundsBuilder.add(PetrifiedTimberSounds.STONE_TRAPDOOR_CLOSE,   sounds(STONE_DOOR_CLOSE, 1.2f).toList(), "subtitles.block.trapdoor.close");
+        soundsBuilder.add(PetrifiedTimberSounds.STONE_FENCE_GATE_OPEN,  sounds(STONE_DOOR_OPEN,  1.1f).toList(), "subtitles.block.fence_gate.toggle");
+        soundsBuilder.add(PetrifiedTimberSounds.STONE_FENCE_GATE_CLOSE, sounds(STONE_DOOR_CLOSE, 1.1f).toList(), "subtitles.block.fence_gate.toggle");
 
         soundsBuilder.add(PetrifiedTimberSounds.WOOD_PETRIFIES, IntStream.rangeClosed(1, 4).mapToObj(index ->
                 sound(Identifier.withDefaultNamespace("block/composter/ready" + index))
