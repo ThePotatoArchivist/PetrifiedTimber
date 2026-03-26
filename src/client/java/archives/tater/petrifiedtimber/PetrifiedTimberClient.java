@@ -12,9 +12,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.block.FluidModel;
-import net.minecraft.client.renderer.blockentity.StandingSignRenderer;
-import net.minecraft.client.renderer.blockentity.WallAndGroundTransformations;
-import net.minecraft.client.renderer.blockentity.state.SignRenderState;
 import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.resources.model.sprite.Material;
@@ -27,36 +24,6 @@ public class PetrifiedTimberClient implements ClientModInitializer {
 
 	public static final ModelLayerLocation PETRIFIED_OAK_BOAT = registerModelLayer("boat/petrified_oak");
 	public static final ModelLayerLocation PETRIFIED_OAK_CHEST_BOAT = registerModelLayer("chest_boat/petrified_oak");
-
-	/*
-	*
-	@ModifyExpressionValue(
-			method = "baseTransformation",
-			at = @At(value = "NEW", target = "()Lorg/joml/Matrix4f;")
-	)
-	private Matrix4f bigStandingSign(Matrix4f original) {
-        if (!state.is(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN)) return original;
-        poseStack.translate(0.5f, 0, 0.5f);
-		poseStack.scale(1.51f, 1.498f, 1.51f);
-		poseStack.translate(-0.5f, 0, -0.5f);
-		return original;
-	}
-
-	@Inject(
-			method = "translateSign",
-			at = @At("TAIL")
-	)
-	private void bigWallSign(PoseStack poseStack, float yRot, BlockState state, CallbackInfo ci) {
-		if (!state.is(PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN)) return;
-		poseStack.translate(0, 0.3125f, 0);
-		poseStack.scale(1.5f, 1.5f, 1.5f);
-		poseStack.translate(0, -0.3125f, 0);
-	}
-	*
-	* */
-
-	public static final WallAndGroundTransformations<SignRenderState.SignTransformations> PETRIFIED_SIGN_TRANSFORMATIONS = StandingSignRenderer.TRANSFORMATIONS;
-//			new WallAndGroundTransformations<>(StandingSignRenderer::createWallTransformation, StandingSignRenderer::createGroundTransformation, 16);
 
 	@Override
 	public void onInitializeClient() {

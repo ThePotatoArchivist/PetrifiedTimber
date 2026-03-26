@@ -1,6 +1,6 @@
 package archives.tater.petrifiedtimber.mixin.client;
 
-import archives.tater.petrifiedtimber.PetrifiedTimberClient;
+import archives.tater.petrifiedtimber.client.render.BigSignRendering;
 import archives.tater.petrifiedtimber.registry.PetrifiedTimberBlocks;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
@@ -22,7 +22,7 @@ public class StandingSignRendererMixin {
 	)
 	private WallAndGroundTransformations<SignRenderState.SignTransformations> petrifiedSignTransformations(WallAndGroundTransformations<SignRenderState.SignTransformations> original, @Local(name = "blockState") BlockState state) {
 		return state.is(PetrifiedTimberBlocks.PETRIFIED_OAK_SIGN) || state.is(PetrifiedTimberBlocks.PETRIFIED_OAK_WALL_SIGN)
-				? PetrifiedTimberClient.PETRIFIED_SIGN_TRANSFORMATIONS
+				? BigSignRendering.PETRIFIED_SIGN_TRANSFORMATIONS
 				: original;
 	}
 }
