@@ -166,12 +166,12 @@ public class LangGenerator extends FabricLanguageProvider {
         translationBuilder.add(SoundsGenerator.DIP_RESIN_SUBTITLE, "Resin swirls");
         translationBuilder.add(SoundsGenerator.RESIN_DRIP_SUBTITLE, "Resin drips");
 
-        add(translationBuilder, AdvancementGenerator.ROOT, "Petrified Timber", "TODO");
+        add(translationBuilder, AdvancementGenerator.ROOT, "Petrified Timber", "A complete set of petrified wood, from logs to doors, and even some extra goodies!");
         add(translationBuilder, AdvancementGenerator.MELT_RESIN, "Dripping Steaming Sap", "Melt resin into a cauldron");
         add(translationBuilder, AdvancementGenerator.COLLECT_PETRIFIED_WOOD, "I might as well be stone too", "Bury resin covered wood underground for several days");
         add(translationBuilder, AdvancementGenerator.COLLECT_PETRIFIED_LEAVES, "Is it fall already?", "Discover a petrified bush in a swamp");
         add(translationBuilder, AdvancementGenerator.COLLECT_PETRIFIED_APPLE, "OW! My teeth", "Find a petrified apple");
-        add(translationBuilder, AdvancementGenerator.PLANT_PETRIFIED_SEEDS, "TODO", "Plant petrified oak seeds");
+        add(translationBuilder, AdvancementGenerator.PLANT_PETRIFIED_SEEDS, "Stone Age Crops", "Plant petrified oak seeds");
         add(translationBuilder, AdvancementGenerator.COLLECT_ALL_LOGS, "Petrifying Camouflage", "Collect every variant of petrified log");
         add(translationBuilder, AdvancementGenerator.FIND_PETRIFIED_FOREST, "Just as I remember it!", "Discover a forest lost to time");
 
