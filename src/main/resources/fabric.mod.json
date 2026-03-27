@@ -3,13 +3,13 @@
 	"id": "petrifiedtimber",
 	"version": "${version}",
 	"name": "Petrified Timber",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Adds a competed set of Petrified Wood! From Logs, Door, and even some extra goodies!",
 	"authors": [
 		"ThePotatoArchivist",
 		"MiffenKop"
 	],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/petrified-timber",
+		"homepage": "https://modrinth.com/mod/petrifiedtimber",
 		"sources": "https://github.com/ThePotatoArchivist/PetrifiedTimber"
 	},
 	"license": [
