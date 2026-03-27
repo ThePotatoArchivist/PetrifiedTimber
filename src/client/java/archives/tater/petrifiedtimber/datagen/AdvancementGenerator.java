@@ -146,7 +146,7 @@ public class AdvancementGenerator extends FabricAdvancementProvider {
                         AdvancementType.CHALLENGE,
                         true
                 ))
-                .addCriterion("in_biome", located(location().setBiomes(registryLookup.getOrThrow(PetrifiedTimberWorldgen.IS_PETRIFIED))))
+                .addCriterion("in_biome", located(location().setBiomes(registryLookup.lookupOrThrow(Registries.BIOME).getOrThrow(PetrifiedTimberWorldgen.IS_PETRIFIED))))
         );
     }
 
