@@ -1,6 +1,0 @@
-{
-  "type": "rrv:world_interaction",
-  "left": "minecraft:oak_wood",
-  "result": "petrifiedtimber:resin_covered_oak_wood",
-  "right": "petrifiedtimber:melted_resin_cauldron"
-}

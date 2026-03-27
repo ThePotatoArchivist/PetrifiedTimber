@@ -1,6 +1,0 @@
-{
-  "type": "rrv:world_interaction",
-  "left": "minecraft:stripped_oak_log",
-  "result": "petrifiedtimber:resin_covered_stripped_oak_log",
-  "right": "petrifiedtimber:melted_resin_cauldron"
-}
